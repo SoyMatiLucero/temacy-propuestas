@@ -1,0 +1,12 @@
+# Carpeta de propuestas a clientes · temacy
+# 1. Nadie puede ver la lista de archivos de la carpeta
+Options -Indexes
+
+# 2. Ningún buscador indexa ni guarda copia de los archivos (HTML, PDF, imágenes)
+<IfModule mod_headers.c>
+  Header always set X-Robots-Tag "noindex, nofollow, noarchive"
+</IfModule>
+
+# 3. No servir archivos internos del repositorio (el deploy por Git copia la carpeta .git).
+RedirectMatch 404 /\.git
+RedirectMatch 404 /README\.md$

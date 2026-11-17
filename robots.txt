@@ -1,0 +1,3 @@
+# propuestas.temacy.com: propuestas privadas a clientes. No indexar nada.
+User-agent: *
+Disallow: /
