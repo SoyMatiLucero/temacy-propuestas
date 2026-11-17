@@ -1,0 +1,804 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Propuesta Fábrica de Cemento Málaga · Parte de relevo digital</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Lato:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#0e2a2a;--txt:#3c4a46;--txt2:#4c5a55;--mute:#6f7d78;--faint:#9aa5a0;
+  --teal:#17806f;--teal-d:#0d6a5c;--dark:#142118;--bosque:#142118;--lima:#C8F24C;--hueso:#F7F5EE;--mint:#e8f4f0;--mint2:#f1f7f4;--mint-b:#d9e8de;--thead:#edf5f1;
+  --line:#ecebe3;--line2:#e7e4da;--paper:#fbfaf6;--gold:#dfa83d;--gold-bg:#fbf3e1;--gold-t:#6b4f0c;
+  --red:#bf573f;--red-bg:#fdf2ed;--red-b:#f1d9cc;
+  --serif:'Palatino Linotype',Palatino,'Book Antiqua','TeX Gyre Pagella',Georgia,serif;
+  --num:'Fraunces',var(--serif);
+  --sans:'Lato','Helvetica Neue',Arial,sans-serif;
+  --r:14px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--sans);color:var(--txt);background:var(--paper);line-height:1.55;font-size:16px;overflow-x:hidden}
+img,svg{max-width:100%}
+a{color:var(--teal-d)}
+.wrap{max-width:1120px;margin:0 auto;padding:0 20px}
+h1,h2,h3,.serif{font-family:var(--serif);color:var(--ink);font-weight:700}
+h1{font-size:clamp(30px,5vw,50px);line-height:1.06;letter-spacing:-.01em}
+h2{font-size:clamp(25px,3.4vw,36px);line-height:1.12;margin-bottom:12px}
+h3{font-size:19px;line-height:1.2;margin-bottom:6px}
+.eyebrow{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--teal-d);font-weight:700;margin-bottom:12px}
+.lead{font-size:18px;color:var(--txt2);max-width:680px}
+section{padding:72px 0;border-top:1px solid var(--line)}
+.sec-intro{max-width:720px;margin-bottom:34px}
+.sec-intro p{color:var(--txt2);font-size:17px}
+b,strong{color:var(--ink)}
+
+/* top bar */
+.top{position:sticky;top:0;z-index:30;background:rgba(251,250,246,.92);backdrop-filter:blur(8px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;gap:14px;height:62px}
+.brand{display:flex;align-items:center;gap:10px;font-family:var(--serif);font-weight:700;color:var(--ink);font-size:17px;text-decoration:none;min-width:0}
+.logo{width:34px;height:34px;border-radius:9px;background:linear-gradient(150deg,var(--teal),var(--teal-d));color:#fff;display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-size:17px;flex:none;box-shadow:0 3px 8px rgba(13,106,92,.25)}
+.brand span.t{white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.top .sp{flex:1}
+.btn{display:inline-flex;align-items:center;gap:8px;border-radius:999px;padding:10px 18px;font-weight:700;font-size:14px;text-decoration:none;border:1.5px solid var(--teal-d);color:var(--teal-d);background:transparent;cursor:pointer;font-family:var(--sans);white-space:nowrap}
+.btn.solid{background:var(--teal-d);color:#fff}
+.btn:hover{filter:brightness(1.08)}
+@media (max-width:640px){.top .btn.hide-sm{display:none}.top .btn{padding:8px 13px;font-size:13px}.brand span.t{font-size:15px}}
+
+.wordmark{height:24px;width:auto;color:var(--bosque);flex:none;display:block}
+.brand .dotsep{color:var(--faint);margin:0 8px 0 2px;font-family:var(--sans);font-weight:400}
+.brand span.t{font-size:15.5px;color:var(--txt2)}
+.cta-logo{height:34px;color:var(--lima);margin-top:22px}
+@media (max-width:640px){.wordmark{height:20px}.brand span.t{font-size:13px}}
+/* hero */
+.hero{padding:56px 0 64px;border-top:0}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center}
+.hero .lead{margin:18px 0 26px}
+.stats{display:grid;grid-template-columns:repeat(4,1fr);gap:10px}
+.stat{background:#fff;border:1px solid var(--line2);border-radius:12px;padding:12px 12px 11px}
+.stat .v{font-family:var(--num);font-weight:700;font-size:26px;color:var(--ink);line-height:1.1}
+.stat .l{font-size:12.5px;color:var(--mute);line-height:1.3;margin-top:3px}
+@media (max-width:900px){.hero-grid{grid-template-columns:1fr}.stats{grid-template-columns:repeat(2,1fr)}}
+
+/* devices */
+.tablet{background:#1c2624;border-radius:26px;padding:14px;box-shadow:0 24px 50px -18px rgba(12,58,51,.45),0 2px 0 #2c3735 inset;max-width:540px;margin:0 auto;width:100%}
+.screen{background:#fff;border-radius:14px;overflow:hidden;font-size:13.5px}
+.phone{background:#1c2624;border-radius:30px;padding:10px;max-width:290px;margin:0 auto;box-shadow:0 20px 40px -16px rgba(12,58,51,.45)}
+.phone .screen{border-radius:22px}
+.sbar{display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--dark);color:#d9ece6;font-size:12px}
+.sbar b{color:#fff}
+.sbar .sp{flex:1}
+.pad{padding:14px}
+.chip{display:inline-flex;align-items:center;gap:5px;font-size:11.5px;font-weight:700;padding:3px 9px;border-radius:999px;background:var(--mint);color:var(--teal-d);border:1px solid var(--mint-b);white-space:nowrap}
+.chip.av{background:var(--red-bg);color:var(--red);border-color:var(--red-b)}
+.chip.in{background:var(--mint);color:var(--teal-d)}
+.chip.gold{background:var(--gold-bg);color:var(--gold-t);border-color:#f0dcae}
+.chip.ghost{background:#fff;color:var(--mute);border-color:var(--line2)}
+.chip.sel{background:var(--teal-d);color:#fff;border-color:var(--teal-d)}
+.dot{width:7px;height:7px;border-radius:50%;background:currentColor;display:inline-block}
+.mic{width:64px;height:64px;border-radius:50%;background:var(--red);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 8px rgba(191,87,63,.15),0 0 0 16px rgba(191,87,63,.07);flex:none}
+.mic svg{width:26px;height:26px}
+.wave{display:flex;align-items:center;gap:3px;height:28px}
+.wave i{display:block;width:3px;border-radius:2px;background:var(--red);opacity:.75;animation:w 1.1s ease-in-out infinite}
+@keyframes w{0%,100%{height:6px}50%{height:26px}}
+@media (prefers-reduced-motion:reduce){.wave i{animation:none;height:14px}}
+.transcript{background:var(--mint2);border:1px solid var(--mint-b);border-radius:10px;padding:11px 12px;color:var(--ink);font-size:13.5px;line-height:1.45}
+.transcript .cur{display:inline-block;width:2px;height:14px;background:var(--teal);vertical-align:-2px;animation:bl 1s steps(1) infinite}
+@keyframes bl{50%{opacity:0}}
+.lbl{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--mute);font-weight:700;margin:12px 0 6px}
+.row{display:flex;flex-wrap:wrap;gap:6px}
+.fakebtn{display:block;text-align:center;background:var(--teal-d);color:#fff;font-weight:700;border-radius:10px;padding:10px;margin-top:12px;font-size:13.5px}
+.fakebtn.out{background:#fff;color:var(--teal-d);border:1.5px solid var(--teal-d)}
+.mini-table{width:100%;border-collapse:collapse;font-size:12.5px}
+.mini-table td{padding:7px 6px;border-bottom:1px solid var(--line);vertical-align:top}
+.mini-table tr:last-child td{border-bottom:0}
+.muted{color:var(--mute)}
+.small{font-size:12.5px}
+
+/* cards */
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:#fff;border:1px solid var(--line2);border-radius:var(--r);padding:22px}
+.card .k{font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--teal-d);font-weight:700;margin-bottom:8px}
+.card p{font-size:15px}
+.quote{font-family:var(--serif);font-style:italic;color:var(--ink);border-left:3px solid var(--teal);padding:2px 0 2px 12px;margin-top:12px;font-size:15px}
+@media (max-width:860px){.cards{grid-template-columns:1fr}}
+
+/* before / after */
+.ba{display:grid;grid-template-columns:1fr 1fr;gap:22px;align-items:stretch}
+.ba .side{display:flex;flex-direction:column;gap:12px}
+.tag{align-self:flex-start;font-size:12px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:4px 11px;border-radius:999px}
+.tag.hoy{background:#efe9dc;color:#6d5a34}
+.tag.con{background:var(--teal-d);color:#fff}
+.notebook{flex:1;background:#fffdf4;border-radius:6px 12px 12px 6px;border:1px solid #e8e0c8;box-shadow:0 10px 26px -14px rgba(60,50,20,.35);padding:22px 20px 22px 46px;position:relative;font-family:'Segoe Print','Bradley Hand','Comic Sans MS',cursive;color:#2b3a55;font-size:15px;line-height:30px;background-image:linear-gradient(transparent 29px,#dfe6ef 29px,#dfe6ef 30px);background-size:100% 30px;background-position:0 16px;transform:rotate(-.6deg)}
+.notebook:before{content:"";position:absolute;left:32px;top:0;bottom:0;width:1.5px;background:#eab3a9}
+.notebook .h{font-weight:700;text-decoration:underline}
+.notebook .x{text-decoration:line-through;opacity:.6}
+.digital{flex:1;background:#fff;border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;box-shadow:0 14px 30px -18px rgba(12,58,51,.35)}
+.zone{border-top:1px solid var(--line);padding:11px 16px}
+.zone:first-of-type{border-top:0}
+.zone .zt{display:flex;align-items:center;gap:8px;font-weight:700;color:var(--ink);font-size:14px;margin-bottom:6px}
+.zone .zt .sp{flex:1}
+.ev{display:flex;gap:10px;align-items:flex-start;font-size:13.5px;padding:4px 0}
+.ev .h{font-variant-numeric:tabular-nums;color:var(--mute);font-size:12.5px;min-width:40px;padding-top:1px}
+.ev .tx{flex:1}
+.cmp{width:100%;border-collapse:separate;border-spacing:0;margin-top:30px;background:#fff;border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;font-size:15px}
+.cmp td{padding:13px 16px;border-top:1px solid var(--line);vertical-align:top}
+.cmp tr:first-child td{border-top:0;background:var(--thead);font-weight:700;color:var(--ink);font-size:13px;letter-spacing:.06em;text-transform:uppercase}
+.cmp td:first-child{font-weight:700;color:var(--ink);width:22%}
+.cmp td:nth-child(2){color:var(--mute);width:36%}
+@media (max-width:860px){.ba{grid-template-columns:1fr}}
+@media (max-width:640px){
+  .cmp,.cmp tbody,.cmp tr,.cmp td{display:block;width:100%!important}
+  .cmp tr:first-child{display:none}
+  .cmp tr{border-top:1px solid var(--line);padding:12px 16px}
+  .cmp tr:nth-child(2){border-top:0}
+  .cmp td{border:0;padding:2px 0}
+  .cmp td:nth-child(2):before{content:"Hoy: ";font-weight:700}
+  .cmp td:nth-child(3):before{content:"Con el sistema: ";font-weight:700;color:var(--teal-d)}
+}
+
+/* stepper */
+.stepper{display:grid;grid-template-columns:300px 1fr;gap:30px;align-items:start}
+.steps{display:flex;flex-direction:column;gap:8px}
+.step{display:flex;gap:12px;text-align:left;background:#fff;border:1px solid var(--line2);border-radius:12px;padding:13px 14px;cursor:pointer;font-family:var(--sans);color:var(--txt);font-size:14.5px;line-height:1.35;transition:border-color .15s,background .15s}
+.step .n{width:28px;height:28px;border-radius:50%;background:var(--mint);color:var(--teal-d);font-weight:700;display:flex;align-items:center;justify-content:center;flex:none;font-size:13px}
+.step .who{display:block;font-size:12px;color:var(--mute);margin-top:2px}
+.step.on{border-color:var(--teal);background:var(--mint2)}
+.step.on .n{background:var(--teal-d);color:#fff}
+.stage{background:#fff;border:1px solid var(--line2);border-radius:var(--r);padding:26px;min-height:440px;display:flex;flex-direction:column;gap:18px}
+.stage .cap h3{margin-bottom:4px}
+.stage .cap p{font-size:15px;color:var(--txt2)}
+.pane{display:none}
+.pane.on{display:flex;flex-direction:column;gap:18px;animation:fade .25s ease}
+@keyframes fade{from{opacity:0;transform:translateY(4px)}to{opacity:1;transform:none}}
+.nav2{display:flex;gap:10px;margin-top:auto}
+@media (max-width:900px){
+  .stepper{grid-template-columns:1fr}
+  .steps{flex-direction:row;overflow-x:auto;padding-bottom:4px;scrollbar-width:none}
+  .steps::-webkit-scrollbar{display:none}
+  .step{flex:none;width:200px}
+  .stage{padding:18px;min-height:0}
+}
+
+/* counter */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:40px;align-items:center}
+@media (max-width:860px){.split{grid-template-columns:1fr;gap:28px}}
+.ul{list-style:none;display:flex;flex-direction:column;gap:12px;margin-top:18px}
+.ul li{display:flex;gap:12px;font-size:15.5px}
+.ul li:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--teal);flex:none;margin-top:8px}
+.ctr-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.ctr{border:1.5px solid var(--mint-b);background:var(--mint2);border-radius:14px;padding:12px;text-align:center;cursor:pointer;font-family:var(--sans);color:var(--ink);transition:transform .08s,background .15s;-webkit-tap-highlight-color:transparent}
+.ctr:active{transform:scale(.97)}
+.ctr .nm{font-size:12.5px;font-weight:700;color:var(--teal-d)}
+.ctr .c{font-family:var(--num);font-size:34px;font-weight:700;line-height:1.15}
+.ctr .p{font-size:11.5px;color:var(--mute)}
+.ctr.flash{background:#d4efe5}
+.log{margin-top:12px;font-size:12.5px;border-top:1px solid var(--line);padding-top:8px;max-height:96px;overflow:hidden}
+.log div{display:flex;justify-content:space-between;padding:2px 0;color:var(--txt2)}
+.hint{font-size:12.5px;color:var(--mute);text-align:center;margin-top:10px}
+
+/* dashboard */
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px}
+.tab{border:1.5px solid var(--line2);background:#fff;border-radius:999px;padding:8px 16px;font-weight:700;font-size:14px;color:var(--txt2);cursor:pointer;font-family:var(--sans)}
+.tab.on{background:var(--dark);border-color:var(--dark);color:#fff}
+.dash{background:#fff;border:1px solid var(--line2);border-radius:var(--r);overflow:hidden;box-shadow:0 18px 40px -24px rgba(12,58,51,.4)}
+.dash .sbar{font-size:13px}
+.dbody{padding:18px;display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
+.kpi{border:1px solid var(--line);border-radius:12px;padding:12px}
+.kpi .v{font-family:var(--num);font-size:28px;font-weight:700;color:var(--ink);line-height:1.1}
+.kpi .l{font-size:12px;color:var(--mute)}
+.kpi.warn .v{color:var(--red)}
+.span2{grid-column:span 2}.span4{grid-column:span 4}
+.bars{display:flex;flex-direction:column;gap:8px;font-size:13px}
+.bar{display:grid;grid-template-columns:130px 1fr 28px;gap:10px;align-items:center}
+.bar .tr{height:10px;background:var(--mint2);border-radius:6px;overflow:hidden;display:flex}
+.bar .tr i{display:block;height:100%}
+.bar .tr i.a{background:var(--red)}.bar .tr i.b{background:var(--teal)}
+.legend{display:flex;gap:14px;font-size:12px;color:var(--mute);margin-top:4px}
+.legend span:before{content:"";display:inline-block;width:9px;height:9px;border-radius:3px;margin-right:5px;vertical-align:-1px;background:var(--teal)}
+.legend span.a:before{background:var(--red)}
+.dview{display:none}.dview.on{display:grid}
+@media (max-width:860px){.dbody{grid-template-columns:repeat(2,1fr)}.span4,.span2{grid-column:span 2}.bar{grid-template-columns:100px 1fr 24px}}
+
+/* questions */
+.qs{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.q{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--line2);border-radius:12px;padding:16px 18px}
+.q .t{flex:1;font-family:var(--serif);font-size:17px;color:var(--ink);line-height:1.3}
+@media (max-width:760px){.qs{grid-template-columns:1fr}}
+
+/* modules */
+.mods{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.mod{background:#fff;border:1px solid var(--line2);border-radius:var(--r);padding:20px;display:flex;flex-direction:column;gap:8px}
+.mod .cod{font-family:var(--serif);font-weight:700;color:var(--teal-d);font-size:14px}
+.mod p{font-size:14.5px}
+.mod ul{padding-left:18px;font-size:14px;color:var(--txt2)}
+.mod .ph{margin-top:auto;padding-top:6px}
+@media (max-width:900px){.mods{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:620px){.mods{grid-template-columns:1fr}}
+
+/* phases */
+.phases{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;position:relative}
+.phase{background:#fff;border:1px solid var(--line2);border-radius:var(--r);padding:22px;position:relative;overflow:hidden}
+.phase:before{content:"";position:absolute;left:0;top:0;right:0;height:5px;background:var(--teal)}
+.phase:nth-child(2):before{background:#3f9a87}.phase:nth-child(3):before{background:#79b7a6}
+.phase .n{font-family:var(--num);font-size:15px;color:var(--teal-d);font-weight:700}
+.phase ul{padding-left:18px;font-size:14.5px;margin:8px 0 12px}
+.phase .res{background:var(--mint2);border-radius:10px;padding:10px 12px;font-size:14px}
+.phase .res b{color:var(--teal-d)}
+.delivers{display:flex;flex-wrap:wrap;gap:8px;margin-top:22px;align-items:center;font-size:14px;color:var(--txt2)}
+@media (max-width:860px){.phases{grid-template-columns:1fr}}
+
+/* invest */
+.inv{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.pricebox{background:var(--dark);color:#cfe6df;border-radius:var(--r);padding:28px}
+.pricebox .k{font-size:12px;letter-spacing:.12em;text-transform:uppercase;color:#9ed1c3;font-weight:700}
+.pricebox .v{font-family:var(--num);font-size:40px;color:#fff;font-weight:700;margin:6px 0 10px;line-height:1.1}
+.pricebox p{font-size:15px}
+.pricebox ul{margin-top:14px;padding-left:18px;font-size:14.5px}
+.box{background:#fff;border:1px solid var(--line2);border-radius:var(--r);padding:24px}
+.box ol,.box ul{padding-left:20px;font-size:15px;display:flex;flex-direction:column;gap:7px;margin-top:10px}
+@media (max-width:860px){.inv{grid-template-columns:1fr}}
+
+/* future */
+.fut .card{background:transparent;border-style:dashed}
+
+/* cta */
+.cta{background:var(--dark);color:#cfe6df;border-radius:22px;padding:44px;display:grid;grid-template-columns:1.4fr 1fr;gap:30px;align-items:center}
+.cta h2{color:#fff}
+.cta p{font-size:16.5px}
+.cta .sig{font-size:14px;margin-top:16px;color:#9ed1c3}
+.cta .btns{display:flex;flex-direction:column;gap:10px;align-items:flex-start}
+.cta .btn{border-color:#9ed1c3;color:#fff}
+.cta .btn.solid{background:#fff;color:var(--dark);border-color:#fff}
+@media (max-width:760px){.cta{grid-template-columns:1fr;padding:28px}}
+footer{padding:34px 0 50px;font-size:13px;color:var(--mute)}
+.foot-logo{height:16px;display:inline-block;vertical-align:-3px;margin-right:6px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:8px 24px;justify-content:space-between}
+
+/* annex */
+#anexo{display:none;border-top:0;padding-top:40px}
+body.annex #main{display:none}
+body.annex #anexo{display:block}
+.ax-head{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin:22px 0 26px}
+.ax-toc{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:12px}
+.ax-toc a{font-size:13px;text-decoration:none;background:#fff;border:1px solid var(--line2);border-radius:999px;padding:5px 12px;color:var(--txt2)}
+.filters{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 28px;align-items:center;font-size:13.5px;color:var(--mute)}
+.filters button{font-family:var(--sans)}
+.ax-sec{margin-bottom:38px;scroll-margin-top:80px}
+.ax-sec h3{font-size:22px;margin-bottom:10px}
+.ax-sec>p{max-width:760px;margin-bottom:10px}
+.tbl{width:100%;border-collapse:collapse;background:#fff;border:1px solid var(--line2);border-radius:12px;overflow:hidden;font-size:14.5px}
+.tbl td{padding:11px 14px;border-top:1px solid var(--line);vertical-align:top}
+.tbl tr:first-child td{border-top:0;background:var(--thead);font-weight:700;color:var(--ink);font-size:12.5px;letter-spacing:.06em;text-transform:uppercase}
+.tbl td.id{font-family:var(--serif);font-weight:700;color:var(--teal-d);white-space:nowrap;width:76px}
+.tbl td.fz{width:110px}
+.tblwrap{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:12px}
+@media (max-width:640px){
+  .ax-head{grid-template-columns:repeat(2,1fr)}
+  .tbl.fx,.tbl.fx tbody,.tbl.fx tr,.tbl.fx td{display:block;width:100%!important}
+  .tbl.fx tr:first-child{display:none}
+  .tbl.fx tr{border-top:1px solid var(--line);padding:10px 14px}
+  .tbl.fx tr:nth-child(2){border-top:0}
+  .tbl.fx td{border:0;padding:2px 0}
+}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@media (max-width:760px){.two{grid-template-columns:1fr}}
+
+/* print */
+@media print{
+  @page{size:A4;margin:14mm 12mm}
+  body{background:#fff;font-size:12.5px}
+  .top,.nav2,.tabs,.filters,.ax-toc,.hint,.no-print{display:none!important}
+  section{padding:26px 0;break-inside:auto}
+  .hero{padding-top:0}
+  .card,.mod,.phase,.q,.box,.pricebox,.stage,.dash,.tablet,.phone,.digital,.notebook,.cta,.kpi{break-inside:avoid}
+  .pane{display:flex!important;break-inside:avoid;border-top:1px dashed var(--line2);padding-top:14px}
+  .stepper{grid-template-columns:1fr}.steps{display:none}
+  .dview{display:grid!important;margin-bottom:12px}
+  #anexo{display:block!important;break-before:page}
+  body.annex #main{display:block}
+  .wave i,.transcript .cur{animation:none}
+  .tablet,.phone,.dash,.digital,.notebook{box-shadow:none}
+  .cta{background:#fff;color:var(--txt);border:1px solid var(--line2)}.cta h2{color:var(--ink)}.cta .btns{display:none}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+  <div class="wrap">
+    <a class="brand" href="#"><svg class="wordmark" viewBox="0 0 1364 383" role="img" aria-label="temacy"><path fill="currentColor" fill-rule="evenodd" d="M1142.50,381.97C1122.90,380.19 1106.36,371.55 1097.47,358.46C1094.90,354.68 1092.35,349.13 1091.51,345.50C1091.16,343.99 1090.68,342.10 1090.44,341.30C1090.20,340.50 1090.00,336.79 1090.00,333.05C1090.00,327.39 1090.21,325.47 1091.24,321.63C1094.62,309.03 1102.70,300.11 1119.39,290.56C1127.37,286.00 1143.78,278.99 1157.00,274.50C1159.34,273.71 1162.83,272.47 1164.75,271.75C1166.67,271.03 1172.86,268.89 1178.50,266.99C1196.05,261.09 1205.47,257.73 1206.03,257.17C1206.58,256.62 1209.00,246.64 1209.00,244.94C1209.00,243.75 1208.26,243.75 1206.58,244.94C1202.99,247.49 1194.63,251.73 1189.75,253.49C1180.09,256.97 1170.49,258.56 1159.27,258.55C1138.95,258.52 1123.90,252.19 1113.18,239.17C1109.92,235.21 1105.00,226.01 1105.00,223.86C1105.00,222.25 1103.86,222.43 1101.83,224.37C1098.02,228.00 1091.68,232.79 1083.25,238.39C1079.13,241.13 1066.38,247.81 1062.46,249.27C1051.36,253.43 1041.64,256.13 1034.67,257.02C1032.24,257.33 1029.12,257.77 1027.75,258.00C1026.38,258.23 1020.52,258.35 1014.75,258.28C1003.68,258.14 997.19,257.39 988.73,255.25C983.60,253.96 973.06,249.96 971.07,248.56C970.34,248.05 968.51,247.01 967.00,246.25C959.04,242.25 948.01,232.58 941.75,224.09C940.10,221.86 938.47,220.02 938.14,220.01C937.80,220.01 937.13,220.62 936.65,221.38C933.34,226.61 924.05,236.10 916.75,241.71C913.06,244.55 904.78,250.00 904.16,250.00C904.02,250.00 902.74,250.59 901.32,251.31C897.52,253.25 889.44,255.92 883.75,257.11C879.66,257.97 876.97,258.16 869.00,258.17C860.19,258.17 858.70,258.05 853.59,256.85C850.48,256.12 846.91,255.07 845.66,254.51C844.40,253.95 843.12,253.50 842.81,253.49C840.90,253.46 830.83,246.38 826.87,242.27C822.50,237.74 817.03,229.28 815.99,225.43C815.71,224.43 815.18,223.36 814.80,223.04C814.14,222.49 813.29,223.31 809.00,228.67C807.36,230.72 797.16,239.20 792.84,242.11C786.77,246.19 776.04,251.51 769.41,253.73C745.62,261.69 718.88,259.46 701.50,248.07C692.93,242.45 685.19,234.53 680.87,226.96C680.25,225.89 679.48,225.01 679.16,225.00C678.83,225.00 677.29,226.52 675.73,228.38C666.44,239.43 651.51,249.92 638.75,254.33C618.77,261.26 594.13,259.21 580.40,249.49C579.22,248.65 577.46,247.44 576.50,246.80C575.54,246.16 573.28,244.08 571.48,242.17C562.44,232.58 557.11,220.01 556.03,205.75C555.22,195.00 555.60,191.67 562.25,150.75C565.88,128.37 566.17,125.66 565.50,120.28C564.71,113.88 562.76,110.43 558.77,108.39C556.08,107.01 550.06,107.44 546.44,109.28C540.22,112.43 532.98,118.42 528.97,123.74C527.93,125.12 526.21,127.38 525.16,128.75C522.44,132.30 515.00,143.63 515.00,144.22C515.00,144.38 514.39,145.47 513.65,146.63C511.97,149.26 506.13,161.04 505.17,163.74C504.78,164.84 504.17,166.19 503.82,166.74C502.74,168.42 499.50,176.79 496.67,185.21C493.40,194.91 490.34,206.53 489.29,213.25C487.25,226.22 486.53,230.94 486.24,233.25C485.41,239.94 483.89,246.33 482.73,248.00C481.16,250.26 478.82,251.82 476.00,252.46C472.74,253.21 434.78,253.10 432.46,252.34C430.39,251.66 428.38,250.16 427.65,248.74C426.28,246.11 426.42,244.18 429.24,227.00C431.02,216.08 431.58,212.59 432.00,209.75C432.24,208.10 432.78,204.61 433.20,202.00C434.94,191.14 436.07,183.87 437.01,177.50C437.56,173.79 438.36,168.50 438.80,165.75C440.63,154.17 443.03,139.51 443.61,136.25C443.95,134.32 444.24,129.15 444.24,124.75C444.25,117.44 444.15,116.53 443.09,114.18C441.65,111.01 439.96,109.39 436.87,108.24C430.96,106.05 421.10,109.23 414.10,115.61C409.51,119.79 403.27,126.90 400.63,130.98C399.11,133.33 397.13,136.38 396.24,137.75C390.18,147.14 381.75,165.83 376.73,181.01C373.47,190.88 369.81,205.94 368.03,216.77C367.18,221.99 366.14,228.28 365.74,230.75C365.33,233.22 364.68,237.44 364.29,240.12C363.20,247.58 361.21,250.71 356.50,252.37C354.14,253.20 314.97,253.26 311.71,252.44C310.10,252.03 308.98,251.30 307.73,249.85C306.21,248.06 306.00,247.49 305.99,245.04C305.99,243.50 306.47,239.38 307.07,235.87C307.66,232.36 308.01,229.35 307.85,229.18C307.43,228.77 306.71,229.16 303.50,231.52C290.63,240.98 274.64,249.26 263.00,252.49C261.76,252.83 260.30,253.30 259.75,253.53C257.93,254.30 248.32,256.43 244.00,257.02C241.66,257.34 238.66,257.78 237.32,257.99C232.29,258.80 215.60,258.48 208.50,257.44C196.30,255.65 187.87,253.26 178.75,249.01C171.00,245.38 170.64,245.19 165.00,241.55C158.61,237.42 148.40,228.00 144.05,222.23C143.23,221.14 142.12,219.70 141.58,219.03L140.60,217.81L139.17,219.48C138.39,220.40 137.54,221.51 137.29,221.95C135.15,225.64 124.23,236.92 118.50,241.35C102.37,253.81 86.65,259.03 67.25,258.35C57.64,258.01 50.34,256.33 42.62,252.68C34.10,248.66 27.69,243.39 22.56,236.18C15.13,225.76 11.97,216.07 11.19,201.31C10.81,194.20 11.38,188.29 13.77,174.25C14.71,168.75 15.69,162.79 15.96,161.00C16.23,159.21 16.79,155.61 17.21,153.00C17.62,150.39 18.21,146.68 18.52,144.75C18.82,142.82 19.49,138.89 20.00,136.00C20.50,133.11 21.63,126.25 22.50,120.75C23.37,115.25 24.63,107.43 25.29,103.38C25.96,99.33 26.50,95.78 26.50,95.50C26.50,95.19 23.49,95.00 18.34,95.00C7.05,95.00 4.60,94.18 2.31,89.65C1.86,88.77 1.50,87.08 1.51,85.90C1.51,83.64 5.08,62.56 5.99,59.43C6.66,57.13 10.27,53.75 12.82,53.04C13.88,52.75 18.62,52.50 23.34,52.50C30.15,52.50 32.08,52.35 32.65,51.78C33.05,51.38 33.60,49.53 33.89,47.65C34.17,45.78 34.97,40.88 35.66,36.75C36.35,32.62 37.18,27.34 37.51,25.00C37.84,22.66 38.29,19.85 38.51,18.75C38.74,17.65 39.20,15.11 39.55,13.10C39.89,11.10 40.36,9.34 40.58,9.20C40.81,9.06 41.00,8.56 41.00,8.08C41.00,6.70 44.01,3.45 46.21,2.45C48.10,1.59 49.94,1.52 70.55,1.51L92.85,1.50L94.51,2.62C95.41,3.24 96.63,4.39 97.20,5.16C98.87,7.41 98.67,9.85 94.75,34.50C92.14,50.96 92.08,51.45 92.72,51.98C93.03,52.23 99.74,52.51 107.63,52.60L121.99,52.75L124.07,54.84C125.90,56.66 126.19,57.26 126.37,59.59C126.49,61.08 126.12,64.88 125.52,68.25C124.93,71.55 124.24,75.60 123.97,77.25C122.48,86.51 121.66,89.53 120.20,91.06C116.93,94.49 114.32,94.96 98.18,94.98L85.11,95.00L84.78,97.37C84.60,98.68 83.91,103.01 83.24,107.00C82.58,110.99 81.67,116.61 81.23,119.50C80.79,122.39 80.22,125.99 79.98,127.50C79.73,129.01 78.98,133.74 78.30,138.00C77.63,142.26 76.27,150.70 75.28,156.75C71.14,182.17 70.71,192.54 73.45,200.75C74.87,205.01 78.21,208.16 82.20,208.99C92.00,211.02 101.89,204.76 111.31,190.54C112.87,188.18 114.58,185.61 115.12,184.84C117.02,182.07 125.58,164.37 125.77,162.83C126.74,155.05 127.11,152.37 127.57,150.00C128.60,144.67 130.60,136.71 131.84,133.00C134.07,126.35 138.71,115.88 140.26,114.00C140.60,113.59 141.38,112.27 141.98,111.06C142.59,109.86 144.12,107.38 145.38,105.56C146.65,103.74 148.15,101.58 148.72,100.76C152.10,95.89 161.59,86.08 169.25,79.55C177.01,72.94 191.83,64.12 200.75,60.80C219.16,53.97 229.11,52.14 245.34,52.63C259.11,53.05 268.24,55.34 279.39,61.21C286.28,64.84 288.29,66.30 293.33,71.35C300.50,78.52 305.46,88.00 307.42,98.28C309.71,110.25 305.66,129.04 298.36,140.37C297.61,141.53 297.00,142.59 297.00,142.73C297.00,142.87 295.94,144.40 294.64,146.12C288.76,153.89 278.61,162.57 267.75,169.10C261.40,172.91 247.10,178.89 239.12,181.06C238.23,181.30 236.66,181.74 235.62,182.03C226.92,184.51 214.33,186.37 203.08,186.84C197.53,187.07 195.34,187.34 195.16,187.80C194.52,189.47 203.75,199.62 207.84,201.75C208.89,202.29 209.86,202.86 210.00,203.00C210.88,203.89 219.79,206.79 224.00,207.55C230.00,208.64 243.55,208.41 250.50,207.11C268.77,203.69 286.68,194.15 299.50,181.01C305.98,174.37 312.67,165.14 316.37,157.75C317.34,155.82 318.69,153.12 319.38,151.75C320.75,149.01 321.56,145.64 322.48,138.75C322.82,136.28 323.72,130.43 324.50,125.75C325.27,121.08 326.51,113.31 327.24,108.50C329.88,91.20 333.33,70.06 333.93,67.50C335.08,62.63 338.02,59.56 342.50,58.54C343.82,58.24 352.79,58.02 364.28,58.01C385.92,58.00 388.05,58.24 389.90,60.89C391.84,63.67 392.04,65.23 391.19,70.68C387.99,91.17 387.90,92.24 389.47,91.27C389.77,91.08 390.90,89.74 391.96,88.30C394.66,84.66 406.02,73.24 410.25,69.92C414.17,66.86 418.84,63.64 421.79,61.97C425.82,59.70 429.40,58.00 430.16,58.00C430.59,58.00 431.08,57.78 431.24,57.52C431.74,56.71 440.57,54.10 445.78,53.21C451.56,52.22 464.47,52.48 469.00,53.67C482.35,57.17 491.00,64.18 497.27,76.54C499.05,80.05 501.69,88.45 502.45,93.00C503.35,98.44 503.69,99.65 504.38,99.88C504.72,99.99 505.00,99.83 505.00,99.52C505.00,98.83 508.08,93.95 511.52,89.20C514.45,85.15 524.78,74.70 529.25,71.27C538.53,64.15 547.50,59.20 556.85,56.05C564.42,53.50 570.44,52.50 578.28,52.50C591.87,52.50 602.99,56.98 610.71,65.56C613.21,68.34 616.00,72.16 616.00,72.80C616.00,73.00 616.35,73.55 616.77,74.02C617.53,74.86 618.47,77.10 620.76,83.50C623.81,92.04 625.30,105.49 624.50,117.34C623.97,125.20 623.59,128.19 620.97,145.50C620.11,151.14 619.22,157.32 618.99,159.25C618.76,161.18 618.32,164.31 618.01,166.22C615.25,183.37 615.35,197.29 618.27,203.08C621.00,208.49 626.39,210.49 633.50,208.75C642.04,206.66 650.95,197.96 659.34,183.56C666.14,171.89 668.16,166.94 669.54,158.63C671.10,149.18 674.39,137.27 677.52,129.75C677.86,128.93 678.47,127.46 678.87,126.50C680.07,123.60 685.81,112.33 687.07,110.39C687.72,109.39 689.15,107.08 690.25,105.26C696.33,95.20 707.21,83.33 718.37,74.57C724.93,69.42 735.14,63.24 740.75,61.02C742.40,60.37 743.98,59.67 744.25,59.46C745.04,58.87 753.36,56.15 757.75,55.05C765.96,52.99 772.13,52.38 782.00,52.65C792.01,52.93 794.61,53.31 802.25,55.65C811.77,58.56 817.34,61.38 824.91,67.13C827.00,68.71 829.00,70.00 829.35,70.00C829.73,70.00 830.00,69.41 830.00,68.59C830.00,66.26 832.53,61.91 834.74,60.42C838.01,58.24 840.67,58.00 862.00,58.00C881.71,58.00 881.86,58.01 884.01,59.14C887.42,60.95 888.25,62.44 888.23,66.66C888.22,68.64 887.83,72.61 887.36,75.50C886.89,78.39 885.94,84.46 885.25,89.00C881.48,113.74 879.21,128.17 878.49,132.00C877.95,134.91 877.12,140.31 875.48,151.75C874.92,155.60 873.92,162.24 873.26,166.50C870.83,182.01 870.54,191.04 872.22,198.90C873.74,206.06 877.56,209.27 884.50,209.22C891.45,209.17 897.42,205.81 904.39,198.04C908.98,192.93 912.45,188.07 915.03,183.19C915.88,181.57 917.00,179.57 917.51,178.75C918.73,176.79 920.76,172.59 922.54,168.35C923.69,165.60 924.11,163.47 924.73,157.10C925.82,145.95 929.01,133.24 932.95,124.36C933.53,123.06 934.47,120.93 935.04,119.62C937.42,114.16 944.70,102.33 948.76,97.31C951.38,94.07 959.64,85.27 963.00,82.15C971.87,73.89 983.21,66.58 995.14,61.44C1009.78,55.13 1022.01,52.50 1036.79,52.50C1049.76,52.50 1064.27,55.46 1074.75,60.24C1078.86,62.11 1086.92,66.24 1088.25,67.15C1096.20,72.59 1100.05,76.35 1101.25,79.84C1102.23,82.70 1101.21,84.97 1096.50,90.31C1095.26,91.71 1091.57,95.93 1088.29,99.68C1079.68,109.53 1079.07,109.73 1069.45,105.93C1062.73,103.28 1056.80,101.98 1049.90,101.65C1042.13,101.28 1033.78,102.60 1027.94,105.12C1027.01,105.52 1025.02,106.39 1023.51,107.05C1015.72,110.46 1005.68,118.93 1000.01,126.89C990.71,139.94 985.76,157.96 987.48,172.54C988.09,177.73 990.46,186.12 991.98,188.50C992.42,189.19 993.09,190.35 993.46,191.09C996.05,196.25 1003.92,202.81 1011.11,205.80C1021.08,209.94 1034.96,210.58 1047.25,207.47C1066.04,202.71 1081.51,191.12 1097.44,169.88C1104.07,161.04 1108.00,154.19 1108.00,151.46C1108.00,150.75 1108.42,147.72 1108.94,144.71C1109.45,141.71 1110.15,137.34 1110.48,135.00C1110.82,132.66 1111.65,127.26 1112.32,123.00C1114.85,106.94 1115.45,103.10 1116.23,97.75C1120.85,66.41 1121.31,64.32 1124.32,61.32C1127.13,58.51 1127.70,58.45 1152.35,58.61L1174.95,58.75L1176.71,60.46C1179.19,62.87 1179.67,64.65 1179.04,69.10C1177.99,76.51 1174.38,99.82 1172.48,111.50C1171.92,114.94 1171.01,120.79 1170.47,124.50C1169.93,128.21 1169.24,132.60 1168.94,134.25C1168.64,135.90 1168.10,139.28 1167.73,141.75C1167.36,144.22 1166.48,150.07 1165.77,154.75C1161.72,181.38 1161.25,187.65 1162.78,194.97C1163.87,200.23 1165.21,203.00 1167.90,205.63C1171.03,208.68 1174.60,209.76 1179.96,209.28C1187.36,208.62 1192.35,206.09 1199.07,199.61C1202.32,196.47 1205.12,193.13 1207.65,189.35C1211.24,183.99 1216.62,173.90 1218.29,169.38C1223.34,155.72 1225.61,146.69 1227.99,130.75C1229.60,119.99 1231.39,108.40 1232.49,101.50C1234.61,88.33 1235.60,82.03 1236.54,75.75C1238.22,64.55 1239.48,61.84 1244.13,59.44C1245.93,58.52 1247.07,58.48 1268.73,58.61L1291.44,58.75L1293.01,60.25C1293.87,61.08 1294.92,62.54 1295.32,63.50C1296.12,65.37 1295.92,67.71 1294.18,77.50C1293.76,79.84 1293.22,83.21 1292.98,85.00C1292.75,86.79 1292.31,89.71 1292.00,91.50C1291.70,93.29 1291.26,96.10 1291.03,97.75C1290.79,99.40 1289.79,105.81 1288.81,112.00C1287.83,118.19 1286.44,127.08 1285.73,131.75C1285.02,136.43 1284.12,142.05 1283.74,144.25C1283.35,146.45 1282.68,150.50 1282.25,153.25C1281.82,156.00 1281.23,159.60 1280.96,161.25C1280.68,162.90 1280.25,165.71 1280.01,167.50C1279.77,169.29 1278.79,175.47 1277.83,181.25C1276.06,191.88 1272.75,213.25 1272.01,218.75C1271.79,220.40 1271.45,222.59 1271.25,223.62C1271.05,224.68 1271.09,225.50 1271.34,225.50C1272.95,225.50 1286.91,214.25 1291.48,209.27C1297.02,203.23 1299.92,199.87 1302.25,196.79C1303.62,194.97 1305.26,192.84 1305.88,192.04C1306.49,191.25 1307.00,190.39 1307.00,190.13C1307.00,189.87 1307.45,189.25 1308.00,188.75C1308.55,188.25 1309.00,187.67 1309.00,187.45C1309.00,187.23 1309.73,185.98 1310.62,184.68C1315.15,178.07 1320.26,167.62 1327.86,149.40C1329.44,145.60 1333.02,143.66 1336.87,144.53C1343.40,145.99 1358.85,150.97 1360.83,152.26C1366.32,155.83 1360.63,175.86 1347.00,200.99C1345.07,204.55 1337.35,215.93 1334.78,219.00C1327.63,227.56 1325.37,230.15 1321.75,233.93C1317.99,237.85 1308.88,246.14 1305.22,248.98C1291.21,259.80 1282.65,265.24 1267.41,273.00L1260.56,276.48L1258.50,282.80C1257.37,286.28 1255.91,290.51 1255.26,292.19C1254.61,293.87 1253.51,296.73 1252.80,298.55C1250.82,303.67 1244.60,317.10 1243.55,318.53C1243.03,319.23 1241.89,321.23 1241.02,322.96C1240.15,324.69 1238.66,327.21 1237.72,328.55C1236.77,329.89 1236.00,331.18 1236.00,331.42C1236.00,331.65 1235.55,332.25 1235.00,332.75C1234.45,333.25 1234.00,333.84 1234.00,334.07C1234.00,334.29 1233.16,335.58 1232.12,336.92C1218.86,354.18 1207.52,364.19 1192.39,371.99C1187.58,374.47 1186.56,374.90 1179.75,377.36C1173.47,379.63 1165.35,381.29 1157.25,381.98C1150.62,382.54 1148.74,382.54 1142.50,381.97ZM1162.48,329.98C1169.37,327.69 1174.00,324.99 1178.66,320.52C1183.54,315.84 1185.60,313.24 1189.14,307.27C1191.43,303.41 1192.37,301.20 1191.90,300.74C1191.78,300.62 1190.46,300.98 1188.97,301.54C1187.47,302.10 1185.01,302.99 1183.50,303.50C1181.99,304.01 1179.51,304.92 1178.00,305.51C1176.49,306.09 1174.69,306.76 1174.00,306.98C1171.31,307.85 1157.99,313.99 1154.52,315.95C1150.68,318.13 1147.35,320.56 1145.88,322.25C1142.93,325.65 1144.68,329.77 1149.64,331.05C1152.20,331.71 1158.96,331.15 1162.48,329.98ZM765.68,208.75C775.92,206.59 785.27,200.27 793.82,189.75C799.72,182.48 807.77,168.38 811.66,158.50C816.02,147.42 821.95,124.70 821.99,118.92C822.00,117.91 821.09,116.75 818.13,113.99C816.01,112.00 813.14,109.72 811.76,108.92C810.38,108.11 808.91,107.26 808.50,107.02C800.70,102.49 787.13,101.75 776.60,105.28C767.68,108.28 760.50,112.67 753.93,119.17C749.79,123.26 745.00,129.04 745.00,129.94C745.00,130.18 744.66,130.66 744.24,131.01C742.90,132.12 738.16,141.58 736.25,146.94C732.40,157.76 731.80,161.14 731.77,172.00C731.75,183.36 732.22,186.10 735.38,193.00C737.16,196.90 739.57,200.42 742.08,202.82C747.92,208.38 756.85,210.63 765.68,208.75ZM197.00,157.22C202.52,156.73 210.86,154.86 215.75,153.02C226.70,148.90 229.72,147.44 236.38,143.06C241.97,139.38 248.91,132.85 251.58,128.75C256.59,121.07 256.80,111.80 252.10,106.83C247.09,101.54 237.02,101.13 227.25,105.80C220.16,109.19 215.79,112.36 209.97,118.34C201.16,127.38 196.18,135.28 192.93,145.35C191.18,150.80 189.87,156.89 190.31,157.60C190.47,157.85 191.19,157.94 191.92,157.81C192.65,157.67 194.94,157.40 197.00,157.22Z"/></svg><span class="t"><span class="dotsep">·</span>Propuesta para Fábrica de Cemento Málaga</span></a>
+    <span class="sp"></span>
+    <button class="btn solid" onclick="window.print()">Descargar PDF</button>
+  </div>
+</header>
+
+<div id="main">
+
+<!-- HERO -->
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow">Parte de relevo digital · Noviembre 2026 · Versión 1</div>
+      <h1>El parte de relevo, dictado en la tablet y ordenado por zona y por tipo de suceso.</h1>
+      <p class="lead">El jefe de turno cuenta lo que pasó en su turno con su voz. El sistema lo transcribe, lo clasifica por zona de fábrica y separa la <b>información</b>, que lee proceso y producción, de las <b>averías</b>, que lee mantenimiento. Los partes de cantera y envase pasan de los palitos a <b>un toque por viaje</b>.</p>
+      <div class="stats">
+        <div class="stat"><div class="v">3</div><div class="l">turnos de 8 h con relevo entre encargados</div></div>
+        <div class="stat"><div class="v">15–20</div><div class="l">zonas de fábrica para clasificar</div></div>
+        <div class="stat"><div class="v">2</div><div class="l">tipos de suceso: información y avería</div></div>
+        <div class="stat"><div class="v">1</div><div class="l">toque por viaje de camión a tolva</div></div>
+      </div>
+    </div>
+    <div>
+      <div class="tablet" aria-label="Ejemplo de pantalla de dictado">
+        <div class="screen">
+          <div class="sbar"><b>Parte de relevo</b><span>· Turno tarde · 14:00–22:00</span><span class="sp"></span><span>J. de turno</span></div>
+          <div class="pad">
+            <div style="display:flex;gap:16px;align-items:center">
+              <div class="mic"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div>
+              <div style="flex:1;min-width:0">
+                <div style="font-weight:700;color:var(--ink)">Grabando… 00:24</div>
+                <div class="wave" aria-hidden="true"><i style="animation-delay:0s"></i><i style="animation-delay:.1s"></i><i style="animation-delay:.25s"></i><i style="animation-delay:.05s"></i><i style="animation-delay:.3s"></i><i style="animation-delay:.15s"></i><i style="animation-delay:.4s"></i><i style="animation-delay:.2s"></i><i style="animation-delay:.35s"></i><i style="animation-delay:.12s"></i><i style="animation-delay:.28s"></i><i style="animation-delay:.08s"></i><i style="animation-delay:.33s"></i><i style="animation-delay:.18s"></i></div>
+              </div>
+            </div>
+            <div class="lbl">Transcripción</div>
+            <div class="transcript">Ha habido una parada en la trituradora por un atranque de material. Siguen trabajando dos personas allí desatrancando<span class="cur"></span></div>
+            <div class="lbl">Zona sugerida</div>
+            <div class="row"><span class="chip sel">Trituración</span><span class="chip ghost">Molienda de crudo</span><span class="chip ghost">Horno</span><span class="chip ghost">Otra…</span></div>
+            <div class="lbl">Tipo de suceso</div>
+            <div class="row"><span class="chip av"><span class="dot"></span>Avería · avisa a mantenimiento</span><span class="chip ghost">Información</span></div>
+            <div class="fakebtn">Guardar en el parte</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LO QUE NOS CONTARON -->
+<section>
+  <div class="wrap">
+    <div class="sec-intro">
+      <div class="eyebrow">Lo que nos contaron</div>
+      <h2>Un relevo que hoy pasa por un cuaderno</h2>
+      <p>Así describieron el proceso actual en la primera conversación.</p>
+    </div>
+    <div class="cards">
+      <div class="card">
+        <div class="k">Relevo entre turnos</div>
+        <h3>El encargado escribe a mano lo que pasó</h3>
+        <p>En cada uno de los tres turnos, el jefe de turno resume en el cuaderno las paradas, averías y trabajos en curso para el encargado que entra.</p>
+        <p class="quote">“Un encargado le explica al siguiente encargado todo lo que ha pasado durante su turno.”</p>
+      </div>
+      <div class="card">
+        <div class="k">Lectura de los mandos</div>
+        <h3>El turno de mañana revisa lo de tarde y noche</h3>
+        <p>Los mandos leen el cuaderno y lo contrastan con los indicadores automatizados de planta. Cada suceso tiene que encontrarse rápido, por zona, y llegar a quien le toca: proceso y producción o mantenimiento.</p>
+      </div>
+      <div class="card">
+        <div class="k">Cantera y envase</div>
+        <h3>Viajes de camión contados con palitos</h3>
+        <p>Los partes de cantera y envase llevan la numeración de los viajes que descargan en tolva. Hoy se marcan uno a uno en papel.</p>
+        <p class="quote">“Eso a lo mejor ya se puede directamente automatizar, y simplemente pulsando un botoncito, pues eso se queda.”</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ANTES Y DESPUES -->
+<section>
+  <div class="wrap">
+    <div class="sec-intro">
+      <div class="eyebrow">Antes y después</div>
+      <h2>Del cuaderno a un parte ordenado por zona</h2>
+      <p>El mismo turno, contado de las dos formas. Los datos son de ejemplo.</p>
+    </div>
+    <div class="ba">
+      <div class="side">
+        <span class="tag hoy">Hoy</span>
+        <div class="notebook" aria-label="Ejemplo de parte escrito a mano">
+          <div class="h">Turno tarde — martes</div>
+          <div>15:10 Parada trituradora, atranque</div>
+          <div>de material. Quedan 2 personas</div>
+          <div>desatrancando.</div>
+          <div>17:40 Parada cinta molienda MP,</div>
+          <div><span class="x">rearmada</span> se rearma 18:05</div>
+          <div>19:20 Horno parado 10 min por</div>
+          <div>subida de tensión. OK.</div>
+          <div>Cantera: |||| |||| |||| |||| ||</div>
+        </div>
+      </div>
+      <div class="side">
+        <span class="tag con">Con el sistema</span>
+        <div class="digital">
+          <div class="sbar"><b>Turno tarde · martes</b><span class="sp"></span><span>3 sucesos · 1 avería abierta</span></div>
+          <div class="zone">
+            <div class="zt">Trituración<span class="sp"></span><span class="chip av"><span class="dot"></span>Avería · abierta</span></div>
+            <div class="ev"><span class="h">15:10</span><span class="tx">Parada por atranque de material. Siguen 2 personas desatrancando. <span class="muted small">▶ audio 0:24</span></span></div>
+          </div>
+          <div class="zone">
+            <div class="zt">Molienda de crudo<span class="sp"></span><span class="chip av"><span class="dot"></span>Avería · cerrada</span></div>
+            <div class="ev"><span class="h">17:40</span><span class="tx">Parada de una cinta. Rearmada a las 18:05.</span></div>
+          </div>
+          <div class="zone">
+            <div class="zt">Cocción del horno<span class="sp"></span><span class="chip in"><span class="dot"></span>Información</span></div>
+            <div class="ev"><span class="h">19:20</span><span class="tx">Parada de 10 min por subida de tensión. Sin daños.</span></div>
+          </div>
+          <div class="zone">
+            <div class="zt">Cantera<span class="sp"></span><span class="chip gold">22 viajes a tolva</span></div>
+            <div class="ev"><span class="h"></span><span class="tx muted">Contados con un toque por viaje, con hora de cada uno.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <table class="cmp">
+      <tr><td>Tema</td><td>Hoy</td><td>Con el sistema</td></tr>
+      <tr><td>Registro</td><td>Se escribe a mano al final del turno.</td><td>Se dicta en la tablet cuando pasa; queda el audio y el texto.</td></tr>
+      <tr><td>Orden</td><td>Texto corrido, en orden de hora.</td><td>Cada suceso con su zona y su tipo, agrupado por zona.</td></tr>
+      <tr><td>Quién lo lee</td><td>Todos leen todo el cuaderno.</td><td>Mantenimiento ve las averías; proceso y producción, la información.</td></tr>
+      <tr><td>Averías en curso</td><td>Hay que leer el texto para saber si quedó algo pendiente.</td><td>Cada avería queda abierta hasta que alguien la cierra, y pasa de turno en turno.</td></tr>
+      <tr><td>Cantera y envase</td><td>Palitos por viaje en papel.</td><td>Un toque por viaje, con total por turno y por día.</td></tr>
+      <tr><td>Historial</td><td>Cuadernos archivados.</td><td>Búsqueda por fecha, zona, tipo o palabra.</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- RECORRIDO -->
+<section>
+  <div class="wrap">
+    <div class="sec-intro">
+      <div class="eyebrow">Recorrido de un caso</div>
+      <h2>Una parada en la trituradora, de un turno al siguiente</h2>
+      <p>Paso a paso, con la pantalla que ve cada persona. Datos de ejemplo.</p>
+    </div>
+    <div class="stepper">
+      <div class="steps" role="tablist">
+        <button class="step on" data-s="0"><span class="n">1</span><span>Dicta el suceso<span class="who">Jefe de turno · tablet</span></span></button>
+        <button class="step" data-s="1"><span class="n">2</span><span>Confirma zona y tipo<span class="who">Jefe de turno · tablet</span></span></button>
+        <button class="step" data-s="2"><span class="n">3</span><span>La avería llega a mantenimiento<span class="who">Mantenimiento · móvil o PC</span></span></button>
+        <button class="step" data-s="3"><span class="n">4</span><span>Relevo con el turno de noche<span class="who">Jefe de turno entrante · tablet</span></span></button>
+        <button class="step" data-s="4"><span class="n">5</span><span>Revisión del turno de mañana<span class="who">Mandos · PC</span></span></button>
+      </div>
+      <div class="stage">
+        <!-- 1 -->
+        <div class="pane on">
+          <div class="cap"><h3>El jefe de turno dicta lo que pasó</h3><p>Toca el micrófono y habla, como se lo contaría al siguiente encargado. No escribe nada.</p></div>
+          <div class="phone"><div class="screen">
+            <div class="sbar"><b>Nuevo suceso</b><span class="sp"></span><span>15:12</span></div>
+            <div class="pad" style="text-align:center">
+              <div class="mic" style="margin:10px auto 14px"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0M12 18v3"/></svg></div>
+              <div class="transcript" style="text-align:left">Parada en la trituradora por un atranque de material, siguen dos personas desatrancando<span class="cur"></span></div>
+              <div class="fakebtn">Terminar</div>
+            </div>
+          </div></div>
+        </div>
+        <!-- 2 -->
+        <div class="pane">
+          <div class="cap"><h3>Confirma la zona y el tipo de suceso</h3><p>El sistema sugiere la zona y el tipo a partir de lo dictado. El jefe de turno lo confirma o lo cambia con un toque.</p></div>
+          <div class="phone"><div class="screen">
+            <div class="sbar"><b>Revisar suceso</b><span class="sp"></span><span>15:12</span></div>
+            <div class="pad">
+              <div class="transcript">Parada en la trituradora por un atranque de material, siguen dos personas desatrancando.</div>
+              <div class="lbl">Zona</div>
+              <div class="row"><span class="chip sel">Trituración</span><span class="chip ghost">Cantera</span><span class="chip ghost">Otra…</span></div>
+              <div class="lbl">Tipo</div>
+              <div class="row"><span class="chip av">Avería</span><span class="chip ghost">Información</span></div>
+              <div class="lbl">Estado</div>
+              <div class="row"><span class="chip gold">Sigue en curso</span><span class="chip ghost">Resuelto</span></div>
+              <div class="fakebtn">Guardar</div>
+            </div>
+          </div></div>
+        </div>
+        <!-- 3 -->
+        <div class="pane">
+          <div class="cap"><h3>Mantenimiento ve la avería sin esperar al cuaderno</h3><p>Las averías aparecen en la bandeja de mantenimiento, con zona, hora, texto y audio. Quien la cierra deja una nota.</p></div>
+          <div class="phone"><div class="screen">
+            <div class="sbar"><b>Mantenimiento</b><span class="sp"></span><span>2 abiertas</span></div>
+            <div class="pad">
+              <table class="mini-table">
+                <tr><td><span class="chip av">Abierta</span></td><td><b>Trituración</b><br>Atranque de material. 2 personas desatrancando.<br><span class="muted">15:12 · turno tarde · ▶ 0:24</span></td></tr>
+                <tr><td><span class="chip av">Abierta</span></td><td><b>Envase</b><br>Ensacadora 2 con fallo de pesaje.<br><span class="muted">09:40 · turno mañana</span></td></tr>
+                <tr><td><span class="chip ghost">Cerrada</span></td><td><b>Molienda de crudo</b><br>Cinta rearmada.<br><span class="muted">18:05 · turno tarde</span></td></tr>
+              </table>
+              <div class="fakebtn out">Cerrar avería con nota</div>
+            </div>
+          </div></div>
+        </div>
+        <!-- 4 -->
+        <div class="pane">
+          <div class="cap"><h3>El relevo empieza por lo que quedó abierto</h3><p>El encargado que entra ve el resumen del turno anterior por zona y, primero, las averías que siguen en curso. Marca que lo leyó.</p></div>
+          <div class="tablet"><div class="screen">
+            <div class="sbar"><b>Relevo · turno noche</b><span class="sp"></span><span>Entrega: turno tarde</span></div>
+            <div class="pad">
+              <div class="lbl" style="margin-top:0">Sigue en curso</div>
+              <div class="ev"><span class="chip av">Trituración</span><span class="tx">Atranque de material. 2 personas desatrancando. <span class="muted">desde 15:12</span></span></div>
+              <div class="lbl">Resto del turno</div>
+              <div class="ev"><span class="chip ghost">Molienda de crudo</span><span class="tx">Parada de cinta, rearmada 18:05.</span></div>
+              <div class="ev"><span class="chip ghost">Horno</span><span class="tx">Parada de 10 min por subida de tensión.</span></div>
+              <div class="ev"><span class="chip gold">Cantera</span><span class="tx">22 viajes a tolva.</span></div>
+              <div class="fakebtn">Leído, recibo el turno</div>
+            </div>
+          </div></div>
+        </div>
+        <!-- 5 -->
+        <div class="pane">
+          <div class="cap"><h3>Los mandos revisan las últimas 24 horas</h3><p>Por la mañana, cada mando filtra por su área y su zona, escucha el audio si hace falta y deja anotada la causa que confirma con los indicadores de planta.</p></div>
+          <div class="tablet"><div class="screen">
+            <div class="sbar"><b>Últimas 24 h</b><span class="sp"></span><span>Filtro: Trituración · Avería</span></div>
+            <div class="pad">
+              <table class="mini-table">
+                <tr><td style="width:62px" class="muted">Tarde<br>15:12</td><td><b>Atranque de material</b><br>Resuelto 23:30 por el turno de noche.<br><span class="muted">Nota del mando: causa revisada con los indicadores de planta.</span></td><td><span class="chip ghost">Revisado</span></td></tr>
+                <tr><td class="muted">Noche<br>03:05</td><td><b>Parada breve de alimentación</b><br>Sin intervención.</td><td><span class="chip gold">Pendiente</span></td></tr>
+              </table>
+              <div class="fakebtn out">Exportar resumen del día</div>
+            </div>
+          </div></div>
+        </div>
+        <div class="nav2 no-print">
+          <button class="btn" id="prev">← Anterior</button>
+          <button class="btn solid" id="next">Siguiente →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CANTERA Y ENVASE -->
+<section>
+  <div class="wrap split">
+    <div>
+      <div class="eyebrow">Cantera y envase</div>
+      <h2>De los palitos a un toque por viaje</h2>
+      <p class="lead">Cada camión que descarga en tolva se registra con un toque, con su hora y el turno. El total por turno y por día sale solo y entra en el parte.</p>
+      <ul class="ul">
+        <li>Botones grandes, pensados para usar en la tablet a pie de tolva.</li>
+        <li>Corrección del último toque si hubo un error.</li>
+        <li>Total por turno, por día y por tolva, sin sumar a mano.</li>
+        <li>El formato final se define con los partes reales de cantera y envase que vamos a revisar juntos.</li>
+      </ul>
+    </div>
+    <div>
+      <div class="tablet"><div class="screen">
+        <div class="sbar"><b>Parte de cantera</b><span class="sp"></span><span>Turno tarde</span></div>
+        <div class="pad">
+          <div class="ctr-grid">
+            <button class="ctr" data-n="Tolva 1"><div class="nm">Tolva 1</div><div class="c">12</div><div class="p">toque = 1 viaje</div></button>
+            <button class="ctr" data-n="Tolva 2"><div class="nm">Tolva 2</div><div class="c">10</div><div class="p">toque = 1 viaje</div></button>
+          </div>
+          <div style="display:flex;justify-content:space-between;align-items:center;margin-top:12px">
+            <span><b id="ctot">22</b> <span class="muted">viajes en el turno</span></span>
+            <button class="chip ghost" id="undo" style="cursor:pointer;font-family:var(--sans)">Deshacer último</button>
+          </div>
+          <div class="log" id="clog"><div><span>Tolva 1</span><span>21:42</span></div><div><span>Tolva 2</span><span>21:31</span></div><div><span>Tolva 1</span><span>21:18</span></div></div>
+        </div>
+      </div></div>
+      <p class="hint">Toque una tolva para sumar un viaje.</p>
+    </div>
+  </div>
+</section>
+
+<!-- PANEL POR AREA -->
+<section>
+  <div class="wrap">
+    <div class="sec-intro">
+      <div class="eyebrow">Una vista para cada área</div>
+      <h2>Cada uno lee lo que le toca</h2>
+      <p>La información va a proceso y producción; las averías, a mantenimiento. Cifras de ejemplo.</p>
+    </div>
+    <div class="tabs no-print" role="tablist">
+      <button class="tab on" data-v="0">Proceso y producción</button>
+      <button class="tab" data-v="1">Mantenimiento</button>
+    </div>
+    <div class="dash">
+      <div class="dview on">
+        <div class="sbar span4" style="grid-column:1/-1"><b>Proceso y producción</b><span>· Semana 45</span><span class="sp"></span><span>Todas las zonas</span></div>
+      </div>
+      <div class="dbody dview on" data-view="0">
+        <div class="kpi"><div class="v">21</div><div class="l">partes de relevo entregados</div></div>
+        <div class="kpi"><div class="v">57</div><div class="l">sucesos registrados</div></div>
+        <div class="kpi"><div class="v">100%</div><div class="l">relevos marcados como leídos</div></div>
+        <div class="kpi"><div class="v">318</div><div class="l">viajes de cantera a tolva</div></div>
+        <div class="span2">
+          <div class="lbl" style="margin-top:0">Sucesos por zona</div>
+          <div class="bars">
+            <div class="bar"><span>Trituración</span><span class="tr"><i class="b" style="width:58%"></i></span><b>14</b></div>
+            <div class="bar"><span>Molienda de crudo</span><span class="tr"><i class="b" style="width:42%"></i></span><b>10</b></div>
+            <div class="bar"><span>Cocción del horno</span><span class="tr"><i class="b" style="width:50%"></i></span><b>12</b></div>
+            <div class="bar"><span>Molienda de cemento</span><span class="tr"><i class="b" style="width:29%"></i></span><b>7</b></div>
+            <div class="bar"><span>Envase</span><span class="tr"><i class="b" style="width:38%"></i></span><b>9</b></div>
+          </div>
+        </div>
+        <div class="span2">
+          <div class="lbl" style="margin-top:0">Última información</div>
+          <table class="mini-table">
+            <tr><td class="muted" style="width:70px">Mar 19:20</td><td><b>Horno</b> · Parada de 10 min por subida de tensión.</td></tr>
+            <tr><td class="muted">Mar 11:05</td><td><b>Molienda de cemento</b> · Cambio de tipo de cemento.</td></tr>
+            <tr><td class="muted">Lun 23:50</td><td><b>Envase</b> · Fin de carga programada.</td></tr>
+          </table>
+        </div>
+      </div>
+      <div class="dbody dview" data-view="1">
+        <div class="kpi warn"><div class="v">4</div><div class="l">averías abiertas</div></div>
+        <div class="kpi"><div class="v">2</div><div class="l">pasaron de un turno a otro</div></div>
+        <div class="kpi"><div class="v">11</div><div class="l">averías cerradas en la semana</div></div>
+        <div class="kpi"><div class="v">5,2 h</div><div class="l">tiempo medio hasta el cierre</div></div>
+        <div class="span2">
+          <div class="lbl" style="margin-top:0">Averías por zona</div>
+          <div class="bars">
+            <div class="bar"><span>Trituración</span><span class="tr"><i class="a" style="width:20%"></i><i class="b" style="width:30%"></i></span><b>5</b></div>
+            <div class="bar"><span>Envase</span><span class="tr"><i class="a" style="width:10%"></i><i class="b" style="width:30%"></i></span><b>4</b></div>
+            <div class="bar"><span>Molienda de crudo</span><span class="tr"><i class="a" style="width:10%"></i><i class="b" style="width:20%"></i></span><b>3</b></div>
+            <div class="bar"><span>Cocción del horno</span><span class="tr"><i class="b" style="width:20%"></i></span><b>2</b></div>
+          </div>
+          <div class="legend"><span class="a">Abiertas</span><span>Cerradas</span></div>
+        </div>
+        <div class="span2">
+          <div class="lbl" style="margin-top:0">Abiertas ahora</div>
+          <table class="mini-table">
+            <tr><td><span class="chip av">Trituración</span></td><td>Atranque de material · desde tarde 15:12</td></tr>
+            <tr><td><span class="chip av">Envase</span></td><td>Ensacadora 2, fallo de pesaje · desde mañana 09:40</td></tr>
+            <tr><td><span class="chip av">Molienda de crudo</span></td><td>Ruido en reductor · desde noche 02:15</td></tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREGUNTAS -->
+<section>
+  <div class="wrap">
+    <div class="sec-intro">
+      <div class="eyebrow">Preguntas que hoy no tienen respuesta rápida</div>
+      <h2>Lo que se puede saber en segundos</h2>
+      <p>Hoy cada una de estas respuestas implica hojear cuadernos. Con el sistema son un filtro.</p>
+    </div>
+    <div class="qs">
+      <div class="q"><span class="t">¿Qué averías siguen abiertas ahora mismo, y desde qué turno?</span><span class="chip">Fase 1</span></div>
+      <div class="q"><span class="t">¿Qué dijo el parte de la noche del martes sobre el horno?</span><span class="chip">Fase 1</span></div>
+      <div class="q"><span class="t">¿Cuántos viajes descargó la cantera ayer, por turno?</span><span class="chip">Fase 2</span></div>
+      <div class="q"><span class="t">¿Qué zona acumuló más paradas este mes?</span><span class="chip">Fase 3</span></div>
+      <div class="q"><span class="t">¿Cuánto tarda en cerrarse una avería desde que se dicta?</span><span class="chip">Fase 3</span></div>
+      <div class="q"><span class="t">¿Qué averías se repiten en la misma zona?</span><span class="chip">Fase 3</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- MODULOS -->
+<section>
+  <div class="wrap">
+    <div class="sec-intro">
+      <div class="eyebrow">Cómo está armado</div>
+      <h2>Seis bloques sobre un mismo registro de sucesos</h2>
+      <p>Cada suceso se registra una vez y cada área lo ve desde su lado.</p>
+    </div>
+    <div class="mods">
+      <div class="mod"><span class="cod">M·01</span><h3>Parte dictado</h3><p>Dictado por voz en la tablet, con transcripción automática y audio guardado.</p><ul><li>Un parte por turno y por jefe de turno</li><li>Edición del texto antes de guardar</li></ul><span class="ph"><span class="chip">Fase 1</span></span></div>
+      <div class="mod"><span class="cod">M·02</span><h3>Zonas y tipos de suceso</h3><p>Clasificación de cada suceso por zona de fábrica y por tipo: información o avería.</p><ul><li>Zona y tipo sugeridos a partir del dictado</li><li>Lista de zonas configurable</li></ul><span class="ph"><span class="chip">Fase 1</span></span></div>
+      <div class="mod"><span class="cod">M·03</span><h3>Relevo de turno</h3><p>Resumen del turno anterior por zona, con las averías en curso primero.</p><ul><li>Confirmación de lectura del encargado entrante</li><li>Averías abiertas que pasan de turno</li></ul><span class="ph"><span class="chip">Fase 1</span></span></div>
+      <div class="mod"><span class="cod">M·04</span><h3>Bandejas por área</h3><p>Averías para mantenimiento; información para proceso y producción.</p><ul><li>Cierre de averías con nota</li><li>Nota del mando sobre la causa revisada</li></ul><span class="ph"><span class="chip">Fase 1–2</span></span></div>
+      <div class="mod"><span class="cod">M·05</span><h3>Partes de cantera y envase</h3><p>Registro de viajes de camión a tolva con un toque, con hora y turno.</p><ul><li>Totales por turno, día y tolva</li><li>Formato según los partes actuales</li></ul><span class="ph"><span class="chip">Fase 2</span></span></div>
+      <div class="mod"><span class="cod">M·06</span><h3>Historial e indicadores</h3><p>Búsqueda en todos los partes y resumen por zona, tipo y período.</p><ul><li>Filtros por fecha, zona, tipo y palabra</li><li>Exportación del resumen</li></ul><span class="ph"><span class="chip">Fase 3</span></span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FASES -->
+<section>
+  <div class="wrap">
+    <div class="sec-intro">
+      <div class="eyebrow">Plan de trabajo</div>
+      <h2>Tres fases, cada una funcionando en planta</h2>
+      <p>Los plazos de cada fase se confirman cuando cerremos el listado de zonas y revisemos los partes de cantera y envase.</p>
+    </div>
+    <div class="phases">
+      <div class="phase"><div class="n">Fase 1</div><h3>Parte dictado y relevo</h3><ul><li>M·01 Parte dictado</li><li>M·02 Zonas y tipos de suceso</li><li>M·03 Relevo de turno</li><li>M·04 Bandeja de mantenimiento</li></ul><div class="res"><b>Resultado:</b> los tres turnos entregan el parte en la tablet y mantenimiento ve las averías al momento.</div></div>
+      <div class="phase"><div class="n">Fase 2</div><h3>Cantera, envase y áreas</h3><ul><li>M·05 Partes de cantera y envase</li><li>M·04 Bandeja de proceso y producción</li></ul><div class="res"><b>Resultado:</b> los viajes a tolva se cuentan con un toque y cada área tiene su vista.</div></div>
+      <div class="phase"><div class="n">Fase 3</div><h3>Historial e indicadores</h3><ul><li>M·06 Historial e indicadores</li><li>Resumen semanal por zona</li></ul><div class="res"><b>Resultado:</b> preguntas sobre paradas y averías respondidas con un filtro.</div></div>
+    </div>
+    <div class="delivers"><span>Cada fase cierra con</span><span class="chip ghost">Demo</span><span class="chip ghost">Prueba con sus turnos</span><span class="chip ghost">Capacitación</span><span class="chip ghost">Aprobación</span></div>
+  </div>
+</section>
+
+<!-- INVERSION -->
+<section>
+  <div class="wrap">
+    <div class="sec-intro">
+      <div class="eyebrow">Inversión</div>
+      <h2>Precio y lo que necesitamos para empezar</h2>
+    </div>
+    <div class="inv">
+      <div class="pricebox">
+        <div class="k">Inversión</div>
+        <div class="v">A confirmar</div>
+        <p>El precio por fase y el mantenimiento mensual se presentan después de la próxima reunión, una vez cerrado el alcance.</p>
+        <ul><li>Se contratan aparte: tablets y conectividad en planta.</li><li>La integración con los indicadores de planta se cotiza por separado, después de revisar sus interfaces.</li></ul>
+      </div>
+      <div class="box">
+        <h3>Lo que necesitamos de Fábrica de Cemento Málaga</h3>
+        <ol>
+          <li>El listado de zonas de fábrica con el nombre que usan en planta.</li>
+          <li>Los partes actuales de cantera y envase, y algunas hojas del cuaderno de relevo.</li>
+          <li>Un jefe de turno para la prueba de la fase 1.</li>
+          <li>Un referente de mantenimiento y uno de proceso y producción.</li>
+          <li>Información sobre la cobertura wifi o de datos en las zonas donde se va a usar la tablet.</li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FUTURO -->
+<section class="fut">
+  <div class="wrap">
+    <div class="sec-intro">
+      <div class="eyebrow">Más adelante</div>
+      <h2>Lo que se puede sumar sobre la misma base</h2>
+      <p>No forma parte de esta propuesta. Lo dejamos anotado para evaluarlo después de la fase 1.</p>
+    </div>
+    <div class="cards">
+      <div class="card"><div class="k">Integración</div><h3>Parte junto a los indicadores de planta</h3><p>Ver cada suceso al lado de las señales del sistema experto de esa zona y esa hora.</p></div>
+      <div class="card"><div class="k">Mantenimiento</div><h3>Órdenes de trabajo desde la avería</h3><p>Convertir una avería dictada en una orden de trabajo con responsable y repuestos.</p></div>
+      <div class="card"><div class="k">Resumen</div><h3>Informe semanal automático</h3><p>Un resumen por zona con las paradas y averías de la semana, enviado a los mandos.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section style="border-top:0;padding-top:20px">
+  <div class="wrap">
+    <div class="cta">
+      <div>
+        <div class="eyebrow" style="color:var(--lima)">Siguiente paso</div>
+        <h2>Revisemos juntos los partes de cantera y envase</h2>
+        <p>En la próxima reunión cerramos el listado de zonas, vemos los partes actuales y confirmamos plazos y precio.</p>
+        <div class="sig">Matías Lucero</div><svg class="wordmark cta-logo" viewBox="0 0 1364 383" role="img" aria-label="temacy"><path fill="currentColor" fill-rule="evenodd" d="M1142.50,381.97C1122.90,380.19 1106.36,371.55 1097.47,358.46C1094.90,354.68 1092.35,349.13 1091.51,345.50C1091.16,343.99 1090.68,342.10 1090.44,341.30C1090.20,340.50 1090.00,336.79 1090.00,333.05C1090.00,327.39 1090.21,325.47 1091.24,321.63C1094.62,309.03 1102.70,300.11 1119.39,290.56C1127.37,286.00 1143.78,278.99 1157.00,274.50C1159.34,273.71 1162.83,272.47 1164.75,271.75C1166.67,271.03 1172.86,268.89 1178.50,266.99C1196.05,261.09 1205.47,257.73 1206.03,257.17C1206.58,256.62 1209.00,246.64 1209.00,244.94C1209.00,243.75 1208.26,243.75 1206.58,244.94C1202.99,247.49 1194.63,251.73 1189.75,253.49C1180.09,256.97 1170.49,258.56 1159.27,258.55C1138.95,258.52 1123.90,252.19 1113.18,239.17C1109.92,235.21 1105.00,226.01 1105.00,223.86C1105.00,222.25 1103.86,222.43 1101.83,224.37C1098.02,228.00 1091.68,232.79 1083.25,238.39C1079.13,241.13 1066.38,247.81 1062.46,249.27C1051.36,253.43 1041.64,256.13 1034.67,257.02C1032.24,257.33 1029.12,257.77 1027.75,258.00C1026.38,258.23 1020.52,258.35 1014.75,258.28C1003.68,258.14 997.19,257.39 988.73,255.25C983.60,253.96 973.06,249.96 971.07,248.56C970.34,248.05 968.51,247.01 967.00,246.25C959.04,242.25 948.01,232.58 941.75,224.09C940.10,221.86 938.47,220.02 938.14,220.01C937.80,220.01 937.13,220.62 936.65,221.38C933.34,226.61 924.05,236.10 916.75,241.71C913.06,244.55 904.78,250.00 904.16,250.00C904.02,250.00 902.74,250.59 901.32,251.31C897.52,253.25 889.44,255.92 883.75,257.11C879.66,257.97 876.97,258.16 869.00,258.17C860.19,258.17 858.70,258.05 853.59,256.85C850.48,256.12 846.91,255.07 845.66,254.51C844.40,253.95 843.12,253.50 842.81,253.49C840.90,253.46 830.83,246.38 826.87,242.27C822.50,237.74 817.03,229.28 815.99,225.43C815.71,224.43 815.18,223.36 814.80,223.04C814.14,222.49 813.29,223.31 809.00,228.67C807.36,230.72 797.16,239.20 792.84,242.11C786.77,246.19 776.04,251.51 769.41,253.73C745.62,261.69 718.88,259.46 701.50,248.07C692.93,242.45 685.19,234.53 680.87,226.96C680.25,225.89 679.48,225.01 679.16,225.00C678.83,225.00 677.29,226.52 675.73,228.38C666.44,239.43 651.51,249.92 638.75,254.33C618.77,261.26 594.13,259.21 580.40,249.49C579.22,248.65 577.46,247.44 576.50,246.80C575.54,246.16 573.28,244.08 571.48,242.17C562.44,232.58 557.11,220.01 556.03,205.75C555.22,195.00 555.60,191.67 562.25,150.75C565.88,128.37 566.17,125.66 565.50,120.28C564.71,113.88 562.76,110.43 558.77,108.39C556.08,107.01 550.06,107.44 546.44,109.28C540.22,112.43 532.98,118.42 528.97,123.74C527.93,125.12 526.21,127.38 525.16,128.75C522.44,132.30 515.00,143.63 515.00,144.22C515.00,144.38 514.39,145.47 513.65,146.63C511.97,149.26 506.13,161.04 505.17,163.74C504.78,164.84 504.17,166.19 503.82,166.74C502.74,168.42 499.50,176.79 496.67,185.21C493.40,194.91 490.34,206.53 489.29,213.25C487.25,226.22 486.53,230.94 486.24,233.25C485.41,239.94 483.89,246.33 482.73,248.00C481.16,250.26 478.82,251.82 476.00,252.46C472.74,253.21 434.78,253.10 432.46,252.34C430.39,251.66 428.38,250.16 427.65,248.74C426.28,246.11 426.42,244.18 429.24,227.00C431.02,216.08 431.58,212.59 432.00,209.75C432.24,208.10 432.78,204.61 433.20,202.00C434.94,191.14 436.07,183.87 437.01,177.50C437.56,173.79 438.36,168.50 438.80,165.75C440.63,154.17 443.03,139.51 443.61,136.25C443.95,134.32 444.24,129.15 444.24,124.75C444.25,117.44 444.15,116.53 443.09,114.18C441.65,111.01 439.96,109.39 436.87,108.24C430.96,106.05 421.10,109.23 414.10,115.61C409.51,119.79 403.27,126.90 400.63,130.98C399.11,133.33 397.13,136.38 396.24,137.75C390.18,147.14 381.75,165.83 376.73,181.01C373.47,190.88 369.81,205.94 368.03,216.77C367.18,221.99 366.14,228.28 365.74,230.75C365.33,233.22 364.68,237.44 364.29,240.12C363.20,247.58 361.21,250.71 356.50,252.37C354.14,253.20 314.97,253.26 311.71,252.44C310.10,252.03 308.98,251.30 307.73,249.85C306.21,248.06 306.00,247.49 305.99,245.04C305.99,243.50 306.47,239.38 307.07,235.87C307.66,232.36 308.01,229.35 307.85,229.18C307.43,228.77 306.71,229.16 303.50,231.52C290.63,240.98 274.64,249.26 263.00,252.49C261.76,252.83 260.30,253.30 259.75,253.53C257.93,254.30 248.32,256.43 244.00,257.02C241.66,257.34 238.66,257.78 237.32,257.99C232.29,258.80 215.60,258.48 208.50,257.44C196.30,255.65 187.87,253.26 178.75,249.01C171.00,245.38 170.64,245.19 165.00,241.55C158.61,237.42 148.40,228.00 144.05,222.23C143.23,221.14 142.12,219.70 141.58,219.03L140.60,217.81L139.17,219.48C138.39,220.40 137.54,221.51 137.29,221.95C135.15,225.64 124.23,236.92 118.50,241.35C102.37,253.81 86.65,259.03 67.25,258.35C57.64,258.01 50.34,256.33 42.62,252.68C34.10,248.66 27.69,243.39 22.56,236.18C15.13,225.76 11.97,216.07 11.19,201.31C10.81,194.20 11.38,188.29 13.77,174.25C14.71,168.75 15.69,162.79 15.96,161.00C16.23,159.21 16.79,155.61 17.21,153.00C17.62,150.39 18.21,146.68 18.52,144.75C18.82,142.82 19.49,138.89 20.00,136.00C20.50,133.11 21.63,126.25 22.50,120.75C23.37,115.25 24.63,107.43 25.29,103.38C25.96,99.33 26.50,95.78 26.50,95.50C26.50,95.19 23.49,95.00 18.34,95.00C7.05,95.00 4.60,94.18 2.31,89.65C1.86,88.77 1.50,87.08 1.51,85.90C1.51,83.64 5.08,62.56 5.99,59.43C6.66,57.13 10.27,53.75 12.82,53.04C13.88,52.75 18.62,52.50 23.34,52.50C30.15,52.50 32.08,52.35 32.65,51.78C33.05,51.38 33.60,49.53 33.89,47.65C34.17,45.78 34.97,40.88 35.66,36.75C36.35,32.62 37.18,27.34 37.51,25.00C37.84,22.66 38.29,19.85 38.51,18.75C38.74,17.65 39.20,15.11 39.55,13.10C39.89,11.10 40.36,9.34 40.58,9.20C40.81,9.06 41.00,8.56 41.00,8.08C41.00,6.70 44.01,3.45 46.21,2.45C48.10,1.59 49.94,1.52 70.55,1.51L92.85,1.50L94.51,2.62C95.41,3.24 96.63,4.39 97.20,5.16C98.87,7.41 98.67,9.85 94.75,34.50C92.14,50.96 92.08,51.45 92.72,51.98C93.03,52.23 99.74,52.51 107.63,52.60L121.99,52.75L124.07,54.84C125.90,56.66 126.19,57.26 126.37,59.59C126.49,61.08 126.12,64.88 125.52,68.25C124.93,71.55 124.24,75.60 123.97,77.25C122.48,86.51 121.66,89.53 120.20,91.06C116.93,94.49 114.32,94.96 98.18,94.98L85.11,95.00L84.78,97.37C84.60,98.68 83.91,103.01 83.24,107.00C82.58,110.99 81.67,116.61 81.23,119.50C80.79,122.39 80.22,125.99 79.98,127.50C79.73,129.01 78.98,133.74 78.30,138.00C77.63,142.26 76.27,150.70 75.28,156.75C71.14,182.17 70.71,192.54 73.45,200.75C74.87,205.01 78.21,208.16 82.20,208.99C92.00,211.02 101.89,204.76 111.31,190.54C112.87,188.18 114.58,185.61 115.12,184.84C117.02,182.07 125.58,164.37 125.77,162.83C126.74,155.05 127.11,152.37 127.57,150.00C128.60,144.67 130.60,136.71 131.84,133.00C134.07,126.35 138.71,115.88 140.26,114.00C140.60,113.59 141.38,112.27 141.98,111.06C142.59,109.86 144.12,107.38 145.38,105.56C146.65,103.74 148.15,101.58 148.72,100.76C152.10,95.89 161.59,86.08 169.25,79.55C177.01,72.94 191.83,64.12 200.75,60.80C219.16,53.97 229.11,52.14 245.34,52.63C259.11,53.05 268.24,55.34 279.39,61.21C286.28,64.84 288.29,66.30 293.33,71.35C300.50,78.52 305.46,88.00 307.42,98.28C309.71,110.25 305.66,129.04 298.36,140.37C297.61,141.53 297.00,142.59 297.00,142.73C297.00,142.87 295.94,144.40 294.64,146.12C288.76,153.89 278.61,162.57 267.75,169.10C261.40,172.91 247.10,178.89 239.12,181.06C238.23,181.30 236.66,181.74 235.62,182.03C226.92,184.51 214.33,186.37 203.08,186.84C197.53,187.07 195.34,187.34 195.16,187.80C194.52,189.47 203.75,199.62 207.84,201.75C208.89,202.29 209.86,202.86 210.00,203.00C210.88,203.89 219.79,206.79 224.00,207.55C230.00,208.64 243.55,208.41 250.50,207.11C268.77,203.69 286.68,194.15 299.50,181.01C305.98,174.37 312.67,165.14 316.37,157.75C317.34,155.82 318.69,153.12 319.38,151.75C320.75,149.01 321.56,145.64 322.48,138.75C322.82,136.28 323.72,130.43 324.50,125.75C325.27,121.08 326.51,113.31 327.24,108.50C329.88,91.20 333.33,70.06 333.93,67.50C335.08,62.63 338.02,59.56 342.50,58.54C343.82,58.24 352.79,58.02 364.28,58.01C385.92,58.00 388.05,58.24 389.90,60.89C391.84,63.67 392.04,65.23 391.19,70.68C387.99,91.17 387.90,92.24 389.47,91.27C389.77,91.08 390.90,89.74 391.96,88.30C394.66,84.66 406.02,73.24 410.25,69.92C414.17,66.86 418.84,63.64 421.79,61.97C425.82,59.70 429.40,58.00 430.16,58.00C430.59,58.00 431.08,57.78 431.24,57.52C431.74,56.71 440.57,54.10 445.78,53.21C451.56,52.22 464.47,52.48 469.00,53.67C482.35,57.17 491.00,64.18 497.27,76.54C499.05,80.05 501.69,88.45 502.45,93.00C503.35,98.44 503.69,99.65 504.38,99.88C504.72,99.99 505.00,99.83 505.00,99.52C505.00,98.83 508.08,93.95 511.52,89.20C514.45,85.15 524.78,74.70 529.25,71.27C538.53,64.15 547.50,59.20 556.85,56.05C564.42,53.50 570.44,52.50 578.28,52.50C591.87,52.50 602.99,56.98 610.71,65.56C613.21,68.34 616.00,72.16 616.00,72.80C616.00,73.00 616.35,73.55 616.77,74.02C617.53,74.86 618.47,77.10 620.76,83.50C623.81,92.04 625.30,105.49 624.50,117.34C623.97,125.20 623.59,128.19 620.97,145.50C620.11,151.14 619.22,157.32 618.99,159.25C618.76,161.18 618.32,164.31 618.01,166.22C615.25,183.37 615.35,197.29 618.27,203.08C621.00,208.49 626.39,210.49 633.50,208.75C642.04,206.66 650.95,197.96 659.34,183.56C666.14,171.89 668.16,166.94 669.54,158.63C671.10,149.18 674.39,137.27 677.52,129.75C677.86,128.93 678.47,127.46 678.87,126.50C680.07,123.60 685.81,112.33 687.07,110.39C687.72,109.39 689.15,107.08 690.25,105.26C696.33,95.20 707.21,83.33 718.37,74.57C724.93,69.42 735.14,63.24 740.75,61.02C742.40,60.37 743.98,59.67 744.25,59.46C745.04,58.87 753.36,56.15 757.75,55.05C765.96,52.99 772.13,52.38 782.00,52.65C792.01,52.93 794.61,53.31 802.25,55.65C811.77,58.56 817.34,61.38 824.91,67.13C827.00,68.71 829.00,70.00 829.35,70.00C829.73,70.00 830.00,69.41 830.00,68.59C830.00,66.26 832.53,61.91 834.74,60.42C838.01,58.24 840.67,58.00 862.00,58.00C881.71,58.00 881.86,58.01 884.01,59.14C887.42,60.95 888.25,62.44 888.23,66.66C888.22,68.64 887.83,72.61 887.36,75.50C886.89,78.39 885.94,84.46 885.25,89.00C881.48,113.74 879.21,128.17 878.49,132.00C877.95,134.91 877.12,140.31 875.48,151.75C874.92,155.60 873.92,162.24 873.26,166.50C870.83,182.01 870.54,191.04 872.22,198.90C873.74,206.06 877.56,209.27 884.50,209.22C891.45,209.17 897.42,205.81 904.39,198.04C908.98,192.93 912.45,188.07 915.03,183.19C915.88,181.57 917.00,179.57 917.51,178.75C918.73,176.79 920.76,172.59 922.54,168.35C923.69,165.60 924.11,163.47 924.73,157.10C925.82,145.95 929.01,133.24 932.95,124.36C933.53,123.06 934.47,120.93 935.04,119.62C937.42,114.16 944.70,102.33 948.76,97.31C951.38,94.07 959.64,85.27 963.00,82.15C971.87,73.89 983.21,66.58 995.14,61.44C1009.78,55.13 1022.01,52.50 1036.79,52.50C1049.76,52.50 1064.27,55.46 1074.75,60.24C1078.86,62.11 1086.92,66.24 1088.25,67.15C1096.20,72.59 1100.05,76.35 1101.25,79.84C1102.23,82.70 1101.21,84.97 1096.50,90.31C1095.26,91.71 1091.57,95.93 1088.29,99.68C1079.68,109.53 1079.07,109.73 1069.45,105.93C1062.73,103.28 1056.80,101.98 1049.90,101.65C1042.13,101.28 1033.78,102.60 1027.94,105.12C1027.01,105.52 1025.02,106.39 1023.51,107.05C1015.72,110.46 1005.68,118.93 1000.01,126.89C990.71,139.94 985.76,157.96 987.48,172.54C988.09,177.73 990.46,186.12 991.98,188.50C992.42,189.19 993.09,190.35 993.46,191.09C996.05,196.25 1003.92,202.81 1011.11,205.80C1021.08,209.94 1034.96,210.58 1047.25,207.47C1066.04,202.71 1081.51,191.12 1097.44,169.88C1104.07,161.04 1108.00,154.19 1108.00,151.46C1108.00,150.75 1108.42,147.72 1108.94,144.71C1109.45,141.71 1110.15,137.34 1110.48,135.00C1110.82,132.66 1111.65,127.26 1112.32,123.00C1114.85,106.94 1115.45,103.10 1116.23,97.75C1120.85,66.41 1121.31,64.32 1124.32,61.32C1127.13,58.51 1127.70,58.45 1152.35,58.61L1174.95,58.75L1176.71,60.46C1179.19,62.87 1179.67,64.65 1179.04,69.10C1177.99,76.51 1174.38,99.82 1172.48,111.50C1171.92,114.94 1171.01,120.79 1170.47,124.50C1169.93,128.21 1169.24,132.60 1168.94,134.25C1168.64,135.90 1168.10,139.28 1167.73,141.75C1167.36,144.22 1166.48,150.07 1165.77,154.75C1161.72,181.38 1161.25,187.65 1162.78,194.97C1163.87,200.23 1165.21,203.00 1167.90,205.63C1171.03,208.68 1174.60,209.76 1179.96,209.28C1187.36,208.62 1192.35,206.09 1199.07,199.61C1202.32,196.47 1205.12,193.13 1207.65,189.35C1211.24,183.99 1216.62,173.90 1218.29,169.38C1223.34,155.72 1225.61,146.69 1227.99,130.75C1229.60,119.99 1231.39,108.40 1232.49,101.50C1234.61,88.33 1235.60,82.03 1236.54,75.75C1238.22,64.55 1239.48,61.84 1244.13,59.44C1245.93,58.52 1247.07,58.48 1268.73,58.61L1291.44,58.75L1293.01,60.25C1293.87,61.08 1294.92,62.54 1295.32,63.50C1296.12,65.37 1295.92,67.71 1294.18,77.50C1293.76,79.84 1293.22,83.21 1292.98,85.00C1292.75,86.79 1292.31,89.71 1292.00,91.50C1291.70,93.29 1291.26,96.10 1291.03,97.75C1290.79,99.40 1289.79,105.81 1288.81,112.00C1287.83,118.19 1286.44,127.08 1285.73,131.75C1285.02,136.43 1284.12,142.05 1283.74,144.25C1283.35,146.45 1282.68,150.50 1282.25,153.25C1281.82,156.00 1281.23,159.60 1280.96,161.25C1280.68,162.90 1280.25,165.71 1280.01,167.50C1279.77,169.29 1278.79,175.47 1277.83,181.25C1276.06,191.88 1272.75,213.25 1272.01,218.75C1271.79,220.40 1271.45,222.59 1271.25,223.62C1271.05,224.68 1271.09,225.50 1271.34,225.50C1272.95,225.50 1286.91,214.25 1291.48,209.27C1297.02,203.23 1299.92,199.87 1302.25,196.79C1303.62,194.97 1305.26,192.84 1305.88,192.04C1306.49,191.25 1307.00,190.39 1307.00,190.13C1307.00,189.87 1307.45,189.25 1308.00,188.75C1308.55,188.25 1309.00,187.67 1309.00,187.45C1309.00,187.23 1309.73,185.98 1310.62,184.68C1315.15,178.07 1320.26,167.62 1327.86,149.40C1329.44,145.60 1333.02,143.66 1336.87,144.53C1343.40,145.99 1358.85,150.97 1360.83,152.26C1366.32,155.83 1360.63,175.86 1347.00,200.99C1345.07,204.55 1337.35,215.93 1334.78,219.00C1327.63,227.56 1325.37,230.15 1321.75,233.93C1317.99,237.85 1308.88,246.14 1305.22,248.98C1291.21,259.80 1282.65,265.24 1267.41,273.00L1260.56,276.48L1258.50,282.80C1257.37,286.28 1255.91,290.51 1255.26,292.19C1254.61,293.87 1253.51,296.73 1252.80,298.55C1250.82,303.67 1244.60,317.10 1243.55,318.53C1243.03,319.23 1241.89,321.23 1241.02,322.96C1240.15,324.69 1238.66,327.21 1237.72,328.55C1236.77,329.89 1236.00,331.18 1236.00,331.42C1236.00,331.65 1235.55,332.25 1235.00,332.75C1234.45,333.25 1234.00,333.84 1234.00,334.07C1234.00,334.29 1233.16,335.58 1232.12,336.92C1218.86,354.18 1207.52,364.19 1192.39,371.99C1187.58,374.47 1186.56,374.90 1179.75,377.36C1173.47,379.63 1165.35,381.29 1157.25,381.98C1150.62,382.54 1148.74,382.54 1142.50,381.97ZM1162.48,329.98C1169.37,327.69 1174.00,324.99 1178.66,320.52C1183.54,315.84 1185.60,313.24 1189.14,307.27C1191.43,303.41 1192.37,301.20 1191.90,300.74C1191.78,300.62 1190.46,300.98 1188.97,301.54C1187.47,302.10 1185.01,302.99 1183.50,303.50C1181.99,304.01 1179.51,304.92 1178.00,305.51C1176.49,306.09 1174.69,306.76 1174.00,306.98C1171.31,307.85 1157.99,313.99 1154.52,315.95C1150.68,318.13 1147.35,320.56 1145.88,322.25C1142.93,325.65 1144.68,329.77 1149.64,331.05C1152.20,331.71 1158.96,331.15 1162.48,329.98ZM765.68,208.75C775.92,206.59 785.27,200.27 793.82,189.75C799.72,182.48 807.77,168.38 811.66,158.50C816.02,147.42 821.95,124.70 821.99,118.92C822.00,117.91 821.09,116.75 818.13,113.99C816.01,112.00 813.14,109.72 811.76,108.92C810.38,108.11 808.91,107.26 808.50,107.02C800.70,102.49 787.13,101.75 776.60,105.28C767.68,108.28 760.50,112.67 753.93,119.17C749.79,123.26 745.00,129.04 745.00,129.94C745.00,130.18 744.66,130.66 744.24,131.01C742.90,132.12 738.16,141.58 736.25,146.94C732.40,157.76 731.80,161.14 731.77,172.00C731.75,183.36 732.22,186.10 735.38,193.00C737.16,196.90 739.57,200.42 742.08,202.82C747.92,208.38 756.85,210.63 765.68,208.75ZM197.00,157.22C202.52,156.73 210.86,154.86 215.75,153.02C226.70,148.90 229.72,147.44 236.38,143.06C241.97,139.38 248.91,132.85 251.58,128.75C256.59,121.07 256.80,111.80 252.10,106.83C247.09,101.54 237.02,101.13 227.25,105.80C220.16,109.19 215.79,112.36 209.97,118.34C201.16,127.38 196.18,135.28 192.93,145.35C191.18,150.80 189.87,156.89 190.31,157.60C190.47,157.85 191.19,157.94 191.92,157.81C192.65,157.67 194.94,157.40 197.00,157.22Z"/></svg>
+      </div>
+      <div class="btns">
+        <a class="btn solid" href="mailto:mati.lucero@temacy.com?subject=Propuesta%20parte%20de%20relevo%20digital">Escribir a Matías</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</div><!-- /main -->
+
+
+
+<footer>
+  <div class="wrap">
+    <span><svg class="wordmark foot-logo" viewBox="0 0 1364 383" role="img" aria-label="temacy"><path fill="currentColor" fill-rule="evenodd" d="M1142.50,381.97C1122.90,380.19 1106.36,371.55 1097.47,358.46C1094.90,354.68 1092.35,349.13 1091.51,345.50C1091.16,343.99 1090.68,342.10 1090.44,341.30C1090.20,340.50 1090.00,336.79 1090.00,333.05C1090.00,327.39 1090.21,325.47 1091.24,321.63C1094.62,309.03 1102.70,300.11 1119.39,290.56C1127.37,286.00 1143.78,278.99 1157.00,274.50C1159.34,273.71 1162.83,272.47 1164.75,271.75C1166.67,271.03 1172.86,268.89 1178.50,266.99C1196.05,261.09 1205.47,257.73 1206.03,257.17C1206.58,256.62 1209.00,246.64 1209.00,244.94C1209.00,243.75 1208.26,243.75 1206.58,244.94C1202.99,247.49 1194.63,251.73 1189.75,253.49C1180.09,256.97 1170.49,258.56 1159.27,258.55C1138.95,258.52 1123.90,252.19 1113.18,239.17C1109.92,235.21 1105.00,226.01 1105.00,223.86C1105.00,222.25 1103.86,222.43 1101.83,224.37C1098.02,228.00 1091.68,232.79 1083.25,238.39C1079.13,241.13 1066.38,247.81 1062.46,249.27C1051.36,253.43 1041.64,256.13 1034.67,257.02C1032.24,257.33 1029.12,257.77 1027.75,258.00C1026.38,258.23 1020.52,258.35 1014.75,258.28C1003.68,258.14 997.19,257.39 988.73,255.25C983.60,253.96 973.06,249.96 971.07,248.56C970.34,248.05 968.51,247.01 967.00,246.25C959.04,242.25 948.01,232.58 941.75,224.09C940.10,221.86 938.47,220.02 938.14,220.01C937.80,220.01 937.13,220.62 936.65,221.38C933.34,226.61 924.05,236.10 916.75,241.71C913.06,244.55 904.78,250.00 904.16,250.00C904.02,250.00 902.74,250.59 901.32,251.31C897.52,253.25 889.44,255.92 883.75,257.11C879.66,257.97 876.97,258.16 869.00,258.17C860.19,258.17 858.70,258.05 853.59,256.85C850.48,256.12 846.91,255.07 845.66,254.51C844.40,253.95 843.12,253.50 842.81,253.49C840.90,253.46 830.83,246.38 826.87,242.27C822.50,237.74 817.03,229.28 815.99,225.43C815.71,224.43 815.18,223.36 814.80,223.04C814.14,222.49 813.29,223.31 809.00,228.67C807.36,230.72 797.16,239.20 792.84,242.11C786.77,246.19 776.04,251.51 769.41,253.73C745.62,261.69 718.88,259.46 701.50,248.07C692.93,242.45 685.19,234.53 680.87,226.96C680.25,225.89 679.48,225.01 679.16,225.00C678.83,225.00 677.29,226.52 675.73,228.38C666.44,239.43 651.51,249.92 638.75,254.33C618.77,261.26 594.13,259.21 580.40,249.49C579.22,248.65 577.46,247.44 576.50,246.80C575.54,246.16 573.28,244.08 571.48,242.17C562.44,232.58 557.11,220.01 556.03,205.75C555.22,195.00 555.60,191.67 562.25,150.75C565.88,128.37 566.17,125.66 565.50,120.28C564.71,113.88 562.76,110.43 558.77,108.39C556.08,107.01 550.06,107.44 546.44,109.28C540.22,112.43 532.98,118.42 528.97,123.74C527.93,125.12 526.21,127.38 525.16,128.75C522.44,132.30 515.00,143.63 515.00,144.22C515.00,144.38 514.39,145.47 513.65,146.63C511.97,149.26 506.13,161.04 505.17,163.74C504.78,164.84 504.17,166.19 503.82,166.74C502.74,168.42 499.50,176.79 496.67,185.21C493.40,194.91 490.34,206.53 489.29,213.25C487.25,226.22 486.53,230.94 486.24,233.25C485.41,239.94 483.89,246.33 482.73,248.00C481.16,250.26 478.82,251.82 476.00,252.46C472.74,253.21 434.78,253.10 432.46,252.34C430.39,251.66 428.38,250.16 427.65,248.74C426.28,246.11 426.42,244.18 429.24,227.00C431.02,216.08 431.58,212.59 432.00,209.75C432.24,208.10 432.78,204.61 433.20,202.00C434.94,191.14 436.07,183.87 437.01,177.50C437.56,173.79 438.36,168.50 438.80,165.75C440.63,154.17 443.03,139.51 443.61,136.25C443.95,134.32 444.24,129.15 444.24,124.75C444.25,117.44 444.15,116.53 443.09,114.18C441.65,111.01 439.96,109.39 436.87,108.24C430.96,106.05 421.10,109.23 414.10,115.61C409.51,119.79 403.27,126.90 400.63,130.98C399.11,133.33 397.13,136.38 396.24,137.75C390.18,147.14 381.75,165.83 376.73,181.01C373.47,190.88 369.81,205.94 368.03,216.77C367.18,221.99 366.14,228.28 365.74,230.75C365.33,233.22 364.68,237.44 364.29,240.12C363.20,247.58 361.21,250.71 356.50,252.37C354.14,253.20 314.97,253.26 311.71,252.44C310.10,252.03 308.98,251.30 307.73,249.85C306.21,248.06 306.00,247.49 305.99,245.04C305.99,243.50 306.47,239.38 307.07,235.87C307.66,232.36 308.01,229.35 307.85,229.18C307.43,228.77 306.71,229.16 303.50,231.52C290.63,240.98 274.64,249.26 263.00,252.49C261.76,252.83 260.30,253.30 259.75,253.53C257.93,254.30 248.32,256.43 244.00,257.02C241.66,257.34 238.66,257.78 237.32,257.99C232.29,258.80 215.60,258.48 208.50,257.44C196.30,255.65 187.87,253.26 178.75,249.01C171.00,245.38 170.64,245.19 165.00,241.55C158.61,237.42 148.40,228.00 144.05,222.23C143.23,221.14 142.12,219.70 141.58,219.03L140.60,217.81L139.17,219.48C138.39,220.40 137.54,221.51 137.29,221.95C135.15,225.64 124.23,236.92 118.50,241.35C102.37,253.81 86.65,259.03 67.25,258.35C57.64,258.01 50.34,256.33 42.62,252.68C34.10,248.66 27.69,243.39 22.56,236.18C15.13,225.76 11.97,216.07 11.19,201.31C10.81,194.20 11.38,188.29 13.77,174.25C14.71,168.75 15.69,162.79 15.96,161.00C16.23,159.21 16.79,155.61 17.21,153.00C17.62,150.39 18.21,146.68 18.52,144.75C18.82,142.82 19.49,138.89 20.00,136.00C20.50,133.11 21.63,126.25 22.50,120.75C23.37,115.25 24.63,107.43 25.29,103.38C25.96,99.33 26.50,95.78 26.50,95.50C26.50,95.19 23.49,95.00 18.34,95.00C7.05,95.00 4.60,94.18 2.31,89.65C1.86,88.77 1.50,87.08 1.51,85.90C1.51,83.64 5.08,62.56 5.99,59.43C6.66,57.13 10.27,53.75 12.82,53.04C13.88,52.75 18.62,52.50 23.34,52.50C30.15,52.50 32.08,52.35 32.65,51.78C33.05,51.38 33.60,49.53 33.89,47.65C34.17,45.78 34.97,40.88 35.66,36.75C36.35,32.62 37.18,27.34 37.51,25.00C37.84,22.66 38.29,19.85 38.51,18.75C38.74,17.65 39.20,15.11 39.55,13.10C39.89,11.10 40.36,9.34 40.58,9.20C40.81,9.06 41.00,8.56 41.00,8.08C41.00,6.70 44.01,3.45 46.21,2.45C48.10,1.59 49.94,1.52 70.55,1.51L92.85,1.50L94.51,2.62C95.41,3.24 96.63,4.39 97.20,5.16C98.87,7.41 98.67,9.85 94.75,34.50C92.14,50.96 92.08,51.45 92.72,51.98C93.03,52.23 99.74,52.51 107.63,52.60L121.99,52.75L124.07,54.84C125.90,56.66 126.19,57.26 126.37,59.59C126.49,61.08 126.12,64.88 125.52,68.25C124.93,71.55 124.24,75.60 123.97,77.25C122.48,86.51 121.66,89.53 120.20,91.06C116.93,94.49 114.32,94.96 98.18,94.98L85.11,95.00L84.78,97.37C84.60,98.68 83.91,103.01 83.24,107.00C82.58,110.99 81.67,116.61 81.23,119.50C80.79,122.39 80.22,125.99 79.98,127.50C79.73,129.01 78.98,133.74 78.30,138.00C77.63,142.26 76.27,150.70 75.28,156.75C71.14,182.17 70.71,192.54 73.45,200.75C74.87,205.01 78.21,208.16 82.20,208.99C92.00,211.02 101.89,204.76 111.31,190.54C112.87,188.18 114.58,185.61 115.12,184.84C117.02,182.07 125.58,164.37 125.77,162.83C126.74,155.05 127.11,152.37 127.57,150.00C128.60,144.67 130.60,136.71 131.84,133.00C134.07,126.35 138.71,115.88 140.26,114.00C140.60,113.59 141.38,112.27 141.98,111.06C142.59,109.86 144.12,107.38 145.38,105.56C146.65,103.74 148.15,101.58 148.72,100.76C152.10,95.89 161.59,86.08 169.25,79.55C177.01,72.94 191.83,64.12 200.75,60.80C219.16,53.97 229.11,52.14 245.34,52.63C259.11,53.05 268.24,55.34 279.39,61.21C286.28,64.84 288.29,66.30 293.33,71.35C300.50,78.52 305.46,88.00 307.42,98.28C309.71,110.25 305.66,129.04 298.36,140.37C297.61,141.53 297.00,142.59 297.00,142.73C297.00,142.87 295.94,144.40 294.64,146.12C288.76,153.89 278.61,162.57 267.75,169.10C261.40,172.91 247.10,178.89 239.12,181.06C238.23,181.30 236.66,181.74 235.62,182.03C226.92,184.51 214.33,186.37 203.08,186.84C197.53,187.07 195.34,187.34 195.16,187.80C194.52,189.47 203.75,199.62 207.84,201.75C208.89,202.29 209.86,202.86 210.00,203.00C210.88,203.89 219.79,206.79 224.00,207.55C230.00,208.64 243.55,208.41 250.50,207.11C268.77,203.69 286.68,194.15 299.50,181.01C305.98,174.37 312.67,165.14 316.37,157.75C317.34,155.82 318.69,153.12 319.38,151.75C320.75,149.01 321.56,145.64 322.48,138.75C322.82,136.28 323.72,130.43 324.50,125.75C325.27,121.08 326.51,113.31 327.24,108.50C329.88,91.20 333.33,70.06 333.93,67.50C335.08,62.63 338.02,59.56 342.50,58.54C343.82,58.24 352.79,58.02 364.28,58.01C385.92,58.00 388.05,58.24 389.90,60.89C391.84,63.67 392.04,65.23 391.19,70.68C387.99,91.17 387.90,92.24 389.47,91.27C389.77,91.08 390.90,89.74 391.96,88.30C394.66,84.66 406.02,73.24 410.25,69.92C414.17,66.86 418.84,63.64 421.79,61.97C425.82,59.70 429.40,58.00 430.16,58.00C430.59,58.00 431.08,57.78 431.24,57.52C431.74,56.71 440.57,54.10 445.78,53.21C451.56,52.22 464.47,52.48 469.00,53.67C482.35,57.17 491.00,64.18 497.27,76.54C499.05,80.05 501.69,88.45 502.45,93.00C503.35,98.44 503.69,99.65 504.38,99.88C504.72,99.99 505.00,99.83 505.00,99.52C505.00,98.83 508.08,93.95 511.52,89.20C514.45,85.15 524.78,74.70 529.25,71.27C538.53,64.15 547.50,59.20 556.85,56.05C564.42,53.50 570.44,52.50 578.28,52.50C591.87,52.50 602.99,56.98 610.71,65.56C613.21,68.34 616.00,72.16 616.00,72.80C616.00,73.00 616.35,73.55 616.77,74.02C617.53,74.86 618.47,77.10 620.76,83.50C623.81,92.04 625.30,105.49 624.50,117.34C623.97,125.20 623.59,128.19 620.97,145.50C620.11,151.14 619.22,157.32 618.99,159.25C618.76,161.18 618.32,164.31 618.01,166.22C615.25,183.37 615.35,197.29 618.27,203.08C621.00,208.49 626.39,210.49 633.50,208.75C642.04,206.66 650.95,197.96 659.34,183.56C666.14,171.89 668.16,166.94 669.54,158.63C671.10,149.18 674.39,137.27 677.52,129.75C677.86,128.93 678.47,127.46 678.87,126.50C680.07,123.60 685.81,112.33 687.07,110.39C687.72,109.39 689.15,107.08 690.25,105.26C696.33,95.20 707.21,83.33 718.37,74.57C724.93,69.42 735.14,63.24 740.75,61.02C742.40,60.37 743.98,59.67 744.25,59.46C745.04,58.87 753.36,56.15 757.75,55.05C765.96,52.99 772.13,52.38 782.00,52.65C792.01,52.93 794.61,53.31 802.25,55.65C811.77,58.56 817.34,61.38 824.91,67.13C827.00,68.71 829.00,70.00 829.35,70.00C829.73,70.00 830.00,69.41 830.00,68.59C830.00,66.26 832.53,61.91 834.74,60.42C838.01,58.24 840.67,58.00 862.00,58.00C881.71,58.00 881.86,58.01 884.01,59.14C887.42,60.95 888.25,62.44 888.23,66.66C888.22,68.64 887.83,72.61 887.36,75.50C886.89,78.39 885.94,84.46 885.25,89.00C881.48,113.74 879.21,128.17 878.49,132.00C877.95,134.91 877.12,140.31 875.48,151.75C874.92,155.60 873.92,162.24 873.26,166.50C870.83,182.01 870.54,191.04 872.22,198.90C873.74,206.06 877.56,209.27 884.50,209.22C891.45,209.17 897.42,205.81 904.39,198.04C908.98,192.93 912.45,188.07 915.03,183.19C915.88,181.57 917.00,179.57 917.51,178.75C918.73,176.79 920.76,172.59 922.54,168.35C923.69,165.60 924.11,163.47 924.73,157.10C925.82,145.95 929.01,133.24 932.95,124.36C933.53,123.06 934.47,120.93 935.04,119.62C937.42,114.16 944.70,102.33 948.76,97.31C951.38,94.07 959.64,85.27 963.00,82.15C971.87,73.89 983.21,66.58 995.14,61.44C1009.78,55.13 1022.01,52.50 1036.79,52.50C1049.76,52.50 1064.27,55.46 1074.75,60.24C1078.86,62.11 1086.92,66.24 1088.25,67.15C1096.20,72.59 1100.05,76.35 1101.25,79.84C1102.23,82.70 1101.21,84.97 1096.50,90.31C1095.26,91.71 1091.57,95.93 1088.29,99.68C1079.68,109.53 1079.07,109.73 1069.45,105.93C1062.73,103.28 1056.80,101.98 1049.90,101.65C1042.13,101.28 1033.78,102.60 1027.94,105.12C1027.01,105.52 1025.02,106.39 1023.51,107.05C1015.72,110.46 1005.68,118.93 1000.01,126.89C990.71,139.94 985.76,157.96 987.48,172.54C988.09,177.73 990.46,186.12 991.98,188.50C992.42,189.19 993.09,190.35 993.46,191.09C996.05,196.25 1003.92,202.81 1011.11,205.80C1021.08,209.94 1034.96,210.58 1047.25,207.47C1066.04,202.71 1081.51,191.12 1097.44,169.88C1104.07,161.04 1108.00,154.19 1108.00,151.46C1108.00,150.75 1108.42,147.72 1108.94,144.71C1109.45,141.71 1110.15,137.34 1110.48,135.00C1110.82,132.66 1111.65,127.26 1112.32,123.00C1114.85,106.94 1115.45,103.10 1116.23,97.75C1120.85,66.41 1121.31,64.32 1124.32,61.32C1127.13,58.51 1127.70,58.45 1152.35,58.61L1174.95,58.75L1176.71,60.46C1179.19,62.87 1179.67,64.65 1179.04,69.10C1177.99,76.51 1174.38,99.82 1172.48,111.50C1171.92,114.94 1171.01,120.79 1170.47,124.50C1169.93,128.21 1169.24,132.60 1168.94,134.25C1168.64,135.90 1168.10,139.28 1167.73,141.75C1167.36,144.22 1166.48,150.07 1165.77,154.75C1161.72,181.38 1161.25,187.65 1162.78,194.97C1163.87,200.23 1165.21,203.00 1167.90,205.63C1171.03,208.68 1174.60,209.76 1179.96,209.28C1187.36,208.62 1192.35,206.09 1199.07,199.61C1202.32,196.47 1205.12,193.13 1207.65,189.35C1211.24,183.99 1216.62,173.90 1218.29,169.38C1223.34,155.72 1225.61,146.69 1227.99,130.75C1229.60,119.99 1231.39,108.40 1232.49,101.50C1234.61,88.33 1235.60,82.03 1236.54,75.75C1238.22,64.55 1239.48,61.84 1244.13,59.44C1245.93,58.52 1247.07,58.48 1268.73,58.61L1291.44,58.75L1293.01,60.25C1293.87,61.08 1294.92,62.54 1295.32,63.50C1296.12,65.37 1295.92,67.71 1294.18,77.50C1293.76,79.84 1293.22,83.21 1292.98,85.00C1292.75,86.79 1292.31,89.71 1292.00,91.50C1291.70,93.29 1291.26,96.10 1291.03,97.75C1290.79,99.40 1289.79,105.81 1288.81,112.00C1287.83,118.19 1286.44,127.08 1285.73,131.75C1285.02,136.43 1284.12,142.05 1283.74,144.25C1283.35,146.45 1282.68,150.50 1282.25,153.25C1281.82,156.00 1281.23,159.60 1280.96,161.25C1280.68,162.90 1280.25,165.71 1280.01,167.50C1279.77,169.29 1278.79,175.47 1277.83,181.25C1276.06,191.88 1272.75,213.25 1272.01,218.75C1271.79,220.40 1271.45,222.59 1271.25,223.62C1271.05,224.68 1271.09,225.50 1271.34,225.50C1272.95,225.50 1286.91,214.25 1291.48,209.27C1297.02,203.23 1299.92,199.87 1302.25,196.79C1303.62,194.97 1305.26,192.84 1305.88,192.04C1306.49,191.25 1307.00,190.39 1307.00,190.13C1307.00,189.87 1307.45,189.25 1308.00,188.75C1308.55,188.25 1309.00,187.67 1309.00,187.45C1309.00,187.23 1309.73,185.98 1310.62,184.68C1315.15,178.07 1320.26,167.62 1327.86,149.40C1329.44,145.60 1333.02,143.66 1336.87,144.53C1343.40,145.99 1358.85,150.97 1360.83,152.26C1366.32,155.83 1360.63,175.86 1347.00,200.99C1345.07,204.55 1337.35,215.93 1334.78,219.00C1327.63,227.56 1325.37,230.15 1321.75,233.93C1317.99,237.85 1308.88,246.14 1305.22,248.98C1291.21,259.80 1282.65,265.24 1267.41,273.00L1260.56,276.48L1258.50,282.80C1257.37,286.28 1255.91,290.51 1255.26,292.19C1254.61,293.87 1253.51,296.73 1252.80,298.55C1250.82,303.67 1244.60,317.10 1243.55,318.53C1243.03,319.23 1241.89,321.23 1241.02,322.96C1240.15,324.69 1238.66,327.21 1237.72,328.55C1236.77,329.89 1236.00,331.18 1236.00,331.42C1236.00,331.65 1235.55,332.25 1235.00,332.75C1234.45,333.25 1234.00,333.84 1234.00,334.07C1234.00,334.29 1233.16,335.58 1232.12,336.92C1218.86,354.18 1207.52,364.19 1192.39,371.99C1187.58,374.47 1186.56,374.90 1179.75,377.36C1173.47,379.63 1165.35,381.29 1157.25,381.98C1150.62,382.54 1148.74,382.54 1142.50,381.97ZM1162.48,329.98C1169.37,327.69 1174.00,324.99 1178.66,320.52C1183.54,315.84 1185.60,313.24 1189.14,307.27C1191.43,303.41 1192.37,301.20 1191.90,300.74C1191.78,300.62 1190.46,300.98 1188.97,301.54C1187.47,302.10 1185.01,302.99 1183.50,303.50C1181.99,304.01 1179.51,304.92 1178.00,305.51C1176.49,306.09 1174.69,306.76 1174.00,306.98C1171.31,307.85 1157.99,313.99 1154.52,315.95C1150.68,318.13 1147.35,320.56 1145.88,322.25C1142.93,325.65 1144.68,329.77 1149.64,331.05C1152.20,331.71 1158.96,331.15 1162.48,329.98ZM765.68,208.75C775.92,206.59 785.27,200.27 793.82,189.75C799.72,182.48 807.77,168.38 811.66,158.50C816.02,147.42 821.95,124.70 821.99,118.92C822.00,117.91 821.09,116.75 818.13,113.99C816.01,112.00 813.14,109.72 811.76,108.92C810.38,108.11 808.91,107.26 808.50,107.02C800.70,102.49 787.13,101.75 776.60,105.28C767.68,108.28 760.50,112.67 753.93,119.17C749.79,123.26 745.00,129.04 745.00,129.94C745.00,130.18 744.66,130.66 744.24,131.01C742.90,132.12 738.16,141.58 736.25,146.94C732.40,157.76 731.80,161.14 731.77,172.00C731.75,183.36 732.22,186.10 735.38,193.00C737.16,196.90 739.57,200.42 742.08,202.82C747.92,208.38 756.85,210.63 765.68,208.75ZM197.00,157.22C202.52,156.73 210.86,154.86 215.75,153.02C226.70,148.90 229.72,147.44 236.38,143.06C241.97,139.38 248.91,132.85 251.58,128.75C256.59,121.07 256.80,111.80 252.10,106.83C247.09,101.54 237.02,101.13 227.25,105.80C220.16,109.19 215.79,112.36 209.97,118.34C201.16,127.38 196.18,135.28 192.93,145.35C191.18,150.80 189.87,156.89 190.31,157.60C190.47,157.85 191.19,157.94 191.92,157.81C192.65,157.67 194.94,157.40 197.00,157.22Z"/></svg> Propuesta para Fábrica de Cemento Málaga · Noviembre 2026 · Versión 1</span>
+    <span>Los mockups usan datos de ejemplo.</span>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // stepper
+  var steps=[].slice.call(document.querySelectorAll('.step')),panes=[].slice.call(document.querySelectorAll('.pane')),cur=0;
+  function go(i){cur=Math.max(0,Math.min(steps.length-1,i));steps.forEach(function(s,k){s.classList.toggle('on',k===cur)});panes.forEach(function(p,k){p.classList.toggle('on',k===cur)});
+    document.getElementById('prev').disabled=cur===0;document.getElementById('next').textContent=cur===steps.length-1?'Volver al inicio':'Siguiente →';
+    var s=steps[cur];if(s.parentNode.scrollWidth>s.parentNode.clientWidth){s.parentNode.scrollTo({left:s.offsetLeft-20,behavior:'smooth'})}}
+  steps.forEach(function(s,k){s.addEventListener('click',function(){go(k)})});
+  document.getElementById('prev').onclick=function(){go(cur-1)};
+  document.getElementById('next').onclick=function(){go(cur===steps.length-1?0:cur+1)};
+  go(0);
+  // dashboard tabs
+  var tabs=[].slice.call(document.querySelectorAll('.tab'));
+  tabs.forEach(function(t){t.addEventListener('click',function(){var v=t.getAttribute('data-v');tabs.forEach(function(x){x.classList.toggle('on',x===t)});
+    document.querySelectorAll('.dbody').forEach(function(d){d.classList.toggle('on',d.getAttribute('data-view')===v)});
+    document.querySelector('.dash .sbar b').textContent=v==='0'?'Proceso y producción':'Mantenimiento'})});
+  // counter
+  var hist=[],tot=document.getElementById('ctot'),log=document.getElementById('clog');
+  function hhmm(){var d=new Date();return ('0'+d.getHours()).slice(-2)+':'+('0'+d.getMinutes()).slice(-2)}
+  document.querySelectorAll('.ctr').forEach(function(b){b.addEventListener('click',function(){var c=b.querySelector('.c');c.textContent=+c.textContent+1;tot.textContent=+tot.textContent+1;hist.push(b);
+    var r=document.createElement('div');r.innerHTML='<span>'+b.getAttribute('data-n')+'</span><span>'+hhmm()+'</span>';log.insertBefore(r,log.firstChild);
+    b.classList.add('flash');setTimeout(function(){b.classList.remove('flash')},180)})});
+  document.getElementById('undo').onclick=function(){var b=hist.pop();if(!b)return;var c=b.querySelector('.c');c.textContent=+c.textContent-1;tot.textContent=+tot.textContent-1;if(log.firstChild)log.removeChild(log.firstChild)};
+})();
+</script>
+</body>
+</html>

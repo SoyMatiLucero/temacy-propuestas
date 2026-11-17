@@ -1,0 +1,738 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Propuesta CEDUC · Normativa urbana</title>
+<meta name="robots" content="noindex, nofollow, noarchive">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Lato:ital,wght@0,400;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&family=Instrument+Sans:ital,wght@0,400;0,600;0,700;1,700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: columna de lectura de 1080px; cada sección alterna texto y "pantalla" (mockup) del sistema; los mockups llevan marco de app y sello "Datos de ejemplo". */
+:root{
+  --ink:#0e2a2a; --txt:#3c4a46; --mute:#6f7d78; --faint:#9aa5a0;
+  --bg:#fbfcfa; --paper:#ffffff; --band:#f1f7f4; --line:#e3e8e3;
+  --teal:#17806f; --teal-d:#0d6a5c; --dark:#0c3a33; --mint:#e8f4f0; --mint-b:#d2e6dc;
+  --gold:#dfa83d; --gold-bg:#fbf3e1; --gold-t:#6b4f0c;
+  --red:#bf573f; --red-bg:#fdf2ed; --red-b:#f1d9cc;
+  --blue:#3d6fa8; --blue-bg:#eaf1f9;
+  --scr:#ffffff; --scr-bar:#eef2ef; --shadow:0 1px 2px rgba(14,42,42,.06),0 8px 28px rgba(14,42,42,.08);
+  --display:'Fraunces',Georgia,'Times New Roman',serif;
+  --sans:'Lato','Helvetica Neue',Arial,sans-serif;
+  --mono:'IBM Plex Mono',ui-monospace,Menlo,Consolas,monospace;
+}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){
+  --ink:#e6efeb; --txt:#c3cfca; --mute:#93a39d; --faint:#6d7c76;
+  --bg:#0d1716; --paper:#132120; --band:#112120; --line:#22332f;
+  --teal:#3fb39f; --teal-d:#5cc7b3; --dark:#0a2a25; --mint:#16302b; --mint-b:#24463f;
+  --gold:#e3b456; --gold-bg:#2b2412; --gold-t:#ecc979;
+  --red:#e07c63; --red-bg:#2c1914; --red-b:#4a2a21;
+  --blue:#7ea8d8; --blue-bg:#16222f;
+  --scr:#162625; --scr-bar:#1c2e2c; --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 28px rgba(0,0,0,.35);
+  color-scheme:dark}}
+:root[data-theme="dark"]{
+  --ink:#e6efeb; --txt:#c3cfca; --mute:#93a39d; --faint:#6d7c76;
+  --bg:#0d1716; --paper:#132120; --band:#112120; --line:#22332f;
+  --teal:#3fb39f; --teal-d:#5cc7b3; --dark:#0a2a25; --mint:#16302b; --mint-b:#24463f;
+  --gold:#e3b456; --gold-bg:#2b2412; --gold-t:#ecc979;
+  --red:#e07c63; --red-bg:#2c1914; --red-b:#4a2a21;
+  --blue:#7ea8d8; --blue-bg:#16222f;
+  --scr:#162625; --scr-bar:#1c2e2c; --shadow:0 1px 2px rgba(0,0,0,.3),0 8px 28px rgba(0,0,0,.35);
+  color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--txt);font-family:var(--sans);font-size:16px;line-height:1.6;margin:0}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);color:var(--ink);text-wrap:balance;margin:0;font-weight:700;letter-spacing:-.01em}
+h1{font-size:clamp(2rem,5vw,3.3rem);line-height:1.08}
+h2{font-size:clamp(1.55rem,3.2vw,2.2rem);line-height:1.15}
+h3{font-size:1.15rem;line-height:1.3;font-weight:500}
+p{margin:0;max-width:66ch}
+.eyebrow{font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--teal)}
+.lead{font-size:1.13rem;color:var(--txt)}
+.muted{color:var(--mute)}
+.mono{font-family:var(--mono);font-size:.86em}
+b,strong{color:var(--ink)}
+section{padding-block:72px;border-top:1px solid var(--line)}
+section.band{background:var(--band)}
+.sec-head{display:grid;gap:12px;margin-bottom:36px;max-width:760px}
+a{color:var(--teal-d)}
+:focus-visible{outline:2px solid var(--teal);outline-offset:3px}
+
+/* barra superior */
+.top{position:sticky;top:env(safe-area-inset-top,0px);z-index:20;background:var(--paper);border-bottom:1px solid var(--line)}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:21;background:var(--paper)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:12px;padding-block:10px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:14px;font-weight:700;color:var(--ink)}
+.logo{display:block;height:24px;width:auto;aspect-ratio:1364/383;color:var(--ink)}
+.logo-hueso{color:#F7F5EE;height:30px}
+.brand .dot{width:26px;height:26px;border-radius:7px;background:var(--teal);color:#fff;display:grid;place-items:center;font-family:var(--display);font-size:15px}
+.brand small{font-weight:400;color:var(--mute)}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+.btn{font:700 .85rem var(--sans);border-radius:8px;padding:9px 14px;border:1px solid var(--teal);background:var(--teal);color:#fff;cursor:pointer}
+.btn.ghost{background:transparent;color:var(--teal-d)}
+.btn:hover{filter:brightness(1.06)}
+
+/* hero */
+.hero{padding-block:56px 72px}
+.hero-grid{display:grid;grid-template-columns:1.05fr 1fr;gap:48px;align-items:center}
+.hero-grid>*{min-width:0}
+.hero .meta{display:flex;gap:10px;flex-wrap:wrap;font-size:.85rem;color:var(--mute);margin-bottom:18px}
+.hero .meta span{border:1px solid var(--line);border-radius:999px;padding:3px 10px;background:var(--paper)}
+.hero p.lead{margin-top:18px}
+.figs{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:32px;border-top:1px solid var(--line)}
+.fig{padding:14px 12px 0 0}
+.fig b{display:block;font-family:var(--display);font-size:2rem;line-height:1;color:var(--teal-d);font-variant-numeric:tabular-nums}
+.fig span{font-size:.82rem;color:var(--mute);line-height:1.35;display:block;margin-top:6px}
+
+/* pantallas (mockups) */
+.screen{background:var(--scr);border:1px solid var(--line);border-radius:12px;box-shadow:var(--shadow);overflow:hidden;font-size:.84rem;line-height:1.45;color:var(--txt);min-width:0}
+.screen .bar{display:flex;align-items:center;gap:8px;background:var(--scr-bar);padding:8px 12px;border-bottom:1px solid var(--line);font-size:.75rem;color:var(--mute)}
+.screen .bar i{width:8px;height:8px;border-radius:50%;background:var(--line);display:inline-block}
+.screen .bar .app{margin-left:6px;font-weight:700;color:var(--ink)}
+.screen .bar .app em{font-style:normal;color:var(--teal)}
+.screen .bar .ex{margin-left:auto;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;background:var(--gold-bg);color:var(--gold-t);border-radius:4px;padding:2px 6px;font-weight:700}
+.screen .body{padding:14px;display:grid;gap:10px}
+.who{font-size:.72rem;color:var(--mute);letter-spacing:.04em;text-transform:uppercase;font-weight:700}
+.q{background:var(--mint);border:1px solid var(--mint-b);border-radius:10px 10px 10px 2px;padding:9px 11px;color:var(--ink)}
+.a{border:1px solid var(--line);border-radius:10px 10px 2px 10px;padding:10px 11px;display:grid;gap:7px;background:var(--paper)}
+.cite{font-family:var(--mono);font-size:.74rem;color:var(--teal-d);background:var(--mint);border-radius:4px;padding:1px 5px;white-space:nowrap}
+.flag{display:block;border-radius:8px;padding:8px 10px;font-size:.8rem}
+.flag.warn{background:var(--gold-bg);color:var(--gold-t)}
+.flag.bad{background:var(--red-bg);color:var(--red);border:1px solid var(--red-b)}
+.flag.ok{background:var(--mint);color:var(--teal-d)}
+.flag b{color:inherit}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:4px 12px;font-size:.8rem}
+.kv dt{color:var(--mute)} .kv dd{margin:0;color:var(--ink);font-variant-numeric:tabular-nums}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{font-size:.7rem;font-weight:700;border-radius:999px;padding:2px 8px;border:1px solid var(--line);color:var(--mute);background:var(--paper)}
+.chip.t{border-color:var(--mint-b);background:var(--mint);color:var(--teal-d)}
+.chip.g{border-color:transparent;background:var(--gold-bg);color:var(--gold-t)}
+.chip.r{border-color:var(--red-b);background:var(--red-bg);color:var(--red)}
+.chip.b{border-color:transparent;background:var(--blue-bg);color:var(--blue)}
+.rowlist{display:grid;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+.rowlist>div{display:grid;grid-template-columns:auto 1fr auto;gap:10px;align-items:center;padding:7px 10px;border-top:1px solid var(--line);background:var(--paper)}
+.rowlist>div:first-child{border-top:0}
+.rowlist .mono{color:var(--ink)}
+.input{border:1px solid var(--line);border-radius:8px;padding:8px 10px;color:var(--mute);background:var(--paper)}
+
+/* dos columnas */
+.split{display:grid;grid-template-columns:1fr 1fr;gap:36px;align-items:start}
+.split>*{min-width:0}
+
+/* citas */
+.quotes{display:grid;grid-template-columns:repeat(2,1fr);gap:20px}
+.quote{border-left:3px solid var(--teal);padding:4px 0 4px 18px;display:grid;gap:8px}
+.quote p{font-family:var(--display);font-size:1.2rem;line-height:1.4;color:var(--ink);font-weight:500}
+.quote span{font-size:.85rem;color:var(--mute)}
+
+/* antes / después */
+.ba-label{font-size:.75rem;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-bottom:12px;display:block}
+.ba-label.before{color:var(--red)} .ba-label.after{color:var(--teal)}
+.paper-stack{position:relative;padding:10px 10px 18px 0}
+.paper{background:var(--paper);border:1px solid var(--line);border-radius:4px;padding:16px 18px;font-family:'Times New Roman',Georgia,serif;font-size:.86rem;color:var(--txt);box-shadow:var(--shadow);position:relative}
+.paper + .paper{margin-top:-6px;margin-left:22px}
+.paper h4{margin:0 0 6px;font-family:'Times New Roman',Georgia,serif;font-size:.95rem;color:var(--ink);text-align:center;letter-spacing:.04em}
+.paper .x{background:var(--red-bg);color:var(--red);text-decoration:line-through;padding:0 2px}
+.paper .note{display:block;margin-top:8px;font-family:var(--sans);font-size:.74rem;color:var(--red)}
+.pains{display:grid;gap:8px;margin-top:22px;padding:0;list-style:none}
+.pains li{display:flex;gap:10px;font-size:.92rem}
+.pains li::before{content:"";flex:0 0 8px;height:8px;border-radius:2px;background:var(--red);margin-top:8px}
+
+/* recorrido */
+.steps{display:grid;gap:28px;counter-reset:s}
+.step{display:grid;grid-template-columns:220px 1fr;gap:28px;align-items:start}
+.step>*{min-width:0}
+.step .txt{display:grid;gap:8px;position:relative;padding-left:46px}
+.step .txt::before{counter-increment:s;content:counter(s);position:absolute;left:0;top:0;width:32px;height:32px;border-radius:50%;background:var(--teal);color:#fff;display:grid;place-items:center;font-family:var(--display);font-weight:700}
+.step .role{font-size:.78rem;color:var(--mute)}
+.compare{display:grid;grid-template-columns:1fr 1fr;gap:8px}
+.compare>div{border:1px solid var(--line);border-radius:8px;padding:9px;background:var(--paper);font-size:.78rem}
+.compare>div.new{border-color:var(--mint-b);background:var(--mint)}
+.compare h5{margin:0 0 4px;font-size:.68rem;letter-spacing:.06em;text-transform:uppercase;color:var(--mute)}
+
+/* mapa de autoridades */
+.chain-wrap{overflow-x:auto;padding-bottom:6px}
+.chain{display:grid;grid-template-columns:repeat(7,minmax(118px,1fr));gap:8px;min-width:860px}
+.stage{background:var(--paper);border:1px solid var(--line);border-radius:10px;padding:10px;display:grid;gap:8px;align-content:start}
+.stage h4{margin:0;font-size:.8rem;color:var(--ink)}
+.stage .tr{font-size:.74rem;border-radius:6px;padding:5px 7px;background:var(--band);color:var(--txt)}
+.stage .tr.ov{background:var(--red-bg);color:var(--red);border:1px dashed var(--red)}
+.legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px;font-size:.8rem;color:var(--mute)}
+.legend span{display:flex;gap:6px;align-items:center}
+.legend i{width:12px;height:12px;border-radius:3px;display:inline-block}
+
+/* bloques */
+.blocks{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.block{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:18px;display:grid;gap:10px;align-content:start}
+.block .code{font-family:var(--mono);font-size:.75rem;color:var(--teal-d)}
+.block p{font-size:.9rem}
+.mini{border-top:1px dashed var(--line);padding-top:10px;display:grid;gap:6px;font-size:.76rem}
+
+/* tablero */
+.kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}
+.kpi{border:1px solid var(--line);border-radius:8px;padding:9px;background:var(--paper)}
+.kpi b{display:block;font-family:var(--display);font-size:1.45rem;color:var(--ink);font-variant-numeric:tabular-nums;line-height:1.1}
+.kpi span{font-size:.7rem;color:var(--mute)}
+.bars{display:grid;gap:6px}
+.bars>div{display:grid;grid-template-columns:110px 1fr 34px;gap:8px;align-items:center;font-size:.74rem}
+.bars .track{height:9px;background:var(--band);border-radius:5px;overflow:hidden;display:flex}
+.bars .track i{display:block;height:100%}
+.bars .n{text-align:right;font-variant-numeric:tabular-nums;color:var(--ink)}
+
+/* preguntas */
+.qa{display:grid;border-top:1px solid var(--line)}
+.qa>div{display:grid;grid-template-columns:1fr auto;gap:16px;padding:14px 0;border-bottom:1px solid var(--line);align-items:center}
+.qa p{font-size:1rem;color:var(--ink)}
+
+/* fases */
+.phases{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.phase{background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:18px;display:grid;gap:10px;align-content:start}
+.phase .m{font-family:var(--mono);font-size:.78rem;color:var(--teal-d)}
+.phase ul{margin:0;padding-left:18px;font-size:.88rem;display:grid;gap:4px}
+.timeline{display:grid;grid-template-columns:repeat(8,1fr);gap:4px;margin-top:22px;font-size:.72rem;color:var(--mute)}
+.timeline div{height:10px;border-radius:3px;background:var(--teal)}
+.timeline div.ext{background:transparent;border:1px dashed var(--teal)}
+.timeline span{text-align:center}
+.each{margin-top:22px;display:flex;gap:8px;flex-wrap:wrap;align-items:center;font-size:.9rem}
+
+/* listas simples */
+.need{display:grid;grid-template-columns:repeat(2,1fr);gap:12px 28px;padding:0;margin:0;list-style:none}
+.need li{padding:12px 0;border-bottom:1px solid var(--line);font-size:.95rem}
+.next{background:var(--dark);color:#dfeee8;border-radius:16px;padding:36px;display:grid;gap:14px}
+.next h2{color:#fff}
+.next p{color:#cfe3dc}
+.next .btn{justify-self:start;background:var(--gold);border-color:var(--gold);color:#2a1f05}
+
+/* anexo */
+
+.annex h3{margin-top:30px;margin-bottom:10px}
+.annex h4{margin:22px 0 8px;font-size:.95rem;color:var(--ink)}
+.annex p,.annex li{font-size:.9rem}
+.annex ul,.annex ol{padding-left:20px;display:grid;gap:4px;margin:6px 0}
+.tbl{overflow-x:auto;border:1px solid var(--line);border-radius:8px;margin:8px 0 4px}
+.tbl table{border-collapse:collapse;width:100%;font-size:.84rem;min-width:560px}
+.tbl th{background:var(--band);color:var(--ink);text-align:left;padding:8px 10px;font-size:.75rem;letter-spacing:.04em;text-transform:uppercase}
+.tbl td{padding:8px 10px;border-top:1px solid var(--line);vertical-align:top}
+.tbl td:first-child{font-family:var(--mono);font-size:.78rem;color:var(--teal-d);white-space:nowrap}
+footer{padding-block:40px;font-size:.8rem;color:var(--mute)}
+
+@media (max-width:860px){
+  .hero-grid,.split,.step{grid-template-columns:1fr}
+  .step .txt{order:-1}
+  .blocks,.phases{grid-template-columns:1fr 1fr}
+  .quotes,.need{grid-template-columns:1fr}
+}
+@media (max-width:560px){
+  section{padding-block:52px}
+  .figs{grid-template-columns:1fr 1fr;row-gap:14px}
+  .blocks,.phases{grid-template-columns:1fr}
+  .kpis{grid-template-columns:1fr 1fr}
+  .compare{grid-template-columns:1fr}
+  .bars>div{grid-template-columns:86px 1fr 30px}
+  .next{padding:24px}
+  .top .brand small{display:none}
+}
+@media print{
+  .top,.no-print{display:none!important}
+  #anexo[hidden]{display:block!important}
+  section{break-inside:avoid-page;padding-block:28px}
+  .screen,.step,.phase,.block{break-inside:avoid}
+  body{background:#fff}
+}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto!important}}
+
+/* ---------- Anexo técnico (vista aparte, estilo Llovizna) ---------- */
+.lx{--lx-bg:#F7F5EE;--lx-ink:#142118;--lx-txt:#3f4a44;--lx-mute:#6b7570;--lx-line:#dcd9cf;--lx-head:#ecebe2;--lx-row:#f8f7f2;--lx-lime:#C8F24C;--lx-lime2:#e4f7a6;--lx-sand:#e7e3d6;
+  background:var(--lx-bg);color:var(--lx-txt);font-family:'Instrument Sans','Helvetica Neue',Arial,sans-serif;min-height:100vh;color-scheme:light}
+.lx-wrap{max-width:1180px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+.lx-top{position:sticky;top:env(safe-area-inset-top,0px);z-index:30;background:var(--lx-bg);border-bottom:1px solid var(--lx-line)}
+.lx-top .lx-wrap{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-block:12px}
+.lx-brand{display:flex;align-items:center;gap:18px}
+.lx-logo{display:block;height:30px;width:auto;aspect-ratio:1364/383;color:var(--lx-ink)}
+.lx-brand span{font-size:1.05rem;color:var(--lx-mute)}
+.lx-back{font:600 .95rem 'Instrument Sans',sans-serif;background:var(--lx-lime);color:var(--lx-ink);border:0;border-radius:999px;padding:11px 20px;cursor:pointer}
+.lx-back:hover{filter:brightness(.97)}
+.lx-body{padding-block:44px 80px}
+.lx-crumb{font-size:1rem;color:var(--lx-mute);max-width:none}
+.lx-title{font-family:'Instrument Sans',sans-serif;font-weight:700;letter-spacing:-.035em;font-size:clamp(2.2rem,5.5vw,3.6rem);color:var(--lx-ink);margin:18px 0 18px;line-height:1.05}
+.lx-intro{font-size:1.18rem;line-height:1.65;max-width:62ch;color:var(--lx-txt)}
+.lx-stats{display:flex;gap:0;flex-wrap:wrap;margin-top:30px;border-top:1px solid var(--lx-line);max-width:680px}
+.lx-stats div{flex:1 1 140px;padding-top:16px}
+.lx-stats b{display:block;font-family:'JetBrains Mono',ui-monospace,Menlo,monospace;font-weight:600;font-size:2rem;color:var(--lx-ink);line-height:1.1}
+.lx-stats span{font-size:.95rem;color:var(--lx-txt)}
+.lx-pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:34px}
+.lx-pills a{border:1px solid var(--lx-line);border-radius:999px;padding:8px 14px;font-size:.95rem;color:var(--lx-txt);text-decoration:none;background:transparent}
+.lx-pills a:hover{background:var(--lx-head)}
+.lx-filter{position:sticky;top:calc(env(safe-area-inset-top,0px) + 62px);z-index:20;background:var(--lx-bg);display:flex;flex-wrap:wrap;align-items:center;gap:8px;padding:14px 0;margin-top:22px;border-bottom:1px solid var(--lx-line)}
+.lx-filter>span:first-child{font-size:.98rem;color:var(--lx-mute);margin-right:2px}
+.lx-filter button{font:600 .95rem 'Instrument Sans',sans-serif;border:1px solid var(--lx-line);background:transparent;color:var(--lx-ink);border-radius:999px;padding:8px 15px;cursor:pointer}
+.lx-filter button.on{background:var(--lx-ink);border-color:var(--lx-ink);color:#fff}
+.lx-count{margin-left:auto;font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.9rem;color:var(--lx-mute)}
+.lx-h{display:flex;align-items:baseline;gap:12px;margin:56px 0 8px;scroll-margin-top:140px}
+.lx-h span{font-size:1rem;color:var(--lx-mute)}
+.lx-h h3{font-family:'Instrument Sans',sans-serif;font-weight:700;letter-spacing:-.02em;font-size:clamp(1.5rem,3vw,2rem);color:var(--lx-ink)}
+.lx-lead{font-size:1.08rem;color:var(--lx-txt);max-width:66ch;margin-bottom:18px;line-height:1.6}
+.lx-sub{margin-top:26px}
+.lx-sub h4{font-family:'Instrument Sans',sans-serif;font-weight:700;letter-spacing:-.01em;font-size:1.12rem;color:var(--lx-ink);margin:0 0 12px}
+.lx-tbl{overflow-x:auto;border:1px solid var(--lx-line);border-radius:14px;background:var(--lx-row)}
+.lx-tbl table{border-collapse:collapse;width:100%;min-width:640px;font-size:.98rem}
+.lx-tbl th{background:var(--lx-head);text-align:left;font-weight:600;color:#55605a;padding:16px 18px;font-size:.95rem}
+.lx-tbl td{padding:16px 18px;border-top:1px solid var(--lx-line);vertical-align:top;color:var(--lx-ink);line-height:1.55}
+.lx-tbl td.fn,.lx-tbl td.fn{font-weight:600;min-width:170px}
+.lx-tbl td.id{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.88rem;color:#3c4a42;white-space:nowrap;width:1%}
+.lx-tbl td.en{text-align:right;white-space:nowrap;width:1%}
+.lx-tbl.muted td{color:var(--lx-txt)}
+.lx-mono{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.86rem}
+.lx-id{font-family:'JetBrains Mono',ui-monospace,monospace;font-size:.84rem;white-space:nowrap;margin-right:6px}
+.lx .ph{font:600 .86rem 'Instrument Sans',sans-serif;border-radius:999px;padding:6px 12px;display:inline-block;white-space:nowrap;border:0}
+.lx .ph-f1{background:var(--lx-lime);color:var(--lx-ink)}
+.lx .ph-f2{background:var(--lx-lime2);color:var(--lx-ink)}
+.lx .ph-f3{background:var(--lx-sand);color:var(--lx-ink)}
+.lx .ph-f4{background:var(--lx-ink);color:var(--lx-lime)}
+.lx .ph-ad{background:transparent;border:1px dashed #9aa19c;color:var(--lx-mute)}
+.lx-scope{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.lx-scope>div{background:var(--lx-head);border-radius:14px;padding:22px 24px;min-width:0}
+.lx-scope .out{background:transparent;border:1px dashed #9aa19c}
+.lx-scope h4{margin:0 0 10px;font-size:1.05rem;color:var(--lx-ink)}
+.lx-scope ul{margin:0;padding-left:18px;display:grid;gap:7px;color:var(--lx-txt);font-size:.98rem}
+.lx-note{margin-top:14px;border-radius:14px;background:var(--lx-lime2);padding:16px 20px;color:var(--lx-ink);font-size:1rem}
+.lx-note b{color:var(--lx-ink)}
+.lx-layers{display:grid;gap:12px}
+.lx-layers>div{background:var(--lx-head);border-radius:14px;padding:22px 26px;display:grid;gap:8px}
+.lx-layers>div.core{background:transparent;border:1.5px dashed var(--lx-ink)}
+.lx-layers b{font-size:1.12rem;color:var(--lx-ink)}
+.lx-layers span{color:var(--lx-txt)}
+.lx-ol{list-style:none;margin:0;padding:0;border:1px solid var(--lx-line);border-radius:14px;background:var(--lx-row);overflow:hidden}
+.lx-ol li{display:grid;grid-template-columns:56px 1fr;gap:10px;padding:15px 18px;border-top:1px solid var(--lx-line)}
+.lx-ol li:first-child{border-top:0}
+.lx-ol span{font-family:'JetBrains Mono',ui-monospace,monospace;color:var(--lx-mute)}
+.lx-ol p{color:var(--lx-ink);max-width:none}
+body.lx-on>header.top,body.lx-on>main,body.lx-on>footer{display:none}
+@media (max-width:640px){.lx-scope{grid-template-columns:1fr}.lx-brand span{display:none}.lx-filter{top:calc(env(safe-area-inset-top,0px) + 58px)}.lx-count{width:100%;margin-left:0}.lx-ol li{grid-template-columns:40px 1fr}}
+@media print{.lx[hidden]{display:block!important}.lx-top,.lx-filter,.lx-pills{display:none}}
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="tm-logo" viewBox="0 0 1364 383"><path fill="currentColor" fill-rule="evenodd" d="M1142.50,381.97C1122.90,380.19 1106.36,371.55 1097.47,358.46C1094.90,354.68 1092.35,349.13 1091.51,345.50C1091.16,343.99 1090.68,342.10 1090.44,341.30C1090.20,340.50 1090.00,336.79 1090.00,333.05C1090.00,327.39 1090.21,325.47 1091.24,321.63C1094.62,309.03 1102.70,300.11 1119.39,290.56C1127.37,286.00 1143.78,278.99 1157.00,274.50C1159.34,273.71 1162.83,272.47 1164.75,271.75C1166.67,271.03 1172.86,268.89 1178.50,266.99C1196.05,261.09 1205.47,257.73 1206.03,257.17C1206.58,256.62 1209.00,246.64 1209.00,244.94C1209.00,243.75 1208.26,243.75 1206.58,244.94C1202.99,247.49 1194.63,251.73 1189.75,253.49C1180.09,256.97 1170.49,258.56 1159.27,258.55C1138.95,258.52 1123.90,252.19 1113.18,239.17C1109.92,235.21 1105.00,226.01 1105.00,223.86C1105.00,222.25 1103.86,222.43 1101.83,224.37C1098.02,228.00 1091.68,232.79 1083.25,238.39C1079.13,241.13 1066.38,247.81 1062.46,249.27C1051.36,253.43 1041.64,256.13 1034.67,257.02C1032.24,257.33 1029.12,257.77 1027.75,258.00C1026.38,258.23 1020.52,258.35 1014.75,258.28C1003.68,258.14 997.19,257.39 988.73,255.25C983.60,253.96 973.06,249.96 971.07,248.56C970.34,248.05 968.51,247.01 967.00,246.25C959.04,242.25 948.01,232.58 941.75,224.09C940.10,221.86 938.47,220.02 938.14,220.01C937.80,220.01 937.13,220.62 936.65,221.38C933.34,226.61 924.05,236.10 916.75,241.71C913.06,244.55 904.78,250.00 904.16,250.00C904.02,250.00 902.74,250.59 901.32,251.31C897.52,253.25 889.44,255.92 883.75,257.11C879.66,257.97 876.97,258.16 869.00,258.17C860.19,258.17 858.70,258.05 853.59,256.85C850.48,256.12 846.91,255.07 845.66,254.51C844.40,253.95 843.12,253.50 842.81,253.49C840.90,253.46 830.83,246.38 826.87,242.27C822.50,237.74 817.03,229.28 815.99,225.43C815.71,224.43 815.18,223.36 814.80,223.04C814.14,222.49 813.29,223.31 809.00,228.67C807.36,230.72 797.16,239.20 792.84,242.11C786.77,246.19 776.04,251.51 769.41,253.73C745.62,261.69 718.88,259.46 701.50,248.07C692.93,242.45 685.19,234.53 680.87,226.96C680.25,225.89 679.48,225.01 679.16,225.00C678.83,225.00 677.29,226.52 675.73,228.38C666.44,239.43 651.51,249.92 638.75,254.33C618.77,261.26 594.13,259.21 580.40,249.49C579.22,248.65 577.46,247.44 576.50,246.80C575.54,246.16 573.28,244.08 571.48,242.17C562.44,232.58 557.11,220.01 556.03,205.75C555.22,195.00 555.60,191.67 562.25,150.75C565.88,128.37 566.17,125.66 565.50,120.28C564.71,113.88 562.76,110.43 558.77,108.39C556.08,107.01 550.06,107.44 546.44,109.28C540.22,112.43 532.98,118.42 528.97,123.74C527.93,125.12 526.21,127.38 525.16,128.75C522.44,132.30 515.00,143.63 515.00,144.22C515.00,144.38 514.39,145.47 513.65,146.63C511.97,149.26 506.13,161.04 505.17,163.74C504.78,164.84 504.17,166.19 503.82,166.74C502.74,168.42 499.50,176.79 496.67,185.21C493.40,194.91 490.34,206.53 489.29,213.25C487.25,226.22 486.53,230.94 486.24,233.25C485.41,239.94 483.89,246.33 482.73,248.00C481.16,250.26 478.82,251.82 476.00,252.46C472.74,253.21 434.78,253.10 432.46,252.34C430.39,251.66 428.38,250.16 427.65,248.74C426.28,246.11 426.42,244.18 429.24,227.00C431.02,216.08 431.58,212.59 432.00,209.75C432.24,208.10 432.78,204.61 433.20,202.00C434.94,191.14 436.07,183.87 437.01,177.50C437.56,173.79 438.36,168.50 438.80,165.75C440.63,154.17 443.03,139.51 443.61,136.25C443.95,134.32 444.24,129.15 444.24,124.75C444.25,117.44 444.15,116.53 443.09,114.18C441.65,111.01 439.96,109.39 436.87,108.24C430.96,106.05 421.10,109.23 414.10,115.61C409.51,119.79 403.27,126.90 400.63,130.98C399.11,133.33 397.13,136.38 396.24,137.75C390.18,147.14 381.75,165.83 376.73,181.01C373.47,190.88 369.81,205.94 368.03,216.77C367.18,221.99 366.14,228.28 365.74,230.75C365.33,233.22 364.68,237.44 364.29,240.12C363.20,247.58 361.21,250.71 356.50,252.37C354.14,253.20 314.97,253.26 311.71,252.44C310.10,252.03 308.98,251.30 307.73,249.85C306.21,248.06 306.00,247.49 305.99,245.04C305.99,243.50 306.47,239.38 307.07,235.87C307.66,232.36 308.01,229.35 307.85,229.18C307.43,228.77 306.71,229.16 303.50,231.52C290.63,240.98 274.64,249.26 263.00,252.49C261.76,252.83 260.30,253.30 259.75,253.53C257.93,254.30 248.32,256.43 244.00,257.02C241.66,257.34 238.66,257.78 237.32,257.99C232.29,258.80 215.60,258.48 208.50,257.44C196.30,255.65 187.87,253.26 178.75,249.01C171.00,245.38 170.64,245.19 165.00,241.55C158.61,237.42 148.40,228.00 144.05,222.23C143.23,221.14 142.12,219.70 141.58,219.03L140.60,217.81L139.17,219.48C138.39,220.40 137.54,221.51 137.29,221.95C135.15,225.64 124.23,236.92 118.50,241.35C102.37,253.81 86.65,259.03 67.25,258.35C57.64,258.01 50.34,256.33 42.62,252.68C34.10,248.66 27.69,243.39 22.56,236.18C15.13,225.76 11.97,216.07 11.19,201.31C10.81,194.20 11.38,188.29 13.77,174.25C14.71,168.75 15.69,162.79 15.96,161.00C16.23,159.21 16.79,155.61 17.21,153.00C17.62,150.39 18.21,146.68 18.52,144.75C18.82,142.82 19.49,138.89 20.00,136.00C20.50,133.11 21.63,126.25 22.50,120.75C23.37,115.25 24.63,107.43 25.29,103.38C25.96,99.33 26.50,95.78 26.50,95.50C26.50,95.19 23.49,95.00 18.34,95.00C7.05,95.00 4.60,94.18 2.31,89.65C1.86,88.77 1.50,87.08 1.51,85.90C1.51,83.64 5.08,62.56 5.99,59.43C6.66,57.13 10.27,53.75 12.82,53.04C13.88,52.75 18.62,52.50 23.34,52.50C30.15,52.50 32.08,52.35 32.65,51.78C33.05,51.38 33.60,49.53 33.89,47.65C34.17,45.78 34.97,40.88 35.66,36.75C36.35,32.62 37.18,27.34 37.51,25.00C37.84,22.66 38.29,19.85 38.51,18.75C38.74,17.65 39.20,15.11 39.55,13.10C39.89,11.10 40.36,9.34 40.58,9.20C40.81,9.06 41.00,8.56 41.00,8.08C41.00,6.70 44.01,3.45 46.21,2.45C48.10,1.59 49.94,1.52 70.55,1.51L92.85,1.50L94.51,2.62C95.41,3.24 96.63,4.39 97.20,5.16C98.87,7.41 98.67,9.85 94.75,34.50C92.14,50.96 92.08,51.45 92.72,51.98C93.03,52.23 99.74,52.51 107.63,52.60L121.99,52.75L124.07,54.84C125.90,56.66 126.19,57.26 126.37,59.59C126.49,61.08 126.12,64.88 125.52,68.25C124.93,71.55 124.24,75.60 123.97,77.25C122.48,86.51 121.66,89.53 120.20,91.06C116.93,94.49 114.32,94.96 98.18,94.98L85.11,95.00L84.78,97.37C84.60,98.68 83.91,103.01 83.24,107.00C82.58,110.99 81.67,116.61 81.23,119.50C80.79,122.39 80.22,125.99 79.98,127.50C79.73,129.01 78.98,133.74 78.30,138.00C77.63,142.26 76.27,150.70 75.28,156.75C71.14,182.17 70.71,192.54 73.45,200.75C74.87,205.01 78.21,208.16 82.20,208.99C92.00,211.02 101.89,204.76 111.31,190.54C112.87,188.18 114.58,185.61 115.12,184.84C117.02,182.07 125.58,164.37 125.77,162.83C126.74,155.05 127.11,152.37 127.57,150.00C128.60,144.67 130.60,136.71 131.84,133.00C134.07,126.35 138.71,115.88 140.26,114.00C140.60,113.59 141.38,112.27 141.98,111.06C142.59,109.86 144.12,107.38 145.38,105.56C146.65,103.74 148.15,101.58 148.72,100.76C152.10,95.89 161.59,86.08 169.25,79.55C177.01,72.94 191.83,64.12 200.75,60.80C219.16,53.97 229.11,52.14 245.34,52.63C259.11,53.05 268.24,55.34 279.39,61.21C286.28,64.84 288.29,66.30 293.33,71.35C300.50,78.52 305.46,88.00 307.42,98.28C309.71,110.25 305.66,129.04 298.36,140.37C297.61,141.53 297.00,142.59 297.00,142.73C297.00,142.87 295.94,144.40 294.64,146.12C288.76,153.89 278.61,162.57 267.75,169.10C261.40,172.91 247.10,178.89 239.12,181.06C238.23,181.30 236.66,181.74 235.62,182.03C226.92,184.51 214.33,186.37 203.08,186.84C197.53,187.07 195.34,187.34 195.16,187.80C194.52,189.47 203.75,199.62 207.84,201.75C208.89,202.29 209.86,202.86 210.00,203.00C210.88,203.89 219.79,206.79 224.00,207.55C230.00,208.64 243.55,208.41 250.50,207.11C268.77,203.69 286.68,194.15 299.50,181.01C305.98,174.37 312.67,165.14 316.37,157.75C317.34,155.82 318.69,153.12 319.38,151.75C320.75,149.01 321.56,145.64 322.48,138.75C322.82,136.28 323.72,130.43 324.50,125.75C325.27,121.08 326.51,113.31 327.24,108.50C329.88,91.20 333.33,70.06 333.93,67.50C335.08,62.63 338.02,59.56 342.50,58.54C343.82,58.24 352.79,58.02 364.28,58.01C385.92,58.00 388.05,58.24 389.90,60.89C391.84,63.67 392.04,65.23 391.19,70.68C387.99,91.17 387.90,92.24 389.47,91.27C389.77,91.08 390.90,89.74 391.96,88.30C394.66,84.66 406.02,73.24 410.25,69.92C414.17,66.86 418.84,63.64 421.79,61.97C425.82,59.70 429.40,58.00 430.16,58.00C430.59,58.00 431.08,57.78 431.24,57.52C431.74,56.71 440.57,54.10 445.78,53.21C451.56,52.22 464.47,52.48 469.00,53.67C482.35,57.17 491.00,64.18 497.27,76.54C499.05,80.05 501.69,88.45 502.45,93.00C503.35,98.44 503.69,99.65 504.38,99.88C504.72,99.99 505.00,99.83 505.00,99.52C505.00,98.83 508.08,93.95 511.52,89.20C514.45,85.15 524.78,74.70 529.25,71.27C538.53,64.15 547.50,59.20 556.85,56.05C564.42,53.50 570.44,52.50 578.28,52.50C591.87,52.50 602.99,56.98 610.71,65.56C613.21,68.34 616.00,72.16 616.00,72.80C616.00,73.00 616.35,73.55 616.77,74.02C617.53,74.86 618.47,77.10 620.76,83.50C623.81,92.04 625.30,105.49 624.50,117.34C623.97,125.20 623.59,128.19 620.97,145.50C620.11,151.14 619.22,157.32 618.99,159.25C618.76,161.18 618.32,164.31 618.01,166.22C615.25,183.37 615.35,197.29 618.27,203.08C621.00,208.49 626.39,210.49 633.50,208.75C642.04,206.66 650.95,197.96 659.34,183.56C666.14,171.89 668.16,166.94 669.54,158.63C671.10,149.18 674.39,137.27 677.52,129.75C677.86,128.93 678.47,127.46 678.87,126.50C680.07,123.60 685.81,112.33 687.07,110.39C687.72,109.39 689.15,107.08 690.25,105.26C696.33,95.20 707.21,83.33 718.37,74.57C724.93,69.42 735.14,63.24 740.75,61.02C742.40,60.37 743.98,59.67 744.25,59.46C745.04,58.87 753.36,56.15 757.75,55.05C765.96,52.99 772.13,52.38 782.00,52.65C792.01,52.93 794.61,53.31 802.25,55.65C811.77,58.56 817.34,61.38 824.91,67.13C827.00,68.71 829.00,70.00 829.35,70.00C829.73,70.00 830.00,69.41 830.00,68.59C830.00,66.26 832.53,61.91 834.74,60.42C838.01,58.24 840.67,58.00 862.00,58.00C881.71,58.00 881.86,58.01 884.01,59.14C887.42,60.95 888.25,62.44 888.23,66.66C888.22,68.64 887.83,72.61 887.36,75.50C886.89,78.39 885.94,84.46 885.25,89.00C881.48,113.74 879.21,128.17 878.49,132.00C877.95,134.91 877.12,140.31 875.48,151.75C874.92,155.60 873.92,162.24 873.26,166.50C870.83,182.01 870.54,191.04 872.22,198.90C873.74,206.06 877.56,209.27 884.50,209.22C891.45,209.17 897.42,205.81 904.39,198.04C908.98,192.93 912.45,188.07 915.03,183.19C915.88,181.57 917.00,179.57 917.51,178.75C918.73,176.79 920.76,172.59 922.54,168.35C923.69,165.60 924.11,163.47 924.73,157.10C925.82,145.95 929.01,133.24 932.95,124.36C933.53,123.06 934.47,120.93 935.04,119.62C937.42,114.16 944.70,102.33 948.76,97.31C951.38,94.07 959.64,85.27 963.00,82.15C971.87,73.89 983.21,66.58 995.14,61.44C1009.78,55.13 1022.01,52.50 1036.79,52.50C1049.76,52.50 1064.27,55.46 1074.75,60.24C1078.86,62.11 1086.92,66.24 1088.25,67.15C1096.20,72.59 1100.05,76.35 1101.25,79.84C1102.23,82.70 1101.21,84.97 1096.50,90.31C1095.26,91.71 1091.57,95.93 1088.29,99.68C1079.68,109.53 1079.07,109.73 1069.45,105.93C1062.73,103.28 1056.80,101.98 1049.90,101.65C1042.13,101.28 1033.78,102.60 1027.94,105.12C1027.01,105.52 1025.02,106.39 1023.51,107.05C1015.72,110.46 1005.68,118.93 1000.01,126.89C990.71,139.94 985.76,157.96 987.48,172.54C988.09,177.73 990.46,186.12 991.98,188.50C992.42,189.19 993.09,190.35 993.46,191.09C996.05,196.25 1003.92,202.81 1011.11,205.80C1021.08,209.94 1034.96,210.58 1047.25,207.47C1066.04,202.71 1081.51,191.12 1097.44,169.88C1104.07,161.04 1108.00,154.19 1108.00,151.46C1108.00,150.75 1108.42,147.72 1108.94,144.71C1109.45,141.71 1110.15,137.34 1110.48,135.00C1110.82,132.66 1111.65,127.26 1112.32,123.00C1114.85,106.94 1115.45,103.10 1116.23,97.75C1120.85,66.41 1121.31,64.32 1124.32,61.32C1127.13,58.51 1127.70,58.45 1152.35,58.61L1174.95,58.75L1176.71,60.46C1179.19,62.87 1179.67,64.65 1179.04,69.10C1177.99,76.51 1174.38,99.82 1172.48,111.50C1171.92,114.94 1171.01,120.79 1170.47,124.50C1169.93,128.21 1169.24,132.60 1168.94,134.25C1168.64,135.90 1168.10,139.28 1167.73,141.75C1167.36,144.22 1166.48,150.07 1165.77,154.75C1161.72,181.38 1161.25,187.65 1162.78,194.97C1163.87,200.23 1165.21,203.00 1167.90,205.63C1171.03,208.68 1174.60,209.76 1179.96,209.28C1187.36,208.62 1192.35,206.09 1199.07,199.61C1202.32,196.47 1205.12,193.13 1207.65,189.35C1211.24,183.99 1216.62,173.90 1218.29,169.38C1223.34,155.72 1225.61,146.69 1227.99,130.75C1229.60,119.99 1231.39,108.40 1232.49,101.50C1234.61,88.33 1235.60,82.03 1236.54,75.75C1238.22,64.55 1239.48,61.84 1244.13,59.44C1245.93,58.52 1247.07,58.48 1268.73,58.61L1291.44,58.75L1293.01,60.25C1293.87,61.08 1294.92,62.54 1295.32,63.50C1296.12,65.37 1295.92,67.71 1294.18,77.50C1293.76,79.84 1293.22,83.21 1292.98,85.00C1292.75,86.79 1292.31,89.71 1292.00,91.50C1291.70,93.29 1291.26,96.10 1291.03,97.75C1290.79,99.40 1289.79,105.81 1288.81,112.00C1287.83,118.19 1286.44,127.08 1285.73,131.75C1285.02,136.43 1284.12,142.05 1283.74,144.25C1283.35,146.45 1282.68,150.50 1282.25,153.25C1281.82,156.00 1281.23,159.60 1280.96,161.25C1280.68,162.90 1280.25,165.71 1280.01,167.50C1279.77,169.29 1278.79,175.47 1277.83,181.25C1276.06,191.88 1272.75,213.25 1272.01,218.75C1271.79,220.40 1271.45,222.59 1271.25,223.62C1271.05,224.68 1271.09,225.50 1271.34,225.50C1272.95,225.50 1286.91,214.25 1291.48,209.27C1297.02,203.23 1299.92,199.87 1302.25,196.79C1303.62,194.97 1305.26,192.84 1305.88,192.04C1306.49,191.25 1307.00,190.39 1307.00,190.13C1307.00,189.87 1307.45,189.25 1308.00,188.75C1308.55,188.25 1309.00,187.67 1309.00,187.45C1309.00,187.23 1309.73,185.98 1310.62,184.68C1315.15,178.07 1320.26,167.62 1327.86,149.40C1329.44,145.60 1333.02,143.66 1336.87,144.53C1343.40,145.99 1358.85,150.97 1360.83,152.26C1366.32,155.83 1360.63,175.86 1347.00,200.99C1345.07,204.55 1337.35,215.93 1334.78,219.00C1327.63,227.56 1325.37,230.15 1321.75,233.93C1317.99,237.85 1308.88,246.14 1305.22,248.98C1291.21,259.80 1282.65,265.24 1267.41,273.00L1260.56,276.48L1258.50,282.80C1257.37,286.28 1255.91,290.51 1255.26,292.19C1254.61,293.87 1253.51,296.73 1252.80,298.55C1250.82,303.67 1244.60,317.10 1243.55,318.53C1243.03,319.23 1241.89,321.23 1241.02,322.96C1240.15,324.69 1238.66,327.21 1237.72,328.55C1236.77,329.89 1236.00,331.18 1236.00,331.42C1236.00,331.65 1235.55,332.25 1235.00,332.75C1234.45,333.25 1234.00,333.84 1234.00,334.07C1234.00,334.29 1233.16,335.58 1232.12,336.92C1218.86,354.18 1207.52,364.19 1192.39,371.99C1187.58,374.47 1186.56,374.90 1179.75,377.36C1173.47,379.63 1165.35,381.29 1157.25,381.98C1150.62,382.54 1148.74,382.54 1142.50,381.97ZM1162.48,329.98C1169.37,327.69 1174.00,324.99 1178.66,320.52C1183.54,315.84 1185.60,313.24 1189.14,307.27C1191.43,303.41 1192.37,301.20 1191.90,300.74C1191.78,300.62 1190.46,300.98 1188.97,301.54C1187.47,302.10 1185.01,302.99 1183.50,303.50C1181.99,304.01 1179.51,304.92 1178.00,305.51C1176.49,306.09 1174.69,306.76 1174.00,306.98C1171.31,307.85 1157.99,313.99 1154.52,315.95C1150.68,318.13 1147.35,320.56 1145.88,322.25C1142.93,325.65 1144.68,329.77 1149.64,331.05C1152.20,331.71 1158.96,331.15 1162.48,329.98ZM765.68,208.75C775.92,206.59 785.27,200.27 793.82,189.75C799.72,182.48 807.77,168.38 811.66,158.50C816.02,147.42 821.95,124.70 821.99,118.92C822.00,117.91 821.09,116.75 818.13,113.99C816.01,112.00 813.14,109.72 811.76,108.92C810.38,108.11 808.91,107.26 808.50,107.02C800.70,102.49 787.13,101.75 776.60,105.28C767.68,108.28 760.50,112.67 753.93,119.17C749.79,123.26 745.00,129.04 745.00,129.94C745.00,130.18 744.66,130.66 744.24,131.01C742.90,132.12 738.16,141.58 736.25,146.94C732.40,157.76 731.80,161.14 731.77,172.00C731.75,183.36 732.22,186.10 735.38,193.00C737.16,196.90 739.57,200.42 742.08,202.82C747.92,208.38 756.85,210.63 765.68,208.75ZM197.00,157.22C202.52,156.73 210.86,154.86 215.75,153.02C226.70,148.90 229.72,147.44 236.38,143.06C241.97,139.38 248.91,132.85 251.58,128.75C256.59,121.07 256.80,111.80 252.10,106.83C247.09,101.54 237.02,101.13 227.25,105.80C220.16,109.19 215.79,112.36 209.97,118.34C201.16,127.38 196.18,135.28 192.93,145.35C191.18,150.80 189.87,156.89 190.31,157.60C190.47,157.85 191.19,157.94 191.92,157.81C192.65,157.67 194.94,157.40 197.00,157.22Z"/></symbol></svg>
+
+<header class="top">
+  <div class="wrap">
+    <div class="brand"><svg class="logo" viewBox="0 0 1364 383" role="img" aria-label="temacy"><use href="#tm-logo"/></svg><small>Propuesta para CEDUC</small></div>
+    <div class="actions">
+      <button class="btn ghost" id="btn-anexo" type="button">Ver anexo técnico</button>
+      <button class="btn" id="btn-pdf" type="button">Descargar propuesta en PDF</button>
+    </div>
+  </div>
+</header>
+
+<main>
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="meta"><span>CEDUC · Proyecto ADEC</span><span>30/10/2026</span><span>Versión 1</span></div>
+      <h1>La normativa urbana de Córdoba, ordenada y lista para consultar</h1>
+      <p class="lead">Proponemos relevar con inteligencia artificial todas las ordenanzas, decretos y resoluciones que intervienen en el desarrollo urbano. El resultado es un diagnóstico validado por la experta del equipo, con propuestas para el Departamento Ejecutivo y para el Concejo Deliberante, y un asistente que responde una situación concreta citando cada artículo.</p>
+      <div class="figs">
+        <div class="fig"><b>6</b><span>meses de trabajo, prorrogables 2</span></div>
+        <div class="fig"><b>2</b><span>escalas de propuesta: Ejecutivo y Concejo</span></div>
+        <div class="fig"><b>100%</b><span>de los hallazgos con su artículo citado</span></div>
+        <div class="fig"><b>1</b><span>asistente que avisa cuándo hay un gris</span></div>
+      </div>
+    </div>
+    <div class="screen" aria-label="Ejemplo del asistente de consulta">
+      <div class="bar"><i></i><i></i><i></i><span class="app">CEDUC <em>· Normativa</em></span><span class="ex">Datos de ejemplo</span></div>
+      <div class="body">
+        <div class="who">Consulta</div>
+        <div class="q">Tengo un lote de 2 ha en zona periurbana y quiero hacer un parque logístico. ¿Qué puedo construir y qué trámites necesito?</div>
+        <div class="who">Respuesta del asistente</div>
+        <div class="a">
+          <div>El uso logístico no figura como categoría propia. Se encuadra hoy como <b>industrial de bajo impacto</b> <span class="cite">Ord. 0000/85 · art. 14</span></div>
+          <dl class="kv"><dt>FOS</dt><dd>0,6</dd><dt>FOT</dt><dd>1,2</dd><dt>Altura máx.</dt><dd>12 m</dd><dt>Retiro frontal</dt><dd>10 m</dd></dl>
+          <div class="flag warn"><b>Gris:</b>&nbsp;el art. 14 remite a un anexo derogado por la <span class="cite">Ord. 0000/04</span></div>
+          <div class="flag bad"><b>Intervienen 2 autoridades</b>&nbsp;para el mismo paso: Planeamiento y Ambiente</div>
+          <div class="muted" style="font-size:.76rem">Confianza media · conviene confirmarlo con un especialista</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ANTES Y DESPUÉS -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Antes y después</span>
+      <h2>De una ordenanza y sus modificaciones dispersas a una ficha con vigencia y conflictos</h2>
+      <p class="muted">Hoy, para saber qué rige sobre un tema, hay que juntar la norma original, sus modificaciones, los decretos que la reglamentan y los criterios que se aplican en la práctica.</p>
+    </div>
+    <div class="split">
+      <div>
+        <span class="ba-label before">Hoy</span>
+        <div class="paper-stack" aria-label="Ejemplo de normas en papel">
+          <div class="paper">
+            <h4>ORDENANZA N.º 0000/85</h4>
+            <p><b>Art. 14.</b> En la zona industrial de bajo impacto se admitirán los usos indicados en el <span class="x">Anexo III</span>, con un factor de ocupación del suelo no mayor a…</p>
+            <span class="note">El Anexo III fue derogado en 2004. La ordenanza no lo indica.</span>
+          </div>
+          <div class="paper">
+            <h4>DECRETO N.º 000/12</h4>
+            <p><b>Art. 2.</b> Modifícase el retiro de frente establecido en el art. 22 de la Ordenanza 0000/85…</p>
+            <span class="note">Hay que saber que existe para encontrarlo.</span>
+          </div>
+        </div>
+        <ul class="pains">
+          <li>No hay un solo lugar donde ver qué está vigente.</li>
+          <li>Las referencias a normas derogadas no se advierten a simple vista.</li>
+          <li>Lo que se resolvió en casos particulares no está escrito en ninguna norma.</li>
+        </ul>
+      </div>
+      <div>
+        <span class="ba-label after">Con el sistema</span>
+        <div class="screen" aria-label="Ejemplo de ficha de norma">
+          <div class="bar"><i></i><i></i><i></i><span class="app">CEDUC <em>· Ficha de norma</em></span><span class="ex">Datos de ejemplo</span></div>
+          <div class="body">
+            <div style="display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap;align-items:center">
+              <b style="font-size:1rem">Ordenanza 0000/85 · Uso del suelo</b>
+              <span class="chip g">Vigente con modificaciones</span>
+            </div>
+            <div class="chips"><span class="chip t">Uso del suelo</span><span class="chip">Ocupación</span><span class="chip">Autoridad: Planeamiento</span></div>
+            <div class="who">Normas que la modifican</div>
+            <div class="rowlist">
+              <div><span class="mono">Dec. 000/12</span><span>Modifica retiro de frente (art. 22)</span><span class="chip t">Vigente</span></div>
+              <div><span class="mono">Ord. 0000/04</span><span>Deroga el Anexo III</span><span class="chip t">Vigente</span></div>
+              <div><span class="mono">Res. 00/19</span><span>Interpreta usos mixtos (art. 9)</span><span class="chip b">Criterio</span></div>
+            </div>
+            <div class="who">Alertas</div>
+            <div class="flag bad"><b>Referencia rota:</b>&nbsp;el art. 14 remite al Anexo III, derogado</div>
+            <div class="flag warn"><b>Solapamiento:</b>&nbsp;el art. 22 y el Dec. 000/12 fijan retiros distintos</div>
+            <div class="flag ok">Validada por la experta · 12/03</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RECORRIDO -->
+<section class="band">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Un caso de punta a punta</span>
+      <h2>Qué pasa con un parque logístico, paso a paso</h2>
+      <p class="muted">Un caso que hoy no tiene reglamentación propia. Así lo recorre el sistema, y esto es lo que ve cada persona del equipo.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <div class="txt"><h3>Se plantea la situación</h3><p>El coordinador describe el caso con sus palabras o completa un formulario guiado.</p><span class="role">Ve: coordinador CEDUC</span></div>
+        <div class="screen"><div class="bar"><i></i><i></i><i></i><span class="app">CEDUC <em>· Nueva consulta</em></span><span class="ex">Datos de ejemplo</span></div>
+          <div class="body">
+            <dl class="kv"><dt>Tipo de proyecto</dt><dd>Parque logístico</dd><dt>Zona</dt><dd>Periurbana norte</dd><dt>Superficie</dt><dd>2 ha</dd><dt>Frente</dt><dd>120 m</dd></dl>
+            <div class="input">Agregar detalle: acceso por ruta, galpones de 10 m de altura…</div>
+          </div></div>
+      </div>
+      <div class="step">
+        <div class="txt"><h3>El sistema reúne todo lo que aplica</h3><p>Uso, fraccionamiento, ocupación, edificación, infraestructura y ambiente, con el artículo exacto de cada norma.</p><span class="role">Ve: coordinador CEDUC</span></div>
+        <div class="screen"><div class="bar"><i></i><i></i><i></i><span class="app">CEDUC <em>· Normas que aplican</em></span><span class="ex">Datos de ejemplo</span></div>
+          <div class="body"><div class="rowlist">
+            <div><span class="chip t">Uso</span><span>Industrial de bajo impacto</span><span class="cite">Ord. 0000/85 · 14</span></div>
+            <div><span class="chip t">Fraccionamiento</span><span>Parcela mínima y calles</span><span class="cite">Ord. 0000/85 · 31</span></div>
+            <div><span class="chip t">Ocupación</span><span>FOS, FOT y retiros</span><span class="cite">Dec. 000/12 · 2</span></div>
+            <div><span class="chip t">Ambiente</span><span>Aviso de proyecto</span><span class="cite">Ord. 0000/16 · 5</span></div>
+            <div><span class="chip t">Infraestructura</span><span>Desagües pluviales</span><span class="cite">Ord. 0000/09 · 8</span></div>
+          </div></div></div>
+      </div>
+      <div class="step">
+        <div class="txt"><h3>Detecta los grises</h3><p>Marca lo que no está reglamentado, lo que remite a normas derogadas y los pasos donde intervienen dos autoridades.</p><span class="role">Ve: coordinador y experta normativa</span></div>
+        <div class="screen"><div class="bar"><i></i><i></i><i></i><span class="app">CEDUC <em>· Hallazgos</em></span><span class="ex">Datos de ejemplo</span></div>
+          <div class="body">
+            <div class="flag bad"><b>Vacío:</b>&nbsp;no hay categoría de uso “logística”. Se encuadra por analogía.</div>
+            <div class="flag warn"><b>Referencia rota:</b>&nbsp;art. 14 → Anexo III derogado</div>
+            <div class="flag warn"><b>Superposición:</b>&nbsp;Planeamiento y Ambiente piden estudio de impacto por separado</div>
+            <div class="muted" style="font-size:.76rem">3 hallazgos · enviados a validación</div>
+          </div></div>
+      </div>
+      <div class="step">
+        <div class="txt"><h3>La experta valida</h3><p>Confirma, corrige o descarta cada hallazgo, y suma el criterio que se aplica en la práctica aunque no esté escrito.</p><span class="role">Ve: experta normativa</span></div>
+        <div class="screen"><div class="bar"><i></i><i></i><i></i><span class="app">CEDUC <em>· Bandeja de validación</em></span><span class="ex">Datos de ejemplo</span></div>
+          <div class="body">
+            <div class="rowlist">
+              <div><span class="chip r">Vacío</span><span>Uso logístico sin categoría</span><span class="chip t">Confirmado</span></div>
+              <div><span class="chip g">Derogada</span><span>Remisión al Anexo III</span><span class="chip t">Confirmado</span></div>
+              <div><span class="chip g">Superposición</span><span>Doble estudio de impacto</span><span class="chip">Pendiente</span></div>
+            </div>
+            <div class="input">Criterio aplicado: “se exige un único estudio cuando lo pide Ambiente”</div>
+          </div></div>
+      </div>
+      <div class="step">
+        <div class="txt"><h3>Nace una propuesta</h3><p>Cada propuesta indica si la puede resolver el Departamento Ejecutivo o si requiere ordenanza, con el texto vigente y el propuesto lado a lado.</p><span class="role">Ve: coordinador y revisores ADEC</span></div>
+        <div class="screen"><div class="bar"><i></i><i></i><i></i><span class="app">CEDUC <em>· Propuesta P-07</em></span><span class="ex">Datos de ejemplo</span></div>
+          <div class="body">
+            <div class="chips"><span class="chip t">Escala: Departamento Ejecutivo</span><span class="chip">Prioridad alta</span><span class="chip b">En revisión ADEC</span></div>
+            <div class="compare">
+              <div><h5>Texto vigente</h5>“…los usos indicados en el Anexo III…”</div>
+              <div class="new"><h5>Texto propuesto</h5>“…los usos indicados en el art. 14 bis, incluido el uso logístico…”</div>
+            </div>
+          </div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAPA DE AUTORIDADES -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Procesos y autoridades</span>
+      <h2>La cadena del desarrollo, con quién interviene en cada paso</h2>
+      <p class="muted">Para cada proceso queda claro cuál es la autoridad de aplicación y dónde intervienen otras. Este es un ejemplo del mapa que se construye en la fase 2.</p>
+    </div>
+    <div class="chain-wrap" tabindex="0" aria-label="Mapa de ejemplo de procesos y autoridades">
+      <div class="chain">
+        <div class="stage"><h4>Terreno</h4><div class="tr">Consulta de uso del suelo · Planeamiento</div></div>
+        <div class="stage"><h4>Factibilidad</h4><div class="tr">Factibilidad de servicios · Infraestructura</div><div class="tr ov">Aviso de proyecto · Ambiente + Planeamiento</div></div>
+        <div class="stage"><h4>Fraccionamiento</h4><div class="tr">Visación de loteo · Planeamiento</div></div>
+        <div class="stage"><h4>Proyecto</h4><div class="tr">Permiso de edificación · Obras Privadas</div><div class="tr ov">Estudio de impacto · Ambiente + Obras Privadas</div></div>
+        <div class="stage"><h4>Obra</h4><div class="tr">Inspecciones · Obras Privadas</div></div>
+        <div class="stage"><h4>Final de obra</h4><div class="tr">Certificado final · Obras Privadas</div></div>
+        <div class="stage"><h4>Escritura</h4><div class="tr">Subdivisión y PH · Catastro</div></div>
+      </div>
+    </div>
+    <div class="legend"><span><i style="background:var(--band);border:1px solid var(--line)"></i>Una autoridad</span><span><i style="background:var(--red-bg);border:1px dashed var(--red)"></i>Dos autoridades sobre el mismo paso</span><span class="muted">Etapas y trámites de ejemplo</span></div>
+  </div>
+</section>
+
+<!-- BLOQUES -->
+<section class="band">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Cómo está armado</span>
+      <h2>Seis bloques sobre un mismo registro de normas y artículos</h2>
+    </div>
+    <div class="blocks">
+      <div class="block"><span class="code">NOR · FUE</span><h3>Corpus normativo</h3><p>Cada ordenanza, decreto y resolución cargada, dividida por artículo, con su vigencia y qué la modifica.</p>
+        <div class="mini"><div style="display:flex;justify-content:space-between"><span class="mono">Ord. 0000/85</span><span class="chip g">Modificada</span></div><div style="display:flex;justify-content:space-between"><span class="mono">Dec. 000/12</span><span class="chip t">Vigente</span></div></div></div>
+      <div class="block"><span class="code">JUR</span><h3>Criterios no escritos</h3><p>Lo que se resolvió en casos particulares, cargado por la experta con su fuente y su grado de certeza.</p>
+        <div class="mini"><span>“Se exige un único estudio de impacto cuando lo pide Ambiente”</span><span class="chip b" style="justify-self:start">Certeza alta</span></div></div>
+      <div class="block"><span class="code">PRO</span><h3>Procesos y autoridades</h3><p>La cadena del terreno a la escritura, con los trámites, plazos y autoridad de cada paso, por tipo de proyecto.</p>
+        <div class="mini"><span>Loteo · Edificio · Conjunto inmobiliario · Parque logístico · Dúplex</span></div></div>
+      <div class="block"><span class="code">ANA · VAL</span><h3>Análisis y validación</h3><p>La IA detecta derogaciones, solapamientos, contradicciones, plazos y vacíos. Nada se da por cierto sin la validación de la experta.</p>
+        <div class="mini"><div style="display:flex;justify-content:space-between"><span>Sugeridos por la IA</span><b>142</b></div><div style="display:flex;justify-content:space-between"><span>Confirmados</span><b>97</b></div></div></div>
+      <div class="block"><span class="code">PRP</span><h3>Propuestas de corrección</h3><p>Separadas en lo que resuelve el Departamento Ejecutivo y lo que requiere ordenanza, con borrador de texto.</p>
+        <div class="mini"><div class="chips"><span class="chip t">Ejecutivo · 18</span><span class="chip b">Concejo · 9</span></div></div></div>
+      <div class="block"><span class="code">ASI · INF</span><h3>Asistente e informe</h3><p>Consultas con respuesta citada, informe diagnóstico para ADEC y un tablero con los indicadores.</p>
+        <div class="mini"><span class="q" style="font-size:.74rem;padding:6px 8px">¿Puedo hacer dúplex en este lote?</span></div></div>
+    </div>
+    <p class="muted" style="margin-top:14px;font-size:.82rem">Las cifras de los recuadros son de ejemplo.</p>
+  </div>
+</section>
+
+<!-- TABLERO -->
+<section>
+  <div class="wrap split">
+    <div class="sec-head" style="margin:0">
+      <span class="eyebrow">Tablero del diagnóstico</span>
+      <h2>El estado de la normativa, medido</h2>
+      <p class="muted">CEDUC y ADEC ven el avance y los resultados en un tablero que se actualiza a medida que la experta valida. Cada indicador tiene su forma de cálculo en el anexo técnico.</p>
+    </div>
+    <div class="screen" aria-label="Ejemplo del tablero">
+      <div class="bar"><i></i><i></i><i></i><span class="app">CEDUC <em>· Tablero</em></span><span class="ex">Datos de ejemplo</span></div>
+      <div class="body">
+        <div class="kpis">
+          <div class="kpi"><b>312</b><span>normas relevadas</span></div>
+          <div class="kpi"><b>88%</b><span>vigencia verificada</span></div>
+          <div class="kpi"><b>41</b><span>referencias a derogadas</span></div>
+          <div class="kpi"><b>27</b><span>propuestas</span></div>
+        </div>
+        <div class="who">Hallazgos confirmados por tema</div>
+        <div class="bars">
+          <div><span>Uso del suelo</span><span class="track"><i style="width:72%;background:var(--teal)"></i></span><span class="n">31</span></div>
+          <div><span>Ocupación</span><span class="track"><i style="width:56%;background:var(--teal)"></i></span><span class="n">24</span></div>
+          <div><span>Fraccionamiento</span><span class="track"><i style="width:40%;background:var(--teal)"></i></span><span class="n">17</span></div>
+          <div><span>Ambiente</span><span class="track"><i style="width:33%;background:var(--teal)"></i></span><span class="n">14</span></div>
+          <div><span>Edificación</span><span class="track"><i style="width:26%;background:var(--teal)"></i></span><span class="n">11</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PREGUNTAS -->
+<section class="band">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Preguntas que hoy no tienen respuesta rápida</span>
+      <h2>Lo que van a poder contestar, y desde qué fase</h2>
+    </div>
+    <div class="qa">
+      <div><p>¿Qué normas sobre uso del suelo siguen vigentes, y cuáles citan normas ya derogadas?</p><span class="chip t">Fase 1-2</span></div>
+      <div><p>¿Quién es la autoridad de aplicación en cada paso, y dónde intervienen dos a la vez?</p><span class="chip t">Fase 2</span></div>
+      <div><p>¿Qué tipologías no tienen reglamentación propia o la tienen incompleta?</p><span class="chip t">Fase 3</span></div>
+      <div><p>¿Qué se puede corregir por decreto y qué necesita una ordenanza?</p><span class="chip t">Fase 3</span></div>
+      <div><p>Para este terreno y este proyecto, ¿qué puedo hacer y qué trámites necesito?</p><span class="chip t">Fase 4</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- FASES -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Plan de trabajo</span>
+      <h2>Cuatro fases en seis meses</h2>
+    </div>
+    <div class="phases">
+      <div class="phase"><span class="m">Mes 1</span><h3>Corpus</h3><ul><li>Carga y ficha de las normas relevadas por CEDUC</li><li>Vigencia validada por la experta</li><li>Primeros criterios no escritos</li><li>Un caso testigo recorrido</li></ul></div>
+      <div class="phase"><span class="m">Meses 2 y 3</span><h3>Mapa</h3><ul><li>Procesos y autoridades por tipo de proyecto</li><li>Referencias a normas derogadas</li><li>Solapamientos y superposición de autoridades</li><li>Tablero activo</li></ul></div>
+      <div class="phase"><span class="m">Meses 4 y 5</span><h3>Diagnóstico</h3><ul><li>Contradicciones, plazos y vacíos</li><li>Propuestas para el Ejecutivo y para el Concejo</li><li>Borrador de texto y cuadro comparativo</li></ul></div>
+      <div class="phase"><span class="m">Mes 6</span><h3>Entrega</h3><ul><li>Informe diagnóstico y resumen ejecutivo</li><li>Asistente probado con casos validados</li><li>Acceso para revisores de ADEC</li><li>Presentación en ADEC</li></ul></div>
+    </div>
+    <div class="timeline" aria-hidden="true">
+      <div></div><div></div><div></div><div></div><div></div><div></div><div class="ext"></div><div class="ext"></div>
+      <span>M1</span><span>M2</span><span>M3</span><span>M4</span><span>M5</span><span>M6</span><span>+1</span><span>+2</span>
+    </div>
+    <p class="muted" style="margin-top:10px;font-size:.85rem">Los dos meses de prórroga, si se usan, sirven para incorporar los comentarios de ADEC y ajustar el asistente.</p>
+    <div class="each"><b>Cada fase cierra con:</b><span class="chip t">Demo</span><span class="chip t">Prueba con sus normas</span><span class="chip t">Informe de avance</span><span class="chip t">Aprobación del coordinador</span></div>
+  </div>
+</section>
+
+<!-- NECESITAMOS -->
+<section class="band">
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Para arrancar</span>
+      <h2>Lo que necesitamos de CEDUC</h2>
+    </div>
+    <ul class="need">
+      <li>El listado y los textos de las ordenanzas ya relevadas.</li>
+      <li>Acceso a las fuentes oficiales que usan hoy.</li>
+      <li>Horas semanales de la experta para validar hallazgos.</li>
+      <li>Los casos testigo de la fase 1 y los casos de prueba del asistente.</li>
+      <li>Las bases o el formulario de ADEC, para darle forma al informe.</li>
+      <li>Un interlocutor por tema: uso del suelo, ambiente e infraestructura.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ETAPA 2 -->
+<section>
+  <div class="wrap">
+    <div class="sec-head">
+      <span class="eyebrow">Después del diagnóstico</span>
+      <h2>Lo que se puede construir sobre esta base</h2>
+      <p class="muted">No forma parte de esta propuesta. Lo dejamos anotado porque el corpus y el asistente son el punto de partida.</p>
+    </div>
+    <div class="blocks">
+      <div class="block"><h3>Plataforma para desarrollistas</h3><p>El asistente abierto a los socios de CEDUC, con acceso por suscripción.</p></div>
+      <div class="block"><h3>Evaluador de tierras</h3><p>El modelo de evaluación llevado al sistema: qué se puede hacer en un terreno y cuánto se puede pagar.</p></div>
+      <div class="block"><h3>Banco de precios</h3><p>Ofertas de portales y, con un convenio, precios de escrituras del Registro de la Propiedad.</p></div>
+      <div class="block"><h3>Planos de loteo</h3><p>Dibujo del plano a partir de coordenadas georreferenciadas.</p></div>
+      <div class="block"><h3>Matrículas</h3><p>Descarga automática de matrículas del Registro.</p></div>
+      <div class="block"><h3>Financiamiento</h3><p>Seguimiento de fondos de inversión para vivienda: tasa y morosidad.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SIGUIENTE PASO -->
+<section>
+  <div class="wrap">
+    <div class="next">
+      <span class="eyebrow" style="color:var(--gold)">Siguiente paso</span>
+      <h2>Una reunión para cerrar el alcance y recibir las ordenanzas</h2>
+      <p>Repasamos juntos este plan, definimos si el asistente entra completo en esta etapa y empezamos la carga con las normas que ya relevaron.</p>
+      <p><b style="color:#fff">Matías Lucero</b></p>
+      <svg class="logo logo-hueso" viewBox="0 0 1364 383" role="img" aria-label="temacy"><use href="#tm-logo"/></svg>
+      <button class="btn no-print" type="button" id="btn-anexo-2">Ver anexo técnico</button>
+    </div>
+  </div>
+</section>
+
+
+</main>
+<footer><div class="wrap">temacy · Propuesta para CEDUC · 30/10/2026 · Los mockups usan datos de ejemplo.</div></footer>
+
+
+<div id="anexo" class="lx" hidden>
+ <header class="lx-top"><div class="lx-wrap">
+  <div class="lx-brand"><svg class="lx-logo" viewBox="0 0 1364 383" role="img" aria-label="temacy"><use href="#tm-logo"/></svg><span>Anexo técnico</span></div>
+  <button type="button" class="lx-back" id="lx-back">Volver a la propuesta</button>
+ </div></header>
+ <div class="lx-wrap lx-body">
+  <p class="lx-crumb">CEDUC · Diagnóstico de normativa urbana con IA · Especificación funcional v2 · 30/10/2026</p>
+  <h2 class="lx-title">Especificación funcional</h2>
+  <p class="lx-intro">El sistema reúne todas las normas que intervienen en el desarrollo urbano, las divide por artículo y registra su vigencia y sus relaciones. Sobre esa base detecta derogaciones, solapamientos, contradicciones y vacíos, que la experta valida, y arma propuestas en dos escalas y un asistente que responde citando cada artículo.</p>
+  <div class="lx-stats"><div><b>84</b><span>funcionalidades</span></div><div><b>14</b><span>indicadores</span></div><div><b>5</b><span>roles</span></div><div><b>4</b><span>fases</span></div></div>
+  <nav class="lx-pills" aria-label="Índice del anexo"><a href="#lx-s1">1. Objetivo y alcance</a><a href="#lx-s2">2. Usuarios y roles</a><a href="#lx-s3">3. Mapa de módulos</a><a href="#lx-s4">4. Corpus normativo y fuentes</a><a href="#lx-s5">5. Procesos y autoridades</a><a href="#lx-s6">6. Análisis y validación</a><a href="#lx-s7">7. Propuestas de corrección</a><a href="#lx-s8">8. Asistente de consulta</a><a href="#lx-s9">9. Informe, usuarios y auditoría</a><a href="#lx-s10">10. Indicadores</a><a href="#lx-s11">11. Alcance por fase</a><a href="#lx-s12">12. Necesidades y módulos</a><a href="#lx-s13">13. Aceptación y pendientes</a><a href="#lx-s14">14. Etapa 2</a></nav>
+  <div class="lx-filter" role="group" aria-label="Filtrar por entrega"><span>Mostrar:</span><button type="button" class="on" data-f="all">Todas</button><button type="button" data-f="F1">Fase 1</button><button type="button" data-f="F2">Fase 2</button><button type="button" data-f="F3">Fase 3</button><button type="button" data-f="F4">Fase 4</button><button type="button" data-f="AD">A definir</button><span class="lx-count" id="lx-count">84 funcionalidades</span></div>
+
+  <div class="lx-h" id="lx-s1"><span>1</span><h3>Objetivo y alcance</h3></div><p class="lx-lead">Que CEDUC llegue a ADEC con un diagnóstico verificable del marco normativo municipal de desarrollo urbano de Córdoba. El diagnóstico tiene que decir qué norma rige cada proceso, quién es su autoridad de aplicación, dónde se solapan o contradicen las normas, qué remite a normas derogadas y qué casos no tienen reglamentación. Con eso se arman propuestas de corrección en dos escalas: las que puede resolver el Departamento Ejecutivo y las que requieren ordenanza del Concejo Deliberante. Se suma un asistente que responde una situación concreta citando las normas y avisa cuando hay un gris.</p>
+  <div class="lx-scope"><div><h4>Incluye</h4><ul><li>Corpus normativo digitalizado y fichado: ordenanzas, decretos, resoluciones y criterios no escritos (jurisprudencia).</li><li>Temas: uso del suelo, fraccionamiento, ocupación del suelo (FOS, FOT, alturas, retiros), código de edificación, infraestructura (agua, cloacas, cuencas) y ambiente.</li><li>Mapa de procesos del desarrollo urbano y de autoridades de aplicación: Planeamiento, Obras Privadas, Ambiente y otras.</li><li>Análisis asistido por IA, validado por la experta: derogaciones, solapamientos, contradicciones, plazos y vacíos.</li><li>Propuestas de corrección por escala, con su fundamento.</li><li>Asistente de consulta: un prototipo para el equipo CEDUC y los revisores de ADEC (<strong>A definir</strong> si entra completo en la etapa 1).</li><li>Informe diagnóstico exportable y tablero de indicadores.</li></ul></div><div class="out"><h4>No incluye</h4><ul><li>Redacción jurídica final de decretos u ordenanzas. La validan la experta y CEDUC.</li><li>Gestión política del proceso ante ADEC y el Concejo.</li><li>Plataforma abierta con suscripción para desarrollistas, evaluador de tierras, banco de precios, integraciones con el Registro de la Propiedad o IDECOR, planos de loteo automáticos y herramientas de mercado de capitales. Todo eso es etapa 2 (sección 14).</li><li>Normativa provincial y nacional, salvo que se defina incluirla (<strong>A definir</strong>).</li></ul></div></div>
+  <div class="lx-note"><b>La IA sugiere y la experta valida.</b> Ningún hallazgo, propuesta o respuesta se da por cierto sin el artículo que lo fundamenta y la validación de la experta.</div>
+
+  <div class="lx-h" id="lx-s2"><span>2</span><h3>Usuarios y roles</h3></div><p class="lx-lead">Cada usuario tiene un rol. La experta y el coordinador validan; los revisores de ADEC leen y comentan.</p>
+  <div class="lx-tbl "><table><thead><tr><th>Rol</th><th>Qué hace</th><th>Dispositivo</th></tr></thead><tbody><tr><td class=fn>Coordinador CEDUC</td><td>Define prioridades y casos testigo, aprueba los entregables de cada fase y administra usuarios y permisos</td><td>PC</td></tr><tr><td class=fn>Experta normativa</td><td>Valida fichas y hallazgos, carga la jurisprudencia y valida las respuestas del asistente. Si hace falta, suma a la especialista ambiental para ambiente e infraestructura</td><td>PC</td></tr><tr><td class=fn>Revisor ADEC</td><td>Cámaras, universidades y Concejo: leen el informe, comentan las propuestas y prueban el asistente</td><td>PC y celular</td></tr><tr><td class=fn>Funcionario municipal</td><td>Consulta el mapa de autoridades y las propuestas (<strong>A definir</strong> si tiene acceso)</td><td>PC</td></tr><tr><td class=fn>Desarrollista socio de CEDUC</td><td>Usa el asistente (<strong>A definir</strong>: etapa 1 en modo piloto o etapa 2)</td><td>PC y celular</td></tr></tbody></table></div>
+
+  <div class="lx-h" id="lx-s3"><span>3</span><h3>Mapa de módulos</h3></div><p class="lx-lead">Un núcleo, el registro único de normas y artículos, y tres capas alrededor. Todos los módulos escriben y leen el mismo registro.</p>
+  <div class="lx-layers">
+   <div><b>Resultados</b><span>Propuestas de corrección · Asistente de consulta · Informe y tablero</span></div>
+   <div class="core"><b>Registro de normas y artículos</b><span>Cada artículo con su vigencia, sus relaciones y los criterios que lo interpretan. De acá salen los hallazgos, las propuestas y las respuestas.</span></div>
+   <div><b>Análisis</b><span>Análisis con IA · Validación experta · Procesos y autoridades de aplicación</span></div>
+   <div><b>Captura y fuentes</b><span>Corpus normativo · Criterios no escritos · Fuentes oficiales · Usuarios y permisos</span></div>
+  </div>
+
+  <div class="lx-h" id="lx-s4"><span>4</span><h3>Corpus normativo y fuentes</h3></div><p class="lx-lead">Las normas y los criterios son la referencia única sobre la que se apoya todo el análisis.</p>
+  <div class="lx-sub"><h4>4.1 Corpus normativo</h4><div class="lx-tbl"><table><thead><tr><th>ID</th><th>Funcionalidad</th><th>Qué hace</th><th>Entrega</th></tr></thead><tbody><tr data-ph="F1"><td class="id">NOR-01</td><td class="fn">Carga de normas</td><td>Sube ordenanzas, decretos y resoluciones en PDF, Word o texto</td><td class="en"><span class="ph ph-f1">Fase 1</span></td></tr><tr data-ph="F1"><td class="id">NOR-02</td><td class="fn">OCR de escaneos</td><td>Convierte las normas escaneadas a texto buscable y marca las páginas con baja legibilidad</td><td class="en"><span class="ph ph-f1">Fase 1</span></td></tr><tr data-ph="F1"><td class="id">NOR-03</td><td class="fn">Partición por artículo</td><td>Divide cada norma en artículos, incisos y anexos, cada uno con su identificador</td><td class="en"><span class="ph ph-f1">Fase 1</span></td></tr><tr data-ph="F1"><td class="id">NOR-04</td><td class="fn">Ficha de norma</td><td>Tipo, número, año, organismo emisor, fecha de publicación, tema y fuente</td><td class="en"><span class="ph ph-f1">Fase 1</span></td></tr><tr data-ph="F1"><td class="id">NOR-05</td><td class="fn">Clasificación temática</td><td>Asigna uso, fraccionamiento, ocupación, edificación, infraestructura, ambiente u otros; la IA sugiere y la experta confirma</td><td class="en"><span class="ph ph-f1">Fase 1</span></td></tr><tr data-ph="F1"><td class="id">NOR-06</td><td class="fn">Estado de vigencia</td><td>Vigente, derogada total o parcialmente, modificada o sin determinar, con la norma que lo causa</td><td class="en"><span class="ph ph-f1">Fase 1</span></td></tr><tr data-ph="F1"><td class="id">NOR-07</td><td class="fn">Relaciones entre normas</td><td>Registra qué norma modifica, deroga, reglamenta o cita a otra, a nivel artículo</td><td class="en"><span class="ph ph-f1">Fase 1</span></td></tr><tr data-ph="F2"><td class="id">NOR-08</td><td class="fn">Texto ordenado</td><td>Arma la versión vigente de una norma aplicando sus modificaciones</td><td class="en"><span class="ph ph-f2">Fase 2</span></td></tr><tr data-ph="F2"><td class="id">NOR-09</td><td class="fn">Historial de versiones</td><td>Muestra cómo cambió un artículo en el tiempo</td><td class="en"><span class="ph ph-f2">Fase 2</span></td></tr><tr data-ph="F1"><td class="id">NOR-10</td><td class="fn">Glosario</td><td>Términos de la normativa (lote tipo, FOS, FOT, retiro, conjunto inmobiliario, PH) con su definición y la norma que la da</td><td class="en"><span class="ph ph-f1">Fase 1</span></td></tr><tr data-ph="F2"><td class="id">NOR-11</td><td class="fn">Parámetros urbanísticos</td><td>Extrae de cada zona los valores de lote mínimo, frente, FOS, FOT, altura y retiros</td><td class="en"><span class="ph ph-f2">Fase 2</span></td></tr><tr data-ph="F2"><td class="id">NOR-12</td><td class="fn">Zonas</td><td>Lista las zonas o distritos que definen las normas con sus parámetros (<strong>A definir</strong>: mapa georreferenciado si hay cartografía disponible)</td><td class="en"><span class="ph ph-f2">Fase 2</span></td></tr><tr data-ph="F1"><td class="id">NOR-13</td><td class="fn">Búsqueda</td><td>Por texto, número, tema, zona, vigencia y autoridad</td><td class="en"><span class="ph ph-f1">Fase 1</span></td></tr><tr data-ph="F1"><td class="id">NOR-14</td><td class="fn">Fichas incompletas</td><td>Marca la ficha incompleta con el motivo: falta el texto, falta un anexo, la fecha no es clara</td><td class="en"><span class="ph ph-f1">Fase 1</span></td></tr></tbody></table></div></div><div class="lx-sub"><h4>4.2 Fuentes e incorporación de normas nuevas</h4><div class="lx-tbl"><table><thead><tr><th>ID</th><th>Funcionalidad</th><th>Qué hace</th><th>Entrega</th></tr></thead><tbody><tr data-ph="F1"><td class="id">FUE-01</td><td class="fn">Listado de Rogelio</td><td>Importa el relevamiento que ya hizo Rogelio como punto de partida</td><td class="en"><span class="ph ph-f1">Fase 1</span></td></tr><tr data-ph="F1"><td class="id">FUE-02</td><td class="fn">Fuentes oficiales</td><td>Registra de qué fuente sale cada norma (digesto municipal, boletín oficial, archivo propio)</td><td class="en"><span class="ph ph-f1">Fase 1</span></td></tr><tr data-ph="F1"><td class="id">FUE-03</td><td class="fn">Normas faltantes</td><td>Lista las normas citadas que todavía no están en el corpus</td><td class="en"><span class="ph ph-f1">Fase 1</span></td></tr><tr data-ph="F3"><td class="id">FUE-04</td><td class="fn">Incorporación de normas nuevas</td><td>Procedimiento para sumar normas publicadas durante el proyecto</td><td class="en"><span class="ph ph-f3">Fase 3</span></td></tr><tr data-ph="AD"><td class="id">FUE-05</td><td class="fn">Descarga asistida</td><td>Descarga normas desde la fuente oficial cuando esté disponible en línea (<strong>A definir</strong> tras revisar la fuente)</td><td class="en"><span class="ph ph-ad">A definir</span></td></tr></tbody></table></div></div><div class="lx-sub"><h4>4.3 Jurisprudencia y criterios no escritos</h4><div class="lx-tbl"><table><thead><tr><th>ID</th><th>Funcionalidad</th><th>Qué hace</th><th>Entrega</th></tr></thead><tbody><tr data-ph="F1"><td class="id">JUR-01</td><td class="fn">Carga de criterio</td><td>La experta registra cómo se resolvió un caso sin norma escrita</td><td class="en"><span class="ph ph-f1">Fase 1</span></td></tr><tr data-ph="F1"><td class="id">JUR-02</td><td class="fn">Ficha de criterio</td><td>Situación, cómo se resolvió, organismo, fecha aproximada, fuente (expediente, dictamen o experiencia) y grado de certeza</td><td class="en"><span class="ph ph-f1">Fase 1</span></td></tr><tr data-ph="F1"><td class="id">JUR-03</td><td class="fn">Vínculo con normas</td><td>Asocia el criterio a los artículos que interpreta o completa</td><td class="en"><span class="ph ph-f1">Fase 1</span></td></tr><tr data-ph="F1"><td class="id">JUR-04</td><td class="fn">Entrevista guiada</td><td>Cuestionario por tema para relevar criterios con la experta en sesiones cortas</td><td class="en"><span class="ph ph-f1">Fase 1</span></td></tr><tr data-ph="F2"><td class="id">JUR-05</td><td class="fn">Dictado</td><td>La experta dicta un caso por audio y el sistema lo transcribe a una ficha para revisar</td><td class="en"><span class="ph ph-f2">Fase 2</span></td></tr><tr data-ph="F3"><td class="id">JUR-06</td><td class="fn">Criterios en conflicto</td><td>Avisa cuando dos criterios resuelven distinto la misma situación</td><td class="en"><span class="ph ph-f3">Fase 3</span></td></tr></tbody></table></div></div>
+
+  <div class="lx-h" id="lx-s5"><span>5</span><h3>Procesos y autoridades</h3></div><p class="lx-lead">La cadena del desarrollo, del terreno a la escritura, con los trámites y la autoridad de cada paso.</p>
+  <div class="lx-sub"><h4>5.1 Procesos y autoridades de aplicación</h4><div class="lx-tbl"><table><thead><tr><th>ID</th><th>Funcionalidad</th><th>Qué hace</th><th>Entrega</th></tr></thead><tbody><tr data-ph="F2"><td class="id">PRO-01</td><td class="fn">Cadena del desarrollo</td><td>Etapas desde la detección del terreno hasta la escritura, con los trámites municipales de cada una</td><td class="en"><span class="ph ph-f2">Fase 2</span></td></tr><tr data-ph="F2"><td class="id">PRO-02</td><td class="fn">Trámites</td><td>Ficha por trámite: requisitos, normas que lo rigen, plazo legal y organismo</td><td class="en"><span class="ph ph-f2">Fase 2</span></td></tr><tr data-ph="F2"><td class="id">PRO-03</td><td class="fn">Autoridad de aplicación</td><td>Asigna a cada proceso y trámite la autoridad que interpreta la norma</td><td class="en"><span class="ph ph-f2">Fase 2</span></td></tr><tr data-ph="F2"><td class="id">PRO-04</td><td class="fn">Estructura municipal</td><td>Secretarías, subsecretarías y direcciones con sus competencias según la norma</td><td class="en"><span class="ph ph-f2">Fase 2</span></td></tr><tr data-ph="F2"><td class="id">PRO-05</td><td class="fn">Superposición de autoridades</td><td>Detecta procesos donde intervienen dos o más autoridades sin que la norma lo prevea, por ejemplo Ambiente sobre Planeamiento</td><td class="en"><span class="ph ph-f2">Fase 2</span></td></tr><tr data-ph="F2"><td class="id">PRO-06</td><td class="fn">Diagrama de proceso</td><td>Muestra cada proceso como un flujo con sus pasos, autoridades y normas</td><td class="en"><span class="ph ph-f2">Fase 2</span></td></tr><tr data-ph="F3"><td class="id">PRO-07</td><td class="fn">Plazos por trámite</td><td>Registra el plazo legal y el plazo real informado por los desarrollistas, cuando se tenga</td><td class="en"><span class="ph ph-f3">Fase 3</span></td></tr><tr data-ph="F2"><td class="id">PRO-08</td><td class="fn">Tipologías</td><td>Procesos por tipo de proyecto: loteo, edificio, conjunto inmobiliario, parque logístico, plan de vivienda, dúplex</td><td class="en"><span class="ph ph-f2">Fase 2</span></td></tr></tbody></table></div></div>
+
+  <div class="lx-h" id="lx-s6"><span>6</span><h3>Análisis y validación</h3></div><p class="lx-lead">Lo que la IA detecta sobre el corpus y cómo lo valida la experta.</p>
+  <div class="lx-sub"><h4>6.1 Análisis con IA</h4><div class="lx-tbl"><table><thead><tr><th>ID</th><th>Funcionalidad</th><th>Qué hace</th><th>Entrega</th></tr></thead><tbody><tr data-ph="F2"><td class="id">ANA-01</td><td class="fn">Referencias a derogadas</td><td>Detecta artículos vigentes que remiten a normas o artículos derogados</td><td class="en"><span class="ph ph-f2">Fase 2</span></td></tr><tr data-ph="F2"><td class="id">ANA-02</td><td class="fn">Solapamientos</td><td>Detecta normas que regulan lo mismo para el mismo supuesto</td><td class="en"><span class="ph ph-f2">Fase 2</span></td></tr><tr data-ph="F3"><td class="id">ANA-03</td><td class="fn">Contradicciones</td><td>Detecta normas que regulan lo mismo con resultados distintos (parámetros, requisitos, plazos)</td><td class="en"><span class="ph ph-f3">Fase 3</span></td></tr><tr data-ph="F3"><td class="id">ANA-04</td><td class="fn">Vacíos</td><td>Detecta tipologías o situaciones sin norma aplicable: parques logísticos, conjuntos inmobiliarios, dúplex fuera de PH, entre otras</td><td class="en"><span class="ph ph-f3">Fase 3</span></td></tr><tr data-ph="F3"><td class="id">ANA-05</td><td class="fn">Normas desactualizadas</td><td>Marca normas con referencias a organismos, procedimientos o tecnologías que ya no existen</td><td class="en"><span class="ph ph-f3">Fase 3</span></td></tr><tr data-ph="F3"><td class="id">ANA-06</td><td class="fn">Conflictos de plazos</td><td>Compara plazos entre trámites encadenados y señala los que se superponen o no cierran</td><td class="en"><span class="ph ph-f3">Fase 3</span></td></tr><tr data-ph="F3"><td class="id">ANA-07</td><td class="fn">Complejidad por proceso</td><td>Cuenta cuántas normas, autoridades y trámites alcanzan a cada proceso</td><td class="en"><span class="ph ph-f3">Fase 3</span></td></tr><tr data-ph="F2"><td class="id">ANA-08</td><td class="fn">Fundamento citado</td><td>Cada hallazgo muestra los artículos involucrados y el texto exacto</td><td class="en"><span class="ph ph-f2">Fase 2</span></td></tr><tr data-ph="F2"><td class="id">ANA-09</td><td class="fn">Nivel de confianza</td><td>La IA indica alta, media o baja confianza y por qué</td><td class="en"><span class="ph ph-f2">Fase 2</span></td></tr><tr data-ph="F2"><td class="id">ANA-10</td><td class="fn">Análisis por lote</td><td>Corre un tipo de análisis sobre todo el corpus o sobre un tema</td><td class="en"><span class="ph ph-f2">Fase 2</span></td></tr><tr data-ph="F3"><td class="id">ANA-11</td><td class="fn">Reanálisis</td><td>Al sumar una norma o un criterio, recalcula los hallazgos afectados</td><td class="en"><span class="ph ph-f3">Fase 3</span></td></tr><tr data-ph="F1"><td class="id">ANA-12</td><td class="fn">Casos testigo</td><td>Analiza un caso real elegido por Rogelio de punta a punta</td><td class="en"><span class="ph ph-f1">Fase 1</span></td></tr></tbody></table></div></div><div class="lx-sub"><h4>6.2 Validación experta</h4><div class="lx-tbl"><table><thead><tr><th>ID</th><th>Funcionalidad</th><th>Qué hace</th><th>Entrega</th></tr></thead><tbody><tr data-ph="F2"><td class="id">VAL-01</td><td class="fn">Bandeja de validación</td><td>Hallazgos pendientes por experta, tema y prioridad</td><td class="en"><span class="ph ph-f2">Fase 2</span></td></tr><tr data-ph="F2"><td class="id">VAL-02</td><td class="fn">Decisión</td><td>Confirmar, descartar o corregir un hallazgo, con un comentario</td><td class="en"><span class="ph ph-f2">Fase 2</span></td></tr><tr data-ph="F2"><td class="id">VAL-03</td><td class="fn">Motivo de descarte</td><td>Registra por qué un hallazgo no es tal, para mejorar el análisis</td><td class="en"><span class="ph ph-f2">Fase 2</span></td></tr><tr data-ph="F3"><td class="id">VAL-04</td><td class="fn">Doble validación</td><td>Los hallazgos de ambiente e infraestructura también pasan por la especialista ambiental, si se suma al equipo</td><td class="en"><span class="ph ph-f3">Fase 3</span></td></tr><tr data-ph="F2"><td class="id">VAL-05</td><td class="fn">Trazabilidad</td><td>Quién validó qué y cuándo</td><td class="en"><span class="ph ph-f2">Fase 2</span></td></tr><tr data-ph="F1"><td class="id">VAL-06</td><td class="fn">Validación de fichas</td><td>La experta revisa la vigencia y las relaciones que sugirió la IA</td><td class="en"><span class="ph ph-f1">Fase 1</span></td></tr></tbody></table></div></div>
+
+  <div class="lx-h" id="lx-s7"><span>7</span><h3>Propuestas de corrección</h3></div><p class="lx-lead">Cada propuesta indica si la resuelve el Departamento Ejecutivo o si requiere ordenanza del Concejo Deliberante.</p>
+  <div class="lx-sub"><h4>7.1 Propuestas de corrección</h4><div class="lx-tbl"><table><thead><tr><th>ID</th><th>Funcionalidad</th><th>Qué hace</th><th>Entrega</th></tr></thead><tbody><tr data-ph="F3"><td class="id">PRP-01</td><td class="fn">Propuesta</td><td>A partir de uno o varios hallazgos validados: problema, solución propuesta y fundamento</td><td class="en"><span class="ph ph-f3">Fase 3</span></td></tr><tr data-ph="F3"><td class="id">PRP-02</td><td class="fn">Escala</td><td>Departamento Ejecutivo (decreto o resolución) o Concejo Deliberante (ordenanza)</td><td class="en"><span class="ph ph-f3">Fase 3</span></td></tr><tr data-ph="F3"><td class="id">PRP-03</td><td class="fn">Sugerencia de escala</td><td>La IA sugiere la escala según la jerarquía de la norma a modificar y la experta confirma</td><td class="en"><span class="ph ph-f3">Fase 3</span></td></tr><tr data-ph="F3"><td class="id">PRP-04</td><td class="fn">Borrador de texto</td><td>Genera un borrador del articulado propuesto para que lo revise la experta</td><td class="en"><span class="ph ph-f3">Fase 3</span></td></tr><tr data-ph="F3"><td class="id">PRP-05</td><td class="fn">Impacto</td><td>Qué procesos, tipologías y trámites mejora cada propuesta</td><td class="en"><span class="ph ph-f3">Fase 3</span></td></tr><tr data-ph="F3"><td class="id">PRP-06</td><td class="fn">Prioridad</td><td>Prioridad por impacto y facilidad (las de Ejecutivo primero)</td><td class="en"><span class="ph ph-f3">Fase 3</span></td></tr><tr data-ph="F4"><td class="id">PRP-07</td><td class="fn">Estado</td><td>Borrador, en revisión CEDUC, presentada en ADEC, con comentarios, aceptada</td><td class="en"><span class="ph ph-f4">Fase 4</span></td></tr><tr data-ph="F4"><td class="id">PRP-08</td><td class="fn">Comentarios de ADEC</td><td>Los revisores comentan cada propuesta y queda el registro</td><td class="en"><span class="ph ph-f4">Fase 4</span></td></tr><tr data-ph="F3"><td class="id">PRP-09</td><td class="fn">Cuadro comparativo</td><td>Texto vigente contra texto propuesto, artículo por artículo</td><td class="en"><span class="ph ph-f3">Fase 3</span></td></tr></tbody></table></div></div>
+
+  <div class="lx-h" id="lx-s8"><span>8</span><h3>Asistente de consulta</h3></div><p class="lx-lead">Una situación concreta, una respuesta con sus artículos y un aviso cuando hay un gris.</p>
+  <div class="lx-sub"><h4>8.1 Asistente de consulta</h4><div class="lx-tbl"><table><thead><tr><th>ID</th><th>Funcionalidad</th><th>Qué hace</th><th>Entrega</th></tr></thead><tbody><tr data-ph="F4"><td class="id">ASI-01</td><td class="fn">Consulta en lenguaje natural</td><td>Se describe una situación (terreno, zona, uso, proyecto) y responde qué se puede hacer</td><td class="en"><span class="ph ph-f4">Fase 4</span></td></tr><tr data-ph="F4"><td class="id">ASI-02</td><td class="fn">Respuesta citada</td><td>Toda respuesta cita los artículos y criterios en los que se basa</td><td class="en"><span class="ph ph-f4">Fase 4</span></td></tr><tr data-ph="F4"><td class="id">ASI-03</td><td class="fn">Aviso de grises</td><td>Avisa si interviene una norma derogada, una contradicción, un vacío o un criterio no escrito</td><td class="en"><span class="ph ph-f4">Fase 4</span></td></tr><tr data-ph="F4"><td class="id">ASI-04</td><td class="fn">Derivación a especialista</td><td>Cuando la confianza es baja, lo dice y sugiere consultar a un especialista</td><td class="en"><span class="ph ph-f4">Fase 4</span></td></tr><tr data-ph="F4"><td class="id">ASI-05</td><td class="fn">Formulario guiado</td><td>Alternativa al texto libre: tipo de proyecto, zona, superficie, frente</td><td class="en"><span class="ph ph-f4">Fase 4</span></td></tr><tr data-ph="F4"><td class="id">ASI-06</td><td class="fn">Parámetros del lote</td><td>Devuelve FOS, FOT, altura, retiros y lote mínimo aplicables</td><td class="en"><span class="ph ph-f4">Fase 4</span></td></tr><tr data-ph="F4"><td class="id">ASI-07</td><td class="fn">Trámites del caso</td><td>Lista los trámites, autoridades y plazos que corresponden al caso</td><td class="en"><span class="ph ph-f4">Fase 4</span></td></tr><tr data-ph="F4"><td class="id">ASI-08</td><td class="fn">Historial</td><td>Guarda las consultas del usuario</td><td class="en"><span class="ph ph-f4">Fase 4</span></td></tr><tr data-ph="F4"><td class="id">ASI-09</td><td class="fn">Valoración</td><td>El usuario marca si la respuesta le sirvió; las marcas negativas van a la experta</td><td class="en"><span class="ph ph-f4">Fase 4</span></td></tr><tr data-ph="F4"><td class="id">ASI-10</td><td class="fn">Set de casos de prueba</td><td>Casos con respuesta validada por la experta para medir la precisión antes de abrirlo</td><td class="en"><span class="ph ph-f4">Fase 4</span></td></tr><tr data-ph="F4"><td class="id">ASI-11</td><td class="fn">Exportar respuesta</td><td>Descarga la consulta con sus citas en PDF</td><td class="en"><span class="ph ph-f4">Fase 4</span></td></tr></tbody></table></div></div>
+
+  <div class="lx-h" id="lx-s9"><span>9</span><h3>Informe, usuarios y auditoría</h3></div><p class="lx-lead">Lo que se presenta en ADEC y quién accede a qué.</p>
+  <div class="lx-sub"><h4>9.1 Informe y tablero</h4><div class="lx-tbl"><table><thead><tr><th>ID</th><th>Funcionalidad</th><th>Qué hace</th><th>Entrega</th></tr></thead><tbody><tr data-ph="F2"><td class="id">INF-01</td><td class="fn">Tablero del diagnóstico</td><td>Indicadores de la sección 6, por tema y por autoridad</td><td class="en"><span class="ph ph-f2">Fase 2</span></td></tr><tr data-ph="F1"><td class="id">INF-02</td><td class="fn">Avance del relevamiento</td><td>Normas cargadas, fichadas y validadas, contra el total estimado</td><td class="en"><span class="ph ph-f1">Fase 1</span></td></tr><tr data-ph="F4"><td class="id">INF-03</td><td class="fn">Informe diagnóstico</td><td>Documento con hallazgos, procesos y propuestas, listo para ADEC</td><td class="en"><span class="ph ph-f4">Fase 4</span></td></tr><tr data-ph="F4"><td class="id">INF-04</td><td class="fn">Informe por tema</td><td>Uso, fraccionamiento, ocupación, edificación, infraestructura y ambiente por separado</td><td class="en"><span class="ph ph-f4">Fase 4</span></td></tr><tr data-ph="F4"><td class="id">INF-05</td><td class="fn">Informe por escala</td><td>Propuestas para el Ejecutivo y para el Concejo en documentos separados</td><td class="en"><span class="ph ph-f4">Fase 4</span></td></tr><tr data-ph="F2"><td class="id">INF-06</td><td class="fn">Exportación</td><td>PDF y Excel de fichas, hallazgos y propuestas</td><td class="en"><span class="ph ph-f2">Fase 2</span></td></tr><tr data-ph="F4"><td class="id">INF-07</td><td class="fn">Resumen ejecutivo</td><td>Dos páginas para la presentación en ADEC</td><td class="en"><span class="ph ph-f4">Fase 4</span></td></tr><tr data-ph="F1"><td class="id">INF-08</td><td class="fn">Informe de avance por fase</td><td>Lo hecho, lo validado y lo pendiente al cierre de cada fase</td><td class="en"><span class="ph ph-f1">Fase 1</span></td></tr></tbody></table></div></div><div class="lx-sub"><h4>9.2 Usuarios, permisos y auditoría</h4><div class="lx-tbl"><table><thead><tr><th>ID</th><th>Funcionalidad</th><th>Qué hace</th><th>Entrega</th></tr></thead><tbody><tr data-ph="F1"><td class="id">USR-01</td><td class="fn">Usuarios</td><td>Alta, baja y edición de usuarios</td><td class="en"><span class="ph ph-f1">Fase 1</span></td></tr><tr data-ph="F1"><td class="id">USR-02</td><td class="fn">Roles y permisos</td><td>Permisos por rol de la sección 3</td><td class="en"><span class="ph ph-f1">Fase 1</span></td></tr><tr data-ph="F4"><td class="id">USR-03</td><td class="fn">Acceso de revisores ADEC</td><td>Usuarios de solo lectura con comentarios, por invitación</td><td class="en"><span class="ph ph-f4">Fase 4</span></td></tr><tr data-ph="F1"><td class="id">USR-04</td><td class="fn">Bitácora</td><td>Registro de cambios en fichas, hallazgos y propuestas</td><td class="en"><span class="ph ph-f1">Fase 1</span></td></tr><tr data-ph="AD"><td class="id">USR-05</td><td class="fn">Acceso de desarrollistas</td><td>Alta de desarrollistas socios para el asistente (<strong>A definir</strong> etapa 1 o 2)</td><td class="en"><span class="ph ph-ad">A definir</span></td></tr></tbody></table></div></div>
+
+  <div class="lx-h" id="lx-s10"><span>10</span><h3>Indicadores</h3></div><p class="lx-lead">Cada indicador se calcula sobre hallazgos validados por la experta.</p>
+  <div class="lx-tbl "><table><thead><tr><th>Indicador</th><th>Cómo se calcula</th><th>Entrega</th></tr></thead><tbody><tr><td class=fn>Normas relevadas</td><td><span class="lx-mono">Cantidad de normas en el corpus, por tipo y tema</span></td><td><span class="ph ph-f1">Fase 1</span></td></tr><tr><td class=fn>Cobertura del corpus</td><td><span class="lx-mono">Normas cargadas ÷ (cargadas + faltantes detectadas)</span></td><td><span class="ph ph-f1">Fase 1</span></td></tr><tr><td class=fn>Vigencia verificada</td><td><span class="lx-mono">Normas con vigencia validada por la experta ÷ normas relevadas</span></td><td><span class="ph ph-f1">Fase 1</span></td></tr><tr><td class=fn>Criterios relevados</td><td><span class="lx-mono">Cantidad de criterios no escritos cargados y validados</span></td><td><span class="ph ph-f2">Fase 2</span></td></tr><tr><td class=fn>Referencias rotas</td><td><span class="lx-mono">Citas a normas o artículos derogados ÷ citas totales entre normas</span></td><td><span class="ph ph-f2">Fase 2</span></td></tr><tr><td class=fn>Superposición de autoridades</td><td><span class="lx-mono">Procesos con dos o más autoridades sin previsión normativa ÷ procesos mapeados</span></td><td><span class="ph ph-f2">Fase 2</span></td></tr><tr><td class=fn>Solapamientos</td><td><span class="lx-mono">Cantidad validada, por tema</span></td><td><span class="ph ph-f2">Fase 2</span></td></tr><tr><td class=fn>Contradicciones</td><td><span class="lx-mono">Cantidad validada, por tema y por autoridad</span></td><td><span class="ph ph-f3">Fase 3</span></td></tr><tr><td class=fn>Vacíos</td><td><span class="lx-mono">Tipologías o situaciones sin norma aplicable</span></td><td><span class="ph ph-f3">Fase 3</span></td></tr><tr><td class=fn>Complejidad por proceso</td><td><span class="lx-mono">Normas + autoridades + trámites que alcanzan a un proceso</span></td><td><span class="ph ph-f3">Fase 3</span></td></tr><tr><td class=fn>Precisión de la IA</td><td><span class="lx-mono">Hallazgos confirmados ÷ hallazgos sugeridos</span></td><td><span class="ph ph-f3">Fase 3</span></td></tr><tr><td class=fn>Propuestas por escala</td><td><span class="lx-mono">Cantidad para el Ejecutivo y para el Concejo</span></td><td><span class="ph ph-f3">Fase 3</span></td></tr><tr><td class=fn>Precisión del asistente</td><td><span class="lx-mono">Respuestas correctas ÷ casos de prueba validados</span></td><td><span class="ph ph-f4">Fase 4</span></td></tr><tr><td class=fn>Derivaciones del asistente</td><td><span class="lx-mono">Consultas derivadas a especialista ÷ consultas totales</span></td><td><span class="ph ph-f4">Fase 4</span></td></tr></tbody></table></div>
+
+  <div class="lx-h" id="lx-s11"><span>11</span><h3>Alcance por fase</h3></div><p class="lx-lead">Seis meses, prorrogables dos. Cada fase cierra con demo, prueba con sus normas, informe de avance y aprobación del coordinador.</p>
+  <div class="lx-tbl "><table><thead><tr><th>Fase</th><th>Meses</th><th>Resultado</th></tr></thead><tbody><tr><td class=fn>F1 · Corpus</td><td><span class="lx-mono">M1</span></td><td>Corpus cargado y fichado a partir del relevamiento de Rogelio, vigencia validada, primeros criterios no escritos y un caso testigo recorrido. Método aprobado por Rogelio y la experta</td></tr><tr><td class=fn>F2 · Mapa</td><td><span class="lx-mono">M2-M3</span></td><td>Procesos y autoridades de aplicación mapeados por tipología, referencias a derogadas, solapamientos y superposición de autoridades validados, tablero activo</td></tr><tr><td class=fn>F3 · Diagnóstico</td><td><span class="lx-mono">M4-M5</span></td><td>Contradicciones, plazos y vacíos validados, propuestas en dos escalas con borrador de texto y cuadro comparativo</td></tr><tr><td class=fn>F4 · Entrega</td><td><span class="lx-mono">M6</span></td><td>Informe diagnóstico, resumen ejecutivo, asistente probado contra el set de casos y acceso para revisores ADEC. Presentación en ADEC</td></tr></tbody></table></div>
+
+  <div class="lx-h" id="lx-s12"><span>12</span><h3>Necesidades y módulos</h3></div><p class="lx-lead">Cada necesidad tiene uno o más módulos que la resuelven.</p>
+  <div class="lx-tbl "><table><thead><tr><th>Necesidad</th><th>Módulos</th></tr></thead><tbody><tr><td class=fn>Normas vigentes que remiten a normas derogadas</td><td><span class="lx-id">NOR-06</span> <span class="lx-id">NOR-07</span> <span class="lx-id">NOR-08</span> <span class="lx-id">ANA-01</span></td></tr><tr><td class=fn>Consultar en un solo lugar lo que hoy está en varios documentos</td><td><span class="lx-id">NOR-13</span> <span class="lx-id">NOR-08</span> <span class="lx-id">PRO-02</span> <span class="lx-id">ASI-01</span></td></tr><tr><td class=fn>Procesos donde intervienen varias autoridades</td><td><span class="lx-id">PRO-03</span> <span class="lx-id">PRO-05</span></td></tr><tr><td class=fn>Tipologías nuevas sin reglamentación propia o con reglamentación incompleta</td><td><span class="lx-id">ANA-04</span> <span class="lx-id">PRO-08</span></td></tr><tr><td class=fn>Criterios aplicados en la práctica que no están escritos</td><td><span class="lx-id">JUR-01 a JUR-06</span></td></tr><tr><td class=fn>Seguimiento de los plazos de cada trámite</td><td><span class="lx-id">PRO-07</span> <span class="lx-id">ANA-06</span></td></tr><tr><td class=fn>Distinguir lo que resuelve el Ejecutivo de lo que requiere ordenanza</td><td><span class="lx-id">PRP-02</span> <span class="lx-id">PRP-03</span> <span class="lx-id">PRP-06</span></td></tr><tr><td class=fn>Analizar una situación concreta con respaldo normativo</td><td><span class="lx-id">ASI-01 a ASI-11</span></td></tr><tr><td class=fn>Presentar el resultado en ADEC</td><td><span class="lx-id">INF-03</span> <span class="lx-id">INF-07</span> <span class="lx-id">PRP-07</span> <span class="lx-id">PRP-08</span> <span class="lx-id">USR-03</span></td></tr></tbody></table></div>
+
+  <div class="lx-h" id="lx-s13"><span>13</span><h3>Aceptación y pendientes</h3></div>
+  <div class="lx-sub"><h4>13.1 Criterios de aceptación de la fase 1</h4><ol class="lx-ol"><li><span>01</span><p>Todas las normas que entregó Rogelio están cargadas, con la ficha completa o marcada como incompleta y su motivo.</p></li><li><span>02</span><p>Para la ordenanza base de uso del suelo (número <strong>A confirmar</strong>) se listan las normas que la modifican o derogan, artículo por artículo, y la experta lo valida.</p></li><li><span>03</span><p>La lista de normas faltantes (FUE-03) está entregada a CEDUC.</p></li><li><span>04</span><p>Hay al menos 10 criterios no escritos cargados y validados por la experta.</p></li><li><span>05</span><p>Un caso testigo elegido por Rogelio (por ejemplo, un parque logístico) se recorre de punta a punta con las normas y autoridades que lo alcanzan, y la experta confirma que está completo.</p></li><li><span>06</span><p>Rogelio y la experta acceden con su usuario y su rol.</p></li></ol></div>
+  <div class="lx-sub"><h4>13.2 Lo que necesitamos de CEDUC</h4><ol class="lx-ol"><li><span>01</span><p>El listado y los textos de las ordenanzas que Rogelio ya relevó.</p></li><li><span>02</span><p>El acceso o los archivos de las fuentes oficiales que usan.</p></li><li><span>03</span><p>El tiempo de la experta para la validación (horas por semana, <strong>A definir</strong>).</p></li><li><span>04</span><p>Los casos testigo para la fase 1 y el set de casos de prueba del asistente.</p></li><li><span>05</span><p>Las bases o el formulario de ADEC, para darle forma al informe.</p></li></ol></div>
+  <div class="lx-sub"><h4>13.3 Puntos a definir juntos</h4><ol class="lx-ol"><li><span>01</span><p>Universo normativo: solo municipal o también provincial, y desde qué año.</p></li><li><span>02</span><p>Si el asistente entra completo en la etapa 1 o como prototipo interno.</p></li><li><span>03</span><p>Quién usa el asistente en la etapa 1: CEDUC, ADEC o desarrollistas.</p></li><li><span>04</span><p>Formato de entregable que pide ADEC.</p></li><li><span>05</span><p>Si existe cartografía de zonas utilizable (NOR-12).</p></li></ol></div>
+
+  <div class="lx-h" id="lx-s14"><span>14</span><h3>Etapa 2</h3></div><p class="lx-lead">No forma parte de esta propuesta. Se apoya en el corpus y el asistente de la etapa 1.</p>
+  <div class="lx-tbl muted"><table><thead><tr><th>Módulo</th><th>Qué hace</th></tr></thead><tbody><tr><td class=fn>Plataforma para desarrollistas</td><td>Acceso por suscripción vía CEDUC, con participación de temacy</td></tr><tr><td class=fn>Evaluador de tierras</td><td>Lleva el modelo Excel de Rogelio al sistema: variables del terreno, qué se puede hacer y cuánto se puede pagar</td></tr><tr><td class=fn>Banco de precios de oferta</td><td>Releva las publicaciones de portales (Argenprop, Mercado Libre)</td></tr><tr><td class=fn>Precios de cierre</td><td>Convenio con el Registro de la Propiedad para ubicación y precio de las escrituras</td></tr><tr><td class=fn>Matrículas</td><td>Descarga automática de matrículas del Registro</td></tr><tr><td class=fn>Plano de loteo</td><td>Dibuja el plano a partir de coordenadas georreferenciadas y un croquis</td></tr><tr><td class=fn>Mercado de capitales</td><td>Seguimiento de fondos de inversión para vivienda: morosidad y tasa</td></tr></tbody></table></div>
+ </div>
+</div>
+
+<script>
+(function(){var ax=document.getElementById('anexo');
+function open_(){ax.hidden=false;document.body.classList.add('lx-on');window.scrollTo(0,0);}
+function close_(){ax.hidden=true;document.body.classList.remove('lx-on');window.scrollTo(0,0);}
+['btn-anexo','btn-anexo-2'].forEach(function(id){var b=document.getElementById(id);if(b)b.addEventListener('click',open_);});
+document.getElementById('lx-back').addEventListener('click',close_);
+var p=document.getElementById('btn-pdf');if(p)p.addEventListener('click',function(){window.print();});
+if(location.hash==='#anexo')open_();
+var bs=ax.querySelectorAll('.lx-filter button'),c=document.getElementById('lx-count');
+bs.forEach(function(b){b.addEventListener('click',function(){bs.forEach(function(x){x.classList.toggle('on',x===b)});var f=b.dataset.f,n=0;
+ax.querySelectorAll('tr[data-ph]').forEach(function(r){var ok=f==='all'||r.dataset.ph.split(' ').indexOf(f)>-1;r.hidden=!ok;if(ok)n++;});
+ax.querySelectorAll('.lx-sub').forEach(function(s){var rs=s.querySelectorAll('tr[data-ph]');if(!rs.length)return;s.hidden=!s.querySelectorAll('tr[data-ph]:not([hidden])').length;});
+c.textContent=n+(n===1?' funcionalidad':' funcionalidades');});});
+ax.querySelectorAll('.lx-pills a').forEach(function(a){a.addEventListener('click',function(e){e.preventDefault();var t=document.querySelector(a.getAttribute('href'));if(t)t.scrollIntoView({behavior:'smooth'});});});
+})();
+</script>
+</body>
+</html>
