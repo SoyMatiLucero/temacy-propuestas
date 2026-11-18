@@ -1,3 +1,15 @@
 # propuestas.temacy.com: propuestas privadas a clientes. No indexar nada.
+# Solo los lectores de vista previa (WhatsApp, LinkedIn, Slack, X) pueden leer
+# las páginas para armar la tarjeta del link; el header X-Robots-Tag noindex
+# del .htaccess sigue impidiendo que se indexen.
+User-agent: facebookexternalhit
+User-agent: Facebot
+User-agent: WhatsApp
+User-agent: LinkedInBot
+User-agent: Twitterbot
+User-agent: Slackbot-LinkExpanding
+User-agent: TelegramBot
+Allow: /
+
 User-agent: *
 Disallow: /
