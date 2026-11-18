@@ -10,3 +10,5 @@ Options -Indexes
 # 3. No servir archivos internos del repositorio (el deploy por Git copia la carpeta .git).
 RedirectMatch 404 /\.git
 RedirectMatch 404 /README\.md$
+# Archivo de control del deploy por FTP: no servirlo.
+RedirectMatch 404 /\.ftp-deploy-sync-state\.json$
