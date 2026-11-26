@@ -196,12 +196,16 @@ h3{font-weight:600;font-size:1.2rem;letter-spacing:-.01em;margin:0 0 8px;line-he
 .phases p{margin:0;color:var(--ink-2);font-size:.95rem}
 @media (max-width:900px){.phases{grid-template-columns:1fr 1fr}}@media (max-width:520px){.phases{grid-template-columns:1fr}}
 .tbd{display:inline-block;background:#FFF3B0;color:#5A4500;border:1px dashed #C9A100;border-radius:6px;padding:1px 8px;font-weight:600;font-size:.88em}
-.prices{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.prices{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:16px}
 .prices>*{min-width:0}
-.price{border-radius:16px;padding:24px;border:1px solid var(--line)}
+.price{border-radius:16px;padding:28px;border:1px solid var(--line)}
 .price.main{background:var(--ink);color:var(--bg);border-color:var(--ink)}
 .p-label{font-size:.92rem;opacity:.8}
-.p-amount{font:500 clamp(1.8rem,3.4vw,2.6rem)/1.05 var(--mono);letter-spacing:-.03em;margin:12px 0 8px}
+.p-amount{font:500 clamp(2.3rem,4.2vw,3.3rem)/1 var(--mono);letter-spacing:-.04em;margin:14px 0 6px;white-space:nowrap}
+.p-amount small{font-size:.35em;letter-spacing:0;font-weight:400;opacity:.75;margin-left:6px}
+.p-disc{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline;margin-top:10px;font-size:.92rem}
+.p-disc s{font-family:var(--mono);opacity:.6}
+.p-disc span{color:var(--fill);font-weight:600}
 .p-foot{font-size:.92rem;opacity:.85}
 @media (max-width:900px){.prices{grid-template-columns:1fr}}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,40px);margin-top:36px}
@@ -446,7 +450,7 @@ footer .logo-svg{height:20px}
   <h2>Inversión</h2>
   <p class="intro">La versión 2 se suma al contrato vigente mediante una adenda. Importes en USD, IVA no incluido, pagaderos en pesos al dólar MEP del día de pago.</p>
   <div class="prices">
-    <div class="price main"><div class="p-label">Puesta en marcha</div><div class="p-amount">USD 24.000</div><div class="p-foot">En 18 cuotas mensuales de USD 1.333. La primera, contra firma de la adenda.</div></div>
+    <div class="price main"><div class="p-label">Puesta en marcha · versión 2</div><div class="p-amount">USD 1.333<small>/ mes</small></div><div class="p-foot">18 cuotas iguales · total USD 24.000</div><div class="p-disc"><s>USD 31.200</s><span>23 % de descuento incluido</span></div></div>
     <div class="price"><div class="p-label">Fee mensual · todo el sistema</div><div class="p-amount">USD 800<small>/ mes</small></div><div class="p-foot">Incluye el asistente de WhatsApp y la versión 2. Desde el fin del onboarding · contrato mínimo 12 meses.</div></div>
     <div class="price"><div class="p-label">Consumos variables</div><div class="p-amount">Por uso</div><div class="p-foot">Hosting, IA, WhatsApp y correo, aparte del fee, igual que en la versión 1.</div></div>
   </div>
@@ -480,7 +484,7 @@ footer .logo-svg{height:20px}
     <section class="ax-sec ax-fixed"><h3><span class="ax-n">4</span>Términos del acuerdo</h3><ol class="ax-ol">
       <li>Esta cotización tiene una validez de 30 días desde su entrega.</li>
       <li>La versión 2 se incorpora al Contrato de Implementación y Servicio vigente mediante una adenda de ampliación de alcance.</li>
-      <li>Puesta en marcha: USD 24.000, en 18 cuotas mensuales de USD 1.333. La primera cuota se abona contra firma de la adenda, y el onboarding de 45 días se cuenta desde su pago.</li>
+      <li>Puesta en marcha: 18 cuotas mensuales iguales de USD 1.333 (total USD 24.000, con un 23 % de descuento sobre el precio de lista de USD 31.200). La primera cuota se abona contra firma de la adenda, y el onboarding de 45 días se cuenta desde su pago.</li>
       <li>Fee mensual: USD 800 por todo el sistema, incluido el asistente de WhatsApp, desde el fin del onboarding, con contrato mínimo de 12 meses.</li>
       <li>Hosting, IA (consumo de tokens), WhatsApp y correo no están incluidos en el fee: se facturan aparte según uso real, con el detalle mensual junto al fee.</li>
       <li>Importes en USD, IVA no incluido, pagaderos en pesos al dólar MEP del día de pago.</li>
