@@ -231,6 +231,9 @@ h3{font-weight:600;font-size:1.2rem;letter-spacing:-.01em;margin:0 0 8px;line-he
 .p-disc s{font-family:var(--mono);opacity:.6}
 .p-disc span{color:var(--fill);font-weight:600}
 .p-foot{font-size:.92rem;opacity:.85}
+.p-rows{display:flex;flex-direction:column;gap:4px;margin:10px 0 2px;font-size:.92rem}.p-rows div{display:flex;justify-content:space-between;gap:12px;border-bottom:1px dashed currentColor;padding-bottom:4px}.p-rows div:last-child{border-bottom:0}.p-rows span{opacity:.85}.p-rows b{font-family:var(--mono);font-weight:500;white-space:nowrap}
+.p-foot+.p-foot,.p-disc+.p-foot{margin-top:10px}
+.price:not(.main) .p-disc span{background:var(--fill);color:var(--on-fill);padding:2px 8px;border-radius:6px}
 @media (max-width:900px){.prices{grid-template-columns:1fr}}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,40px);margin-top:36px}
 .two>*{min-width:0}
@@ -475,7 +478,7 @@ footer .logo-svg{height:20px}
   <p class="intro">La versión 2 se suma al contrato vigente mediante una adenda. Importes en USD, IVA no incluido, pagaderos en pesos al dólar MEP del día de pago.</p>
   <div class="prices">
     <div class="price main"><div class="p-label">Puesta en marcha · versión 2</div><div class="p-amount">USD 1.333<small>/ mes</small></div><div class="p-foot">18 cuotas iguales · total USD 24.000</div><div class="p-disc"><s>USD 31.200</s><span>23 % de descuento incluido</span></div></div>
-    <div class="price"><div class="p-label">Fee mensual · todo el sistema</div><div class="p-amount">USD 800<small>/ mes</small></div><div class="p-foot">Incluye el asistente de WhatsApp y la versión 2. Desde el fin del onboarding · contrato mínimo 12 meses.</div></div>
+    <div class="price"><div class="p-label">Fee mensual · las 2 plataformas</div><div class="p-amount">USD 800<small>/ mes</small></div><div class="p-rows"><div><span>Fee actual</span><b>USD 500</b></div><div><span>Fee de esta propuesta</span><b>USD 500</b></div></div><div class="p-disc"><s>USD 1.000</s><span>20 % de descuento por tener las 2 plataformas</span></div><div class="p-foot">Desde el fin del onboarding · contrato mínimo 12 meses.</div></div>
     <div class="price"><div class="p-label">Consumos variables</div><div class="p-amount">Por uso</div><div class="p-foot">Hosting, IA, WhatsApp y correo, aparte del fee, igual que en la versión 1.</div></div>
   </div>
   <div class="two">
@@ -509,7 +512,7 @@ footer .logo-svg{height:20px}
       <li>Esta cotización tiene una validez de 30 días desde su entrega.</li>
       <li>La versión 2 se incorpora al Contrato de Implementación y Servicio vigente mediante una adenda de ampliación de alcance.</li>
       <li>Puesta en marcha: 18 cuotas de USD 1.333 (total USD 24.000; lista USD 31.200, 23 % de descuento). La primera, contra firma de la adenda; el onboarding de 45 días corre desde su pago.</li>
-      <li>Fee mensual: USD 800 por todo el sistema, incluido el asistente de WhatsApp, desde el fin del onboarding, con contrato mínimo de 12 meses.</li>
+      <li>Fee mensual: USD 500 del fee actual más USD 500 de esta propuesta (USD 1.000), con un 20 % de descuento por tener las 2 plataformas: USD 800 por mes, desde el fin del onboarding, con contrato mínimo de 12 meses.</li>
       <li>Hosting, IA (tokens), WhatsApp y correo van aparte del fee, según uso real, con el detalle mensual.</li>
       <li>Importes en USD, IVA no incluido, pagaderos en pesos al dólar MEP del día de pago.</li>
       <li>Rige el acuerdo de confidencialidad ya firmado. Licencia de uso no exclusiva e interna mientras el servicio esté activo.</li>
